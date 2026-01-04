@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --text-main: #1d1d1f;
+  --text-secondary: #48484a;
+  --text-muted: #86868b;
+  --glass-bg: rgba(255, 255, 255, 0.85); /* Slightly higher opacity for clean look */
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --progress-color: #1a1a1a;
+  --accent-pulse: #FF3B30;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-main);
+  background: #f5f5f7;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px; /* Padding for mobile edges */
+}
+
+/* --- BACKGROUND LAYERS --- */
+.gradient-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+}
+
+.blob-1 { width: 60vw; height: 60vw; background: #C8E6C9; top: -20%; left: -15%; }
+.blob-2 { width: 50vw; height: 50vw; background: #CFD8DC; bottom: -15%; right: -15%; }
+.blob-3 { width: 40vw; height: 40vw; background: #E3F2FD; top: 35%; left: 35%; }
+
+.noise-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 1;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* --- THE CARD --- */
+.glass-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 800px; /* Slightly wider for better desktop presence */
+  padding: 64px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* CRITICAL: Forces left alignment */
+  justify-content: space-between;
+  
+  background: var(--glass-bg);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--glass-border);
+  border-radius: 32px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0,0,0,0.1),
+    0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+
+/* --- CONTENT GRID --- */
+/* This container holds the text part to ensure strict spacing */
+.content-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+/* 1. Status Pill */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 40px; /* Consistent spacing */
+}
+
+.pulse-dot {
+  width: 8px; height: 8px;
+  background: var(--accent-pulse);
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(255, 59, 48, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(255, 59, 48, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
+}
+
+/* 2. Headings */
+h1 {
+  display: flex;
+  flex-direction: column; /* Stack line 1 and 2 */
+  align-items: flex-start;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.company-name-main {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+}
+
+.company-name-sub {
+  font-size: 3.5rem;
+  font-weight: 300; /* Thin weight */
+  color: #666;
+  letter-spacing: -0.03em;
+}
+
+/* 3. Shimmer Banner */
+.shimmer-container {
+  margin-bottom: 24px;
+  width: 100%; /* Full width to hold the left-aligned text */
+  text-align: left;
+}
+
+.shimmer-text {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: inline-block;
+  
+  background: linear-gradient(90deg, #000 0%, #333 40%, #999 50%, #333 60%, #000 100%);
+  background-size: 200% auto;
+  color: #000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+/* 4. Description */
+.description-block {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.description-block p {
+  margin: 0;
+}
+
+.description-block .highlight {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* 5. Divider */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.1), transparent);
+  margin-bottom: 40px;
+}
+
+/* 6. Progress Bar */
+.progress-block {
+  width: 100%;
+  max-width: 480px; /* Constrain width but keep aligned left */
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.progress-track {
+  width: 100%;
+  height: 12px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--progress-color);
+  border-radius: 6px;
+  position: relative;
+}
+
+.striped-bar::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 20px 20px;
+  animation: moveStripes 1s linear infinite;
+}
+
+@keyframes moveStripes {
+  0% { background-position: 0 0; }
+  100% { background-position: 20px 0; }
+}
+
+/* --- FOOTER --- */
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 32px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.footer-left, .footer-right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- RESPONSIVENESS --- */
+
+/* Tablet (iPad Pro/Air) */
+@media (max-width: 1024px) {
+  .glass-card {
+    padding: 48px;
+    max-width: 90%;
+  }
+  
+  .company-name-main, .company-name-sub {
+    font-size: 2.75rem;
+  }
+}
+
+/* Mobile (Phones) */
+@media (max-width: 600px) {
+  .glass-card {
+    padding: 32px 24px; /* Tighter padding */
+    border-radius: 24px;
+  }
+
+  /* Reduce Font Sizes */
+  .company-name-main, .company-name-sub {
+    font-size: 2rem;
+  }
+  
+  .shimmer-text {
+    font-size: 0.85rem;
+  }
+  
+  .description-block {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  /* Stack Footer */
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .status-pill {
+    margin-bottom: 30px;
+  }
+}
