@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import './index.css';
 
 function App() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className="page">
       
@@ -66,11 +68,11 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <span className="company-name-main">Jidouyun Lanka</span>
-            <span className="company-name-sub">Technology</span>
+            <span className="company-name-main">JIDOUYUN LANKA</span>
+            <span className="company-name-sub">TECHNOLOGY</span>
           </motion.h1>
 
-          {/* Shimmer Banner - Strictly Aligned Left */}
+          {/* Shimmer Banner */}
           <motion.div 
             className="shimmer-container"
             initial={{ opacity: 0 }}
@@ -87,8 +89,8 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <p>Engineering the future of farming.</p>
-            <p className="highlight">Agricultural Machinery Manufacturer.</p>
+            <p>Empowering the future through intelligence.</p>
+            <p className="highlight">Education · Innovation · Technology.</p>
           </motion.div>
           
           <div className="divider"></div>
@@ -101,7 +103,7 @@ function App() {
             transition={{ delay: 0.7 }}
           >
             <div className="progress-header">
-                <span className="p-label">Construction Progress</span>
+                <span className="p-label">Platform Build</span>
                 <span className="p-val">25%</span>
             </div>
             <div className="progress-track">
@@ -123,7 +125,7 @@ function App() {
           transition={{ delay: 1 }}
         >
           <div className="footer-left">
-            <p>© 2025 JIDOUYUN LANKA TECHNOLOGY (PVT) LTD</p>
+            <p>© {currentYear} JIDOUYUN LANKA TECHNOLOGY</p>
           </div>
           <div className="footer-right">
             <p className="location">Colombo · Sri Lanka</p>
