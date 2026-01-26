@@ -18,10 +18,10 @@ export default function Hero() {
         <div style={{
             minHeight: '100vh',
             height: '100vh',
-            // MOBILE: Modern soft gradient. DESKTOP: White (Unchanged)
-            background: isMobile 
-                ? 'linear-gradient(180deg, #ffffff 0%, #dceef7 100%)' 
-                : '#ffffff',
+            // MOBILE: Modern soft gradient. DESKTOP: Transparent to show App background
+            background: isMobile
+                ? 'linear-gradient(180deg, #ebebeb 0%, #dceef7 100%)'
+                : 'transparent',
             position: 'relative',
             fontFamily: '"Poppins", "Plus Jakarta Sans", "Google Sans", system-ui, sans-serif',
             overflowX: 'hidden',
@@ -33,6 +33,8 @@ export default function Hero() {
 
             <Navbar />
 
+            {/* RIGHT SIDE GRADIENT REMOVED - Handled globally in App.jsx */}
+
             {/* BACKGROUND IMAGE CONTAINER */}
             <div style={{
                 position: 'absolute',
@@ -43,14 +45,14 @@ export default function Hero() {
                 width: '100%',
                 // MOBILE: Height 55% for better proportion. DESKTOP: 100% (Unchanged)
                 height: isMobile ? '55%' : '100%',
-                
+
                 // MOBILE: No bottom curve (sits flat), but a nice Top Curve.
                 // DESKTOP: Bottom curve (Unchanged)
                 borderBottomLeftRadius: isMobile ? '0' : '50% 20%',
                 borderBottomRightRadius: isMobile ? '0' : '50% 20%',
                 borderTopLeftRadius: isMobile ? '50% 15%' : '0',
                 borderTopRightRadius: isMobile ? '50% 15%' : '0',
-                
+
                 overflow: 'hidden',
                 zIndex: 0,
                 // MOBILE: distinct shadow to pop against the gradient
