@@ -104,13 +104,13 @@ function App() {
           >
             <div className="progress-header">
                 <span className="p-label">Platform Build</span>
-                <span className="p-val">25%</span>
+                <span className="p-val">70%</span>
             </div>
             <div className="progress-track">
               <motion.div 
                 className="progress-fill striped-bar"
                 initial={{ width: "0%" }}
-                animate={{ width: "25%" }}
+                animate={{ width: "70%" }}
                 transition={{ delay: 1, duration: 2.5, ease: "circOut" }}
               />
             </div>
