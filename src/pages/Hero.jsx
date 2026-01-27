@@ -130,7 +130,7 @@ export default function Hero() {
                         margin: 0,
                         fontSize: isMobile ? '48px' : (isTablet ? '80px' : '110px'),
                         lineHeight: 1.1,
-                        color: '#1a7f92',
+                        color: '#0E6C85',
                         fontFamily: '"Caveat", cursive',
                         fontWeight: 700,
                         letterSpacing: isMobile ? '0.01em' : '0.02em',

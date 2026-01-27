@@ -15,7 +15,7 @@ export default function Footer() {
     const isTablet = width >= 768 && width < 1024;
     const isDesktop = width >= 1024;
 
-    const brandTeal = '#1a7f92';
+    const brandTeal = '#0E6C85';
     const bottomBarColor = '#106070';
 
     return (

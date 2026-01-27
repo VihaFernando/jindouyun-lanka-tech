@@ -85,7 +85,7 @@ export default function EmpoweringSection() {
                     }}>
                         We deliver <span style={{
                             fontFamily: '"Caveat", cursive',
-                            color: '#1a7f92',
+                            color: '#0E6C85',
                             fontSize: '1.4em',
                             fontWeight: 700,
                             position: 'relative',
@@ -118,11 +118,11 @@ export default function EmpoweringSection() {
                             // Allowing wrap if needed but maintaining structure via width
                         }}>
                             {/* Line 1 */}
-                            <div style={{ color: '#1a7f92' }}>Empowering</div>
+                            <div style={{ color: '#0E6C85' }}>Empowering</div>
 
                             {/* Line 2: "agriculture" (Teal) + "with" (Black) */}
                             <div>
-                                <span style={{ color: '#1a7f92' }}>agriculture</span>
+                                <span style={{ color: '#0E6C85' }}>agriculture</span>
                                 <span style={{ color: '#000000' }}> with</span>
                             </div>
 
@@ -145,7 +145,7 @@ export default function EmpoweringSection() {
 
                             return (
                                 <div key={index} style={{
-                                    backgroundColor: isDark ? '#1a7f92' : '#ffffff',
+                                    backgroundColor: isDark ? '#0E6C85' : '#ffffff',
                                     borderRadius: '20px',
                                     padding: '30px',
                                     minHeight: '340px', // Reduced height as requested
@@ -180,7 +180,7 @@ export default function EmpoweringSection() {
                                                 left: 0,
                                                 width: '100%',
                                                 height: '100%',
-                                                background: 'linear-gradient(to bottom, rgba(70, 140, 150, 0.7), rgba(26, 127, 146, 0.8))',
+                                                background: `linear-gradient(to bottom, rgba(14, 108, 133, 0.7), rgba(14, 108, 133, 0.8))`,
                                                 zIndex: 1
                                             }} />
                                         </>
@@ -195,8 +195,8 @@ export default function EmpoweringSection() {
                                             // INVERTED COLORS compared to previous code, matching image
                                             // Light Card -> Teal BG, White Text
                                             // Dark Card -> White BG, Teal Text
-                                            background: isDark ? '#ffffff' : '#1a7f92',
-                                            color: isDark ? '#1a7f92' : '#ffffff',
+                                            background: isDark ? '#ffffff' : '#0E6C85',
+                                            color: isDark ? '#0E6C85' : '#ffffff',
                                             fontSize: '16px',
                                             fontWeight: 500,
                                         }}>
@@ -214,7 +214,7 @@ export default function EmpoweringSection() {
                                                 lineHeight: 1.3,
                                                 width: '100%',
                                                 // Light Card -> Teal Title. Dark Card -> White Title.
-                                                color: isDark ? '#ffffff' : '#1a7f92'
+                                                color: isDark ? '#ffffff' : '#0E6C85'
                                             }}>
                                                 {card.title}
                                             </h3>
