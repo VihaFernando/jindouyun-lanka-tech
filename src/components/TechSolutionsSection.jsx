@@ -47,8 +47,7 @@ export default function TechSolutionsSection() {
     }, []);
 
     const isMobile = width < 1024;
-    const isVerySmall = width < 480;
-
+    
     // --- CAROUSEL LOGIC ---
     const nextSlide = useCallback(() => {
         setActiveIndex((prev) => (prev + 1) % SOLUTIONS_DATA.length);
@@ -77,21 +76,22 @@ export default function TechSolutionsSection() {
     };
 
     // --- CONFIG ---
-    const CARD_WIDTH = isMobile ? width * 0.90 : 850;
-    const GAP = isMobile ? 20 : 100;
+    const CARD_WIDTH = isMobile ? width * 0.94 : 850;
+    const GAP = isMobile ? 15 : 100;
     const TRANSLATE_OFFSET = CARD_WIDTH + GAP;
 
-    // Background Colors
-    const BG_RGB = '243, 244, 246'; // Light gray RGB
-    const BG_HEX_BOTTOM = '#eef2f6'; // Light Gray (Top connection)
-    const NEXT_SECTION_BG = '#0B0D10'; // Dark Black (Bottom connection)
+    // --- UPDATED COLORS TO MATCH #ebebeb ---
+    // RGB for #ebebeb is 235, 235, 235
+    const BG_RGB = '235, 235, 235'; 
+    const BG_HEX_BOTTOM = '#ebebeb';
+    const NEXT_SECTION_BG = '#0B0D10';
 
     return (
         <section style={{
-            background: `linear-gradient(180deg, rgb(${BG_RGB}) 0%, ${BG_HEX_BOTTOM} 100%)`,
-            padding: isMobile ? '40px 0 0 0' : '80px 0 0 0',
+            backgroundColor: BG_HEX_BOTTOM, // Use variable to ensure match
+            padding: isMobile ? '60px 0 0 0' : '80px 0 0 0',
             overflow: 'hidden',
-            minHeight: '700px',
+            minHeight: isMobile ? 'auto' : '700px',
             fontFamily: '"Poppins", sans-serif',
             position: 'relative',
             display: 'flex',
@@ -109,11 +109,11 @@ export default function TechSolutionsSection() {
 
             {/* --- TOP CONTENT --- */}
             <div>
-                <div style={{ textAlign: 'center', marginBottom: isMobile ? '30px' : '60px', padding: '0 20px', position: 'relative', zIndex: 10 }}>
-                    <h2 style={{ fontSize: isMobile ? '20px' : '32px', color: '#111', margin: 0, fontWeight: 400 }}>
+                <div style={{ textAlign: 'center', marginBottom: isMobile ? '20px' : '60px', padding: '0 20px', position: 'relative', zIndex: 10 }}>
+                    <h2 style={{ fontSize: isMobile ? '16px' : '32px', color: '#111', margin: 0, fontWeight: 400 }}>
                         Technology-driven solutions for modern
                     </h2>
-                    <h2 style={{ fontFamily: '"Caveat", cursive', fontSize: isMobile ? '42px' : '64px', color: '#0E6C85', margin: '-5px 0 0 0', lineHeight: 1 }}>
+                    <h2 style={{ fontFamily: '"Caveat", cursive', fontSize: isMobile ? '36px' : '64px', color: '#0E6C85', margin: isMobile ? '0' : '-5px 0 0 0', lineHeight: 1 }}>
                         Agriculture.
                     </h2>
                 </div>
@@ -123,7 +123,7 @@ export default function TechSolutionsSection() {
                     style={{
                         position: 'relative',
                         width: '100%',
-                        height: isMobile ? '680px' : '480px',
+                        height: isMobile ? '460px' : '480px',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -132,20 +132,20 @@ export default function TechSolutionsSection() {
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
-                    {/* Side Fades - Synced to BG_RGB */}
-                    <div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: isMobile ? '15px' : '120px', background: `linear-gradient(to right, rgba(${BG_RGB},1) 0%, rgba(${BG_RGB},0) 100%)`, zIndex: 20, pointerEvents: 'none' }} />
-                    <div style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: isMobile ? '15px' : '120px', background: `linear-gradient(to left, rgba(${BG_RGB},1) 0%, rgba(${BG_RGB},0) 100%)`, zIndex: 20, pointerEvents: 'none' }} />
+                    {/* Side Fades - NOW USING UPDATED BG_RGB */}
+                    <div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: isMobile ? '10px' : '120px', background: `linear-gradient(to right, rgba(${BG_RGB},1) 0%, rgba(${BG_RGB},0) 100%)`, zIndex: 20, pointerEvents: 'none' }} />
+                    <div style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: isMobile ? '10px' : '120px', background: `linear-gradient(to left, rgba(${BG_RGB},1) 0%, rgba(${BG_RGB},0) 100%)`, zIndex: 20, pointerEvents: 'none' }} />
 
                     {/* Nav Buttons */}
                     <button onClick={prevSlide} style={{
-                        position: 'absolute', left: isMobile ? '16px' : `calc(50% - ${CARD_WIDTH / 2}px - ${GAP / 2}px)`, transform: isMobile ? 'none' : 'translateX(-50%)', zIndex: 60, width: isMobile ? '40px' : '56px', height: isMobile ? '40px' : '56px', borderRadius: '50%', border: '2px solid #0E6C85', background: '#fff', color: '#0E6C85', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', top: isMobile ? '50%' : 'auto', marginTop: isMobile ? '-20px' : '0'
+                        position: 'absolute', left: isMobile ? '10px' : `calc(50% - ${CARD_WIDTH / 2}px - ${GAP / 2}px)`, transform: isMobile ? 'none' : 'translateX(-50%)', zIndex: 60, width: isMobile ? '36px' : '56px', height: isMobile ? '36px' : '56px', borderRadius: '50%', border: '2px solid #0E6C85', background: '#fff', color: '#0E6C85', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', top: isMobile ? '50%' : 'auto', marginTop: isMobile ? '-20px' : '0'
                     }}>
-                        <ChevronLeft size={isMobile ? 24 : 32} />
+                        <ChevronLeft size={isMobile ? 20 : 32} />
                     </button>
                     <button onClick={nextSlide} style={{
-                        position: 'absolute', left: isMobile ? 'auto' : `calc(50% + ${CARD_WIDTH / 2}px + ${GAP / 2}px)`, right: isMobile ? '16px' : 'auto', transform: isMobile ? 'none' : 'translateX(-50%)', zIndex: 60, width: isMobile ? '40px' : '56px', height: isMobile ? '40px' : '56px', borderRadius: '50%', border: '2px solid #0E6C85', background: '#fff', color: '#0E6C85', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', top: isMobile ? '50%' : 'auto', marginTop: isMobile ? '-20px' : '0'
+                        position: 'absolute', left: isMobile ? 'auto' : `calc(50% + ${CARD_WIDTH / 2}px + ${GAP / 2}px)`, right: isMobile ? '10px' : 'auto', transform: isMobile ? 'none' : 'translateX(-50%)', zIndex: 60, width: isMobile ? '36px' : '56px', height: isMobile ? '36px' : '56px', borderRadius: '50%', border: '2px solid #0E6C85', background: '#fff', color: '#0E6C85', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', top: isMobile ? '50%' : 'auto', marginTop: isMobile ? '-20px' : '0'
                     }}>
-                        <ChevronRight size={isMobile ? 24 : 32} />
+                        <ChevronRight size={isMobile ? 20 : 32} />
                     </button>
 
                     {/* Cards Loop */}
@@ -171,13 +171,45 @@ export default function TechSolutionsSection() {
                             <div key={item.id} className="card-transition" style={{
                                 position: 'absolute', top: 0, left: '50%', width: `${CARD_WIDTH}px`, height: '100%', backgroundColor: isActive ? '#FFFFFF' : '#0E6C85', borderRadius: '24px', boxShadow: isActive ? '0 25px 50px -12px rgba(0, 0, 0, 0.15)' : '0 10px 30px rgba(0,0,0,0.1)', transform, zIndex, opacity, overflow: 'hidden', display: 'flex', flexDirection: isMobile ? 'column-reverse' : 'row', cursor: isActive ? 'default' : 'pointer', border: isActive ? 'none' : '1px solid rgba(255,255,255,0.1)'
                             }} onClick={() => { if (status === 'prev') prevSlide(); if (status === 'next') nextSlide(); }}>
-                                <div style={{ flex: isMobile ? '0 0 auto' : '0 0 55%', padding: isMobile ? '25px 24px' : '0 60px', height: isMobile ? 'auto' : '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', zIndex: 10 }}>
-                                    <h3 style={{ fontSize: isMobile ? '24px' : '36px', fontWeight: 600, color: isActive ? '#0E6C85' : '#FFFFFF', lineHeight: 1.2, marginBottom: '16px' }}>
+
+                                <div style={{
+                                    flex: isMobile ? '0 0 auto' : '0 0 55%',
+                                    padding: isMobile ? '20px 20px' : '0 60px',
+                                    height: isMobile ? 'auto' : '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'center',
+                                    alignItems: 'flex-start',
+                                    position: 'relative',
+                                    zIndex: 10
+                                }}>
+                                    <h3 style={{
+                                        fontSize: isMobile ? '20px' : '36px',
+                                        fontWeight: 600,
+                                        color: isActive ? '#0E6C85' : '#FFFFFF',
+                                        lineHeight: 1.2,
+                                        marginBottom: isMobile ? '10px' : '16px'
+                                    }}>
                                         {item.title} <br /> <span style={{ fontWeight: 400, opacity: 0.8 }}>{item.subtitle}</span>
                                     </h3>
-                                    <p style={{ fontSize: isVerySmall ? '14px' : '16px', lineHeight: '1.6', color: isActive ? '#4b5563' : 'rgba(255,255,255,0.85)', maxWidth: '420px' }}>{item.description}</p>
+                                    <p style={{
+                                        fontSize: isMobile ? '13px' : '16px',
+                                        lineHeight: '1.6',
+                                        color: isActive ? '#4b5563' : 'rgba(255,255,255,0.85)',
+                                        maxWidth: '420px',
+                                        marginBottom: isMobile ? '0' : '0'
+                                    }}>
+                                        {item.description}
+                                    </p>
                                 </div>
-                                <div style={{ position: isMobile ? 'relative' : 'absolute', right: 0, top: 0, bottom: 0, width: isMobile ? '100%' : '55%', height: isMobile ? '230px' : '100%', zIndex: 1 }}>
+
+                                <div style={{
+                                    position: isMobile ? 'relative' : 'absolute',
+                                    right: 0, top: 0, bottom: 0,
+                                    width: isMobile ? '100%' : '55%',
+                                    height: isMobile ? '180px' : '100%',
+                                    zIndex: 1
+                                }}>
                                     <div style={{ width: '100%', height: '100%', backgroundImage: `url(${item.image})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: isActive ? 1 : 0.05, transition: 'opacity 0.6s' }} />
                                     {isActive && <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '100%', background: isMobile ? 'linear-gradient(to top, #fff 5%, rgba(255,255,255,0) 40%)' : 'linear-gradient(105deg, #ffffff 30%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0) 70%)', pointerEvents: 'none' }} />}
                                 </div>
@@ -187,35 +219,35 @@ export default function TechSolutionsSection() {
                 </div>
 
                 {isMobile && (
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '20px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '15px' }}>
                         {SOLUTIONS_DATA.map((_, idx) => (
-                            <button key={idx} onClick={() => setActiveIndex(idx)} style={{ width: idx === activeIndex ? '24px' : '8px', height: '8px', borderRadius: '4px', backgroundColor: idx === activeIndex ? '#0E6C85' : '#CBD5E1', border: 'none', transition: 'width 0.3s' }} />
+                            <button key={idx} onClick={() => setActiveIndex(idx)} style={{ width: idx === activeIndex ? '20px' : '6px', height: '6px', borderRadius: '4px', backgroundColor: idx === activeIndex ? '#0E6C85' : '#CBD5E1', border: 'none', transition: 'width 0.3s' }} />
                         ))}
                     </div>
                 )}
             </div>
 
-            {/* --- BOTTOM IMAGE SECTION (Properly Synced) --- */}
+            {/* --- BOTTOM IMAGE SECTION (Compact on Mobile) --- */}
             <div style={{
-                marginTop: isMobile ? '40px' : '80px',
+                marginTop: isMobile ? '50px' : '80px',
                 width: '100%',
                 position: 'relative',
                 display: 'flex',
                 justifyContent: 'flex-end',
                 flexDirection: 'column',
-                background: BG_HEX_BOTTOM, // Matches the section background color perfectly
-                overflow: 'hidden' // Prevents any sub-pixel bleed
+                background: BG_HEX_BOTTOM, // Matches section bg
+                overflow: 'hidden'
             }}>
-                <div style={{ position: 'relative', width: '100%', height: isMobile ? '300px' : '400px' }}>
-                    
-                    {/* 1. Top Fade: Solid Start -> Fade Out */}
-                    {/* The first 15% is solid BG_HEX_BOTTOM to act as a 'cap' hiding the line */}
+                <div style={{ position: 'relative', width: '100%', height: isMobile ? '160px' : '400px' }}>
+
+                    {/* 1. Top Fade */}
                     <div style={{
                         position: 'absolute',
-                        top: '-1px', // Pulls it up slightly to overlap the seam
+                        top: '-1px',
                         left: 0, right: 0,
-                        height: '50%', // Increased height for smoother blend
-                        background: `linear-gradient(to bottom, ${BG_HEX_BOTTOM} 0%, ${BG_HEX_BOTTOM} 15%, rgba(238, 242, 246, 0) 100%)`,
+                        height: isMobile ? '65%' : '50%',
+                        // UPDATED: Now fades from BG_HEX_BOTTOM to transparent RGBA(235,235,235,0)
+                        background: `linear-gradient(to bottom, ${BG_HEX_BOTTOM} 0%, ${BG_HEX_BOTTOM} ${isMobile ? '20%' : '15%'}, rgba(${BG_RGB}, 0) 100%)`,
                         zIndex: 2,
                         pointerEvents: 'none'
                     }} />
@@ -229,17 +261,16 @@ export default function TechSolutionsSection() {
                             height: '100%',
                             objectFit: 'cover',
                             objectPosition: 'center 60%',
-                            display: 'block' // Removes inline-block bottom gap spacing
+                            display: 'block'
                         }}
                     />
 
-                    {/* 3. Bottom Fade: Fade In -> Solid End */}
-                    {/* The last 15% is solid NEXT_SECTION_BG to act as a 'cap' */}
+                    {/* 3. Bottom Fade */}
                     <div style={{
                         position: 'absolute',
-                        bottom: '-1px', // Pulls it down slightly to overlap the seam
+                        bottom: '-1px',
                         left: 0, right: 0,
-                        height: '60%', // Taller fade for better blending with black
+                        height: '60%',
                         background: `linear-gradient(to bottom, rgba(11, 13, 16, 0) 0%, ${NEXT_SECTION_BG} 85%, ${NEXT_SECTION_BG} 100%)`,
                         zIndex: 2,
                         pointerEvents: 'none'
