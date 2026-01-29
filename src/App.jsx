@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Hero from './pages/Hero.jsx';
 import EmpoweringSection from './components/EmpoweringSection.jsx';
 import TechSolutionsSection from './components/TechSolutionsSection.jsx';
+import Products from './components/Products.jsx';
 import Footer from './components/Footer.jsx';
 
 export default function App() {
@@ -32,7 +33,13 @@ export default function App() {
 
       <Hero />
       <EmpoweringSection />
+      
+      {/* TechSolutions now fades its bottom image into #0B0D10 
+         Products section starts with bg #0B0D10
+      */}
       <TechSolutionsSection />
+      <Products />
+      
       <Footer />
     </div>
   );
