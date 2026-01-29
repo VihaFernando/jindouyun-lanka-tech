@@ -24,7 +24,8 @@ export default function Footer() {
             width: '100%',
             overflow: 'hidden',
             fontFamily: '"Poppins", sans-serif',
-            marginTop: '-100px', // Overlap effect
+            marginTop: '0', // FIXED: Changed from -100px to 0 to prevent overlapping
+            backgroundColor: '#F2F4F8' // Matches the Careers page background for seamless transition
         }}>
             {/* Load Fonts */}
             <style>
@@ -32,11 +33,12 @@ export default function Footer() {
             </style>
 
             {/* --- TOP FADE OVERLAY --- */}
+            {/* Adjusted gradient to blend from Careers grey to transparent */}
             <div style={{
                 position: 'absolute',
                 top: 0, left: 0, right: 0,
-                height: '150px',
-                background: 'linear-gradient(180deg, #ebebeb 0%, rgba(235,235,235,0) 100%)',
+                height: '100px',
+                background: 'linear-gradient(180deg, #F2F4F8 0%, rgba(242, 244, 248, 0) 100%)',
                 zIndex: 2,
                 pointerEvents: 'none'
             }} />
@@ -46,8 +48,7 @@ export default function Footer() {
                 position: 'relative',
                 width: '100%',
                 minHeight: isMobile ? 'auto' : '85vh',
-                // ADJUSTMENT: Reduced padding top on mobile to move text up
-                paddingTop: isMobile ? '30px' : '0',
+                paddingTop: isMobile ? '60px' : '80px', // Added top padding so content starts lower
                 paddingBottom: isMobile ? '50px' : '0',
                 color: '#fff',
                 display: 'flex',
@@ -85,7 +86,7 @@ export default function Footer() {
                     flexDirection: isMobile ? 'column' : 'row',
                     alignItems: isMobile ? 'flex-start' : 'center',
                     justifyContent: 'space-between',
-                    gap: isMobile ? '30px' : '0', // Reduced gap on mobile
+                    gap: isMobile ? '30px' : '0',
                     boxSizing: 'border-box'
                 }}>
 
@@ -96,7 +97,6 @@ export default function Footer() {
                         boxSizing: 'border-box'
                     }}>
                         <h2 style={{
-                            // ADJUSTMENT: Smaller font on mobile (42px vs 48px)
                             fontSize: isMobile ? '42px' : (isTablet ? '64px' : '90px'),
                             fontWeight: 500,
                             lineHeight: 1,
@@ -108,7 +108,6 @@ export default function Footer() {
                         </h2>
 
                         <p style={{
-                            // ADJUSTMENT: Smaller text on mobile (14px vs 16px)
                             fontSize: isMobile ? '14px' : '20px',
                             lineHeight: 1.6,
                             color: isMobile ? '#000000' : '#333',
@@ -128,16 +127,14 @@ export default function Footer() {
                             backgroundColor: 'rgba(255, 255, 255, 0.9)',
                             border: `2px solid ${brandTeal}`,
                             borderRadius: '50px',
-                            // ADJUSTMENT: Smaller padding on mobile
                             padding: isMobile ? '4px 4px 4px 20px' : '6px 6px 6px 24px',
                             cursor: 'pointer',
                             transition: 'transform 0.2s ease',
-                            width: 'fit-content', // Removed 100% width on mobile to keep it neat
+                            width: 'fit-content',
                             maxWidth: 'none'
                         }}>
                             <span style={{
                                 color: brandTeal,
-                                // ADJUSTMENT: Smaller font on mobile
                                 fontSize: isMobile ? '16px' : '20px',
                                 fontWeight: 600,
                                 marginRight: '15px'
@@ -145,7 +142,6 @@ export default function Footer() {
                                 Contact Now
                             </span>
                             <div style={{
-                                // ADJUSTMENT: Smaller circle on mobile
                                 width: isMobile ? '36px' : '42px',
                                 height: isMobile ? '36px' : '42px',
                                 borderRadius: '50%',
@@ -163,7 +159,7 @@ export default function Footer() {
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: isMobile ? '16px' : '24px', // Tighter gap on mobile
+                        gap: isMobile ? '16px' : '24px',
                         alignSelf: isMobile ? 'flex-start' : 'flex-end',
                         marginBottom: isMobile ? '0' : '80px',
                         width: isMobile ? '100%' : 'auto'
@@ -172,7 +168,6 @@ export default function Footer() {
                         {/* Phone Link */}
                         <a href="tel:+11234567890" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '15px', cursor: 'pointer' }}>
                             <div style={{
-                                // ADJUSTMENT: Smaller icons on mobile
                                 width: isMobile ? '36px' : '50px',
                                 height: isMobile ? '36px' : '50px',
                                 borderRadius: '50%',
@@ -185,7 +180,6 @@ export default function Footer() {
                                 <Phone size={isMobile ? 18 : 24} color="#fff" fill="#fff" />
                             </div>
                             <span style={{
-                                // ADJUSTMENT: Smaller font on mobile
                                 fontSize: isMobile ? '15px' : '20px',
                                 color: '#fff',
                                 fontWeight: 500,
@@ -214,7 +208,6 @@ export default function Footer() {
                                 color: '#fff',
                                 fontWeight: 500,
                                 textShadow: '0 2px 4px rgba(0,0,0,0.5)',
-                                // ADJUSTMENT: Ensure long emails don't break layout
                                 wordBreak: 'break-all'
                             }}>
                                 info@jidouyun.lanka.com
