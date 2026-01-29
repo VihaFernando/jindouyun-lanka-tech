@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Phone, Mail, ArrowRight, Copyright } from 'lucide-react';
+import { Phone, Mail, MapPin, Copyright } from 'lucide-react';
 
 export default function Footer() {
     const [width, setWidth] = useState(1200);
@@ -12,250 +12,245 @@ export default function Footer() {
     }, []);
 
     const isMobile = width < 768;
-    const isTablet = width >= 768 && width < 1024;
     const isDesktop = width >= 1024;
 
     const brandTeal = '#0E6C85';
-    const bottomBarColor = '#106070';
+    const bottomBarColor = '#0B4A56';
+
+    // --- CONFIGURATION ---
+    const gapSize = '24px'; // Fixed consistent gap
+    const shortHeight = isMobile ? '150px' : '160px';
+    const tallHeight = isMobile ? '150px' : '280px'; // Taller cards
+    
+    // Skew Settings
+    const skewDeg = -12;
+    const skewString = isMobile ? '0deg' : `${skewDeg}deg`;
+    const unSkewString = isMobile ? '0deg' : `${-skewDeg}deg`;
+
+    // Shared container style for the parallelogram shape
+    const cardStyle = (height) => ({
+        position: 'relative',
+        width: '100%',
+        height: height,
+        overflow: 'hidden',
+        borderRadius: '20px',
+        boxShadow: '0 15px 30px rgba(0,0,0,0.15)',
+        transform: `skewX(${skewString})`,
+        backgroundColor: '#e0e0e0', // Placeholder
+        border: '2px solid rgba(255,255,255,0.6)', // Clean border
+        transition: 'transform 0.3s ease'
+    });
+
+    // Shared image style (Counter-skew + Scale)
+    const imgStyle = {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        // Scale 1.3 is needed to ensure the image covers the corners after skewing
+        transform: `skewX(${unSkewString}) scale(1.3)`, 
+        transformOrigin: 'center',
+        display: 'block'
+    };
 
     return (
         <footer style={{
             position: 'relative',
             width: '100%',
-            overflow: 'hidden',
+            backgroundColor: '#F4F7FA',
             fontFamily: '"Poppins", sans-serif',
-            marginTop: '0', // FIXED: Changed from -100px to 0 to prevent overlapping
-            backgroundColor: '#F2F4F8' // Matches the Careers page background for seamless transition
+            overflow: 'hidden',
         }}>
-            {/* Load Fonts */}
             <style>
-                {`@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Gilroy:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap');`}
+                {`@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;500;600&display=swap');`}
             </style>
 
-            {/* --- TOP FADE OVERLAY --- */}
-            {/* Adjusted gradient to blend from Careers grey to transparent */}
+            {/* MAIN CONTAINER */}
             <div style={{
-                position: 'absolute',
-                top: 0, left: 0, right: 0,
-                height: '100px',
-                background: 'linear-gradient(180deg, #F2F4F8 0%, rgba(242, 244, 248, 0) 100%)',
-                zIndex: 2,
-                pointerEvents: 'none'
-            }} />
-
-            {/* --- MAIN HERO SECTION ("Let's Talk") --- */}
-            <div style={{
-                position: 'relative',
-                width: '100%',
-                minHeight: isMobile ? 'auto' : '85vh',
-                paddingTop: isMobile ? '60px' : '80px', // Added top padding so content starts lower
-                paddingBottom: isMobile ? '50px' : '0',
-                color: '#fff',
                 display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center'
+                flexDirection: isDesktop ? 'row' : 'column',
+                justifyContent: 'space-between',
+                minHeight: isDesktop ? '700px' : 'auto', 
+                position: 'relative',
+                paddingTop: isMobile ? '60px' : '80px',
+                paddingLeft: isMobile ? '20px' : '8%',
             }}>
 
-                {/* Background Image */}
-                <div style={{
-                    position: 'absolute',
-                    top: 0, left: 0, right: 0, bottom: 0,
-                    backgroundImage: "url('/footer-image.png')",
-                    backgroundSize: 'cover',
-                    backgroundPosition: isMobile ? 'center' : 'center 25%',
-                    zIndex: 0
-                }} />
-
-                {/* Dark Overlay for legibility on Mobile */}
-                {isMobile && <div style={{
-                    position: 'absolute',
-                    top: 0, left: 0, right: 0, bottom: 0,
-                    backgroundColor: 'rgba(0,0,0,0.3)',
-                    zIndex: 0
-                }} />}
-
-                {/* Content Container */}
-                <div style={{
+                {/* --- LEFT SIDE: TEXT CONTENT --- */}
+                <div style={{ 
+                    flex: '0 0 auto',
+                    width: isDesktop ? '35%' : '100%', 
+                    zIndex: 5, // Higher than images
                     position: 'relative',
-                    zIndex: 1,
-                    maxWidth: '1400px',
-                    width: '100%',
-                    margin: '0 auto',
-                    padding: isMobile ? '0 30px' : (isTablet ? '0 40px' : '0 80px'),
+                    marginBottom: isMobile ? '50px' : '0'
+                }}>
+                    <h2 style={{
+                        fontSize: isMobile ? '42px' : '72px',
+                        fontWeight: 600,
+                        color: '#1a1a1a',
+                        lineHeight: 1.1,
+                        marginBottom: '20px',
+                        marginTop: 0
+                    }}>
+                        Let's <span style={{ color: brandTeal, fontWeight: 400 }}>talk</span>
+                    </h2>
+
+                    <p style={{
+                        fontSize: '16px',
+                        color: '#555',
+                        lineHeight: '1.6',
+                        marginBottom: '40px',
+                        maxWidth: '420px'
+                    }}>
+                        Reach out to discuss our services, ask questions,
+                        or explore how <span style={{ fontFamily: '"Caveat", cursive', color: brandTeal, fontSize: '1.4em' }}>smart technology</span> can support
+                        your farming goals.
+                    </p>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                            <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: `1px solid ${brandTeal}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                <Phone size={20} color={brandTeal} strokeWidth={1.5} />
+                            </div>
+                            <a href="tel:+94117930266" style={{ fontSize: '16px', color: brandTeal, fontWeight: 500, textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+                                +94-11-793-0266
+                            </a>
+                        </div>
+
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                            <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: `1px solid ${brandTeal}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                <Mail size={20} color={brandTeal} strokeWidth={1.5} />
+                            </div>
+                            <a href="mailto:jidouyunlankatechnology@gmail.com" style={{ fontSize: '16px', color: brandTeal, fontWeight: 500, textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+                                jidouyunlankatechnology@gmail.com
+                            </a>
+                        </div>
+
+                        <div style={{ display: 'flex', alignItems: 'start', gap: '20px' }}>
+                            <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: `1px solid ${brandTeal}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '5px' }}>
+                                <MapPin size={20} color={brandTeal} strokeWidth={1.5} />
+                            </div>
+                            <a href="#" style={{ fontSize: '16px', color: brandTeal, fontWeight: 500, textDecoration: 'underline', textUnderlineOffset: '4px', lineHeight: 1.5 }}>
+                                World Trade Center<br/>25th Floor East Tower<br/>Colombo 01
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {/* --- RIGHT SIDE: IMAGE GRID --- */}
+                <div style={{
+                    position: isDesktop ? 'absolute' : 'relative',
+                    top: 0,
+                    right: isDesktop ? '-10%' : 'auto', // Push right to ensure overflow off-screen
+                    height: '100%',
                     display: 'flex',
                     flexDirection: isMobile ? 'column' : 'row',
-                    alignItems: isMobile ? 'flex-start' : 'center',
-                    justifyContent: 'space-between',
-                    gap: isMobile ? '30px' : '0',
-                    boxSizing: 'border-box'
+                    gap: gapSize,
+                    justifyContent: 'center',
+                    paddingRight: isMobile ? '20px' : '0',
+                    zIndex: 1, // Lower z-index so footer bar covers bottom
                 }}>
 
-                    {/* LEFT: Text & CTA */}
+                    {/* --- COLUMN 1 --- */}
                     <div style={{
-                        maxWidth: isMobile ? '100%' : '550px',
-                        width: isMobile ? '100%' : 'auto',
-                        boxSizing: 'border-box'
-                    }}>
-                        <h2 style={{
-                            fontSize: isMobile ? '42px' : (isTablet ? '64px' : '90px'),
-                            fontWeight: 500,
-                            lineHeight: 1,
-                            marginBottom: '15px',
-                            color: isMobile ? '#000000' : '#000',
-                            textShadow: isMobile ? '0 2px 10px rgba(0,0,0,0.3)' : 'none'
-                        }}>
-                            Let's <span style={{ color: brandTeal, fontWeight: 400 }}>talk</span>
-                        </h2>
-
-                        <p style={{
-                            fontSize: isMobile ? '14px' : '20px',
-                            lineHeight: 1.6,
-                            color: isMobile ? '#000000' : '#333',
-                            marginBottom: '30px',
-                            maxWidth: isMobile ? '100%' : '450px',
-                            textShadow: isMobile ? '0 1px 4px rgba(0,0,0,0.5)' : 'none',
-                            wordWrap: 'break-word',
-                            overflowWrap: 'break-word'
-                        }}>
-                            Reach out to discuss our services, ask {isMobile && <br />}questions, or explore how {isMobile && <br />}<span style={{ fontFamily: '"Caveat", cursive', color: brandTeal, fontSize: '1.4em' }}>smart technology</span> can support your farming goals.
-                        </p>
-
-                        <button style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                            border: `2px solid ${brandTeal}`,
-                            borderRadius: '50px',
-                            padding: isMobile ? '4px 4px 4px 20px' : '6px 6px 6px 24px',
-                            cursor: 'pointer',
-                            transition: 'transform 0.2s ease',
-                            width: 'fit-content',
-                            maxWidth: 'none'
-                        }}>
-                            <span style={{
-                                color: brandTeal,
-                                fontSize: isMobile ? '16px' : '20px',
-                                fontWeight: 600,
-                                marginRight: '15px'
-                            }}>
-                                Contact Now
-                            </span>
-                            <div style={{
-                                width: isMobile ? '36px' : '42px',
-                                height: isMobile ? '36px' : '42px',
-                                borderRadius: '50%',
-                                backgroundColor: brandTeal,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                            }}>
-                                <ArrowRight size={isMobile ? 16 : 20} color="#ffffff" />
-                            </div>
-                        </button>
-                    </div>
-
-                    {/* RIGHT: Contact Info (Clickable) */}
-                    <div style={{
+                        width: isMobile ? '100%' : '250px',
                         display: 'flex',
-                        flexDirection: 'column',
-                        gap: isMobile ? '16px' : '24px',
-                        alignSelf: isMobile ? 'flex-start' : 'flex-end',
-                        marginBottom: isMobile ? '0' : '80px',
-                        width: isMobile ? '100%' : 'auto'
+                        flexDirection: isMobile ? 'row' : 'column',
+                        gap: gapSize,
+                        marginTop: '0' // Aligned to top
                     }}>
-
-                        {/* Phone Link */}
-                        <a href="tel:+11234567890" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '15px', cursor: 'pointer' }}>
-                            <div style={{
-                                width: isMobile ? '36px' : '50px',
-                                height: isMobile ? '36px' : '50px',
-                                borderRadius: '50%',
-                                border: '2px solid #fff',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                flexShrink: 0
-                            }}>
-                                <Phone size={isMobile ? 18 : 24} color="#fff" fill="#fff" />
-                            </div>
-                            <span style={{
-                                fontSize: isMobile ? '15px' : '20px',
-                                color: '#fff',
-                                fontWeight: 500,
-                                textShadow: '0 2px 4px rgba(0,0,0,0.5)'
-                            }}>
-                                + 1(123) 456-7890
-                            </span>
-                        </a>
-
-                        {/* Email Link */}
-                        <a href="mailto:info@jidouyun.lanka.com" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '15px', cursor: 'pointer' }}>
-                            <div style={{
-                                width: isMobile ? '36px' : '50px',
-                                height: isMobile ? '36px' : '50px',
-                                borderRadius: '50%',
-                                border: '2px solid #fff',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                flexShrink: 0
-                            }}>
-                                <Mail size={isMobile ? 18 : 24} color="#fff" />
-                            </div>
-                            <span style={{
-                                fontSize: isMobile ? '15px' : '20px',
-                                color: '#fff',
-                                fontWeight: 500,
-                                textShadow: '0 2px 4px rgba(0,0,0,0.5)',
-                                wordBreak: 'break-all'
-                            }}>
-                                info@jidouyun.lanka.com
-                            </span>
-                        </a>
-
+                        {/* IMG 1: Short */}
+                        <div style={cardStyle(shortHeight)}>
+                            <img src="/fimage1.jpg" alt="Farm 1" style={imgStyle} />
+                        </div>
+                        {/* IMG 4: TALL */}
+                        <div style={cardStyle(tallHeight)}>
+                            <img src="/fimage4.jpg" alt="Farm 4" style={imgStyle} />
+                        </div>
+                        {/* IMG 7: TALL */}
+                        <div style={cardStyle(tallHeight)}>
+                            <img src="/fimage7.jpg" alt="Farm 7" style={imgStyle} />
+                        </div>
                     </div>
+
+                    {/* --- COLUMN 2 --- */}
+                    <div style={{
+                        width: isMobile ? '100%' : '250px',
+                        display: 'flex',
+                        flexDirection: isMobile ? 'row' : 'column',
+                        gap: gapSize,
+                        marginTop: '0' // Aligned to top
+                    }}>
+                        {/* IMG 2: TALL */}
+                        <div style={cardStyle(tallHeight)}>
+                            <img src="/fimage2.jpg" alt="Farm 2" style={imgStyle} />
+                        </div>
+                        {/* IMG 5: TALL */}
+                        <div style={cardStyle(tallHeight)}>
+                            <img src="/fimage5.jpg" alt="Farm 5" style={imgStyle} />
+                        </div>
+                        {/* IMG 8: Short */}
+                        <div style={cardStyle(shortHeight)}>
+                            <img src="/fimage8.jpg" alt="Farm 8" style={imgStyle} />
+                        </div>
+                    </div>
+
+                    {/* --- COLUMN 3 --- */}
+                    <div style={{
+                        width: isMobile ? '100%' : '250px',
+                        display: 'flex',
+                        flexDirection: isMobile ? 'row' : 'column',
+                        gap: gapSize,
+                        marginTop: '0' // Aligned to top
+                    }}>
+                        {/* IMG 3: Short */}
+                        <div style={cardStyle(shortHeight)}>
+                            <img src="/fimage3.jpg" alt="Farm 3" style={imgStyle} />
+                        </div>
+                        {/* IMG 6: Short (Standard) */}
+                        <div style={cardStyle(shortHeight)}>
+                            <img src="/fimage6.jpg" alt="Farm 6" style={imgStyle} />
+                        </div>
+                        {/* IMG 9: Short */}
+                        <div style={cardStyle(shortHeight)}>
+                            <img src="/fimage9.jpg" alt="Farm 9" style={imgStyle} />
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            {/* --- BOTTOM BLUE BAR --- */}
+            {/* --- BOTTOM TEAL BAR --- */}
             <div style={{
                 backgroundColor: bottomBarColor,
-                padding: isMobile ? '40px 20px' : '40px 80px',
-                color: '#fff'
+                padding: isMobile ? '40px 20px' : '25px 0',
+                color: '#fff',
+                position: 'relative',
+                zIndex: 10, // HIGH Z-INDEX TO COVER IMAGE BOTTOMS
             }}>
-                <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+                <div style={{ maxWidth: '1400px', margin: '0 auto', padding: isDesktop ? '0 80px' : '0' }}>
 
-                    {/* Row 1: Brand + Nav */}
                     <div style={{
                         display: 'flex',
                         flexDirection: isDesktop ? 'row' : 'column',
                         justifyContent: 'space-between',
                         alignItems: isDesktop ? 'center' : 'flex-start',
                         gap: '30px',
-                        marginBottom: '30px'
+                        marginBottom: '25px'
                     }}>
-                        <h3 style={{
-                            fontSize: isMobile ? '20px' : '26px',
-                            fontWeight: 400,
-                            margin: 0,
-                            maxWidth: isMobile ? '100%' : '100%'
-                        }}>
+                        <h3 style={{ fontSize: '20px', fontWeight: 400, margin: 0 }}>
                             Jidouyun Lanka Technology (PVT) LTD
                         </h3>
 
-                        {/* Navigation Pills */}
                         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                            {['Home', 'About Us', 'Services', 'Careers'].map((item) => (
+                            {['Home', 'About Us', 'Services', 'Products', 'Careers'].map((item) => (
                                 <a key={item} href="#" style={{
                                     backgroundColor: '#fff',
                                     color: bottomBarColor,
-                                    padding: isMobile ? '6px 14px' : '8px 24px',
-                                    borderRadius: '20px',
+                                    padding: '8px 20px',
+                                    borderRadius: '50px',
                                     textDecoration: 'none',
-                                    fontSize: isMobile ? '13px' : '15px',
-                                    fontWeight: 600,
-                                    transition: 'opacity 0.2s',
+                                    fontSize: '13px',
+                                    fontWeight: 700,
                                     whiteSpace: 'nowrap'
                                 }}>
                                     {item}
@@ -264,39 +259,31 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Divider */}
-                    <hr style={{ border: 'none', borderTop: '1px solid rgba(255,255,255,0.3)', margin: '0 0 30px 0' }} />
+                    <hr style={{ border: 'none', borderTop: '1px solid rgba(255,255,255,0.15)', margin: '0 0 20px 0' }} />
 
-                    {/* Row 2: Terms + Copyright */}
                     <div style={{
                         display: 'flex',
                         flexDirection: isDesktop ? 'row' : 'column-reverse',
                         justifyContent: 'space-between',
                         alignItems: isDesktop ? 'center' : 'flex-start',
-                        gap: '20px',
-                        fontSize: isMobile ? '12px' : '14px',
-                        fontWeight: 300,
-                        opacity: 0.9
+                        gap: '15px',
+                        fontSize: '13px',
+                        opacity: 0.8
                     }}>
-                        {/* Links */}
                         <div style={{ display: 'flex', gap: '20px' }}>
                             <a href="#" style={{ color: '#fff', textDecoration: 'none' }}>Terms of Services</a>
                             <span>|</span>
                             <a href="#" style={{ color: '#fff', textDecoration: 'none' }}>Privacy Policy</a>
                         </div>
 
-                        {/* Copyright */}
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                            <Copyright size={isMobile ? 14 : 16} />
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <Copyright size={14} />
                             <span>Jidouyun Lanka Tech (PVT) LTD | All Rights Reserved.</span>
                         </div>
                     </div>
 
                 </div>
             </div>
-
-            {/* Very Bottom Strip */}
-            <div style={{ width: '100%', height: '20px', backgroundColor: '#ebebeb' }} />
         </footer>
     );
 }
