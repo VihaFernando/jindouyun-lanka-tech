@@ -62,7 +62,7 @@ export default function Hero() {
                 <div style={{
                     width: '100%',
                     height: '100%',
-                    backgroundImage: "url('/hero-bg.png')",
+                    backgroundImage: "url('/hero-image-final.png')",
                     backgroundSize: 'cover',
                     backgroundPosition: isMobile ? 'center center' : 'center top',
                     backgroundRepeat: 'no-repeat',

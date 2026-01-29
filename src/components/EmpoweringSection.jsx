@@ -48,19 +48,7 @@ export default function EmpoweringSection() {
 
             {/* RIGHT SIDE GRADIENT REMOVED - Handled globally in App.jsx */}
 
-            {/* DECORATIVE BLOB (Bottom Left) */}
-            <div style={{
-                position: 'absolute',
-                left: isMobile ? '-15%' : '-5%',
-                bottom: '-15%',
-                width: isMobile ? '350px' : '600px',
-                height: isMobile ? '350px' : '600px',
-                borderRadius: '42% 58% 70% 30% / 45% 45% 55% 55%', // Blob shape
-                background: '#bdbdbd',
-                opacity: 0.35,
-                zIndex: 0,
-                pointerEvents: 'none'
-            }} />
+
 
             <div style={{
                 maxWidth: '1400px',
