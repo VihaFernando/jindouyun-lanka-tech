@@ -22,24 +22,24 @@ export default function App() {
       {/* Global Gradient - Connecting Hero and Empowering seamlessly */}
       <div style={{
         position: 'absolute',
-        top: '70vh', // Starts inside Hero (near bottom)
+        top: isMobile ? '80vh' : '80vh', // starts inside Hero and ends near mid-page
         right: 0,
-        width: isMobile ? '80%' : '50vw',
-        height: '130vh', // Extends down into Empowering Section
-        background: 'radial-gradient(ellipse at center right, rgba(162, 232, 247, 0.7) 0%, rgba(235, 235, 235, 0) 70%)',
+        width: isMobile ? '80%' : '50vw', // much narrower on desktop so it only peeks in from the right
+        height: isMobile ? '80vh' : '100vh', // limited vertical reach so it doesn't flow far down
+        background: 'radial-gradient(ellipse at center right, rgba(162, 232, 247, 0.65) 0%, rgba(235, 235, 235, 0) 70%)',
         zIndex: 0,
         pointerEvents: 'none'
       }} />
 
       <Hero />
       <EmpoweringSection />
-      
+
       {/* TechSolutions now fades its bottom image into #0B0D10 
          Products section starts with bg #0B0D10
       */}
       <TechSolutionsSection />
       <Products />
-      
+
       <Footer />
     </div>
   );
