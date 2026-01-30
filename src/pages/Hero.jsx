@@ -122,7 +122,8 @@ export default function Hero() {
                         color: '#111111',
                         letterSpacing: '-0.02em',
                         marginBottom: isMobile ? '0px' : '-5px',
-                        textShadow: '0 2px 10px rgba(255,255,255,0.5)'
+                        textShadow: '0 2px 10px rgba(255,255,255,0.5)',
+                        paddingTop: '80px'
                     }}>
                         Transforming Agriculture Into
                     </p>
