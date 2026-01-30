@@ -20,11 +20,11 @@ export default function Footer() {
     // --- EXACT CONFIGURATION FROM REFERENCE ---
     const gap = isMobile ? 15 : 18; // Consistent gap between all images
     const skewDeg = isMobile ? 0 : -10; // Exact skew angle from reference
-    
+
     // Image dimensions matching reference exactly
     const imageWidth = isMobile ? '100%' : 240;
     const shortHeight = isMobile ? 130 : 150;
-    const tallHeight = isMobile ? 200 : 220;
+    const tallHeight = isMobile ? 200 : 280;
 
     const skewString = `${skewDeg}deg`;
     const unSkewString = `${-skewDeg}deg`;
@@ -78,7 +78,7 @@ export default function Footer() {
             }}>
 
                 {/* --- LEFT SIDE: TEXT CONTENT --- */}
-                <div style={{ 
+                <div style={{
                     flex: '0 0 auto',
                     width: isDesktop ? '40%' : '100%',
                     maxWidth: isDesktop ? '500px' : '100%',
@@ -112,47 +112,47 @@ export default function Footer() {
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                            <div style={{ 
-                                width: '44px', 
-                                height: '44px', 
-                                borderRadius: '50%', 
-                                border: `1.5px solid ${brandTeal}`, 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                justifyContent: 'center', 
-                                flexShrink: 0 
+                            <div style={{
+                                width: '44px',
+                                height: '44px',
+                                borderRadius: '50%',
+                                border: `1.5px solid ${brandTeal}`,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                flexShrink: 0
                             }}>
                                 <Phone size={19} color={brandTeal} strokeWidth={1.5} />
                             </div>
-                            <a href="tel:+94117930266" style={{ 
-                                fontSize: '15px', 
-                                color: brandTeal, 
-                                fontWeight: 500, 
-                                textDecoration: 'underline', 
-                                textUnderlineOffset: '3px' 
+                            <a href="tel:+94117930266" style={{
+                                fontSize: '15px',
+                                color: brandTeal,
+                                fontWeight: 500,
+                                textDecoration: 'underline',
+                                textUnderlineOffset: '3px'
                             }}>
                                 +94-11-793-0266
                             </a>
                         </div>
 
                         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                            <div style={{ 
-                                width: '44px', 
-                                height: '44px', 
-                                borderRadius: '50%', 
-                                border: `1.5px solid ${brandTeal}`, 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                justifyContent: 'center', 
-                                flexShrink: 0 
+                            <div style={{
+                                width: '44px',
+                                height: '44px',
+                                borderRadius: '50%',
+                                border: `1.5px solid ${brandTeal}`,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                flexShrink: 0
                             }}>
                                 <Mail size={19} color={brandTeal} strokeWidth={1.5} />
                             </div>
-                            <a href="mailto:jidouyunlankatechnology@gmail.com" style={{ 
-                                fontSize: '15px', 
-                                color: brandTeal, 
-                                fontWeight: 500, 
-                                textDecoration: 'underline', 
+                            <a href="mailto:jidouyunlankatechnology@gmail.com" style={{
+                                fontSize: '15px',
+                                color: brandTeal,
+                                fontWeight: 500,
+                                textDecoration: 'underline',
                                 textUnderlineOffset: '3px',
                                 wordBreak: 'break-word'
                             }}>
@@ -161,28 +161,28 @@ export default function Footer() {
                         </div>
 
                         <div style={{ display: 'flex', alignItems: 'start', gap: '16px' }}>
-                            <div style={{ 
-                                width: '44px', 
-                                height: '44px', 
-                                borderRadius: '50%', 
-                                border: `1.5px solid ${brandTeal}`, 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                justifyContent: 'center', 
+                            <div style={{
+                                width: '44px',
+                                height: '44px',
+                                borderRadius: '50%',
+                                border: `1.5px solid ${brandTeal}`,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
                                 flexShrink: 0,
                                 marginTop: '2px'
                             }}>
                                 <MapPin size={19} color={brandTeal} strokeWidth={1.5} />
                             </div>
-                            <a href="#" style={{ 
-                                fontSize: '15px', 
-                                color: brandTeal, 
-                                fontWeight: 500, 
-                                textDecoration: 'underline', 
+                            <a href="#" style={{
+                                fontSize: '15px',
+                                color: brandTeal,
+                                fontWeight: 500,
+                                textDecoration: 'underline',
                                 textUnderlineOffset: '3px',
-                                lineHeight: 1.5 
+                                lineHeight: 1.5
                             }}>
-                                World Trade Center<br/>25th Floor East Tower<br/>Colombo 01
+                                World Trade Center<br />25th Floor East Tower<br />Colombo 01
                             </a>
                         </div>
                     </div>
@@ -235,7 +235,7 @@ export default function Footer() {
                         </div>
                         {/* IMG 5: Tall */}
                         <div style={cardStyle(tallHeight)}>
-                            <img src="/fimage5.png" alt="Farm 5" style={imgStyle} />
+                            <img src="/fimage5.jpg" alt="Farm 5" style={imgStyle} />
                         </div>
                         {/* IMG 6: Tall */}
                         <div style={cardStyle(tallHeight)}>
@@ -249,18 +249,22 @@ export default function Footer() {
                         flexDirection: 'row',
                         gap: `${gap}px`,
                         width: '100%',
-                        marginLeft: isDesktop ? '-80px' : '0',
+                        marginLeft: isDesktop ? '-90px' : '0',
                     }}>
                         {/* IMG 7: Tall */}
                         <div style={cardStyle(tallHeight)}>
                             <img src="/fimage7.jpg" alt="Farm 7" style={imgStyle} />
                         </div>
-                        {/* IMG 8: Short */}
-                        <div style={cardStyle(shortHeight)}>
+                        {/* IMG 8: Short - Moved slightly to the right */}
+                        <div style={{
+                            ...cardStyle(shortHeight),
+                            marginLeft: isMobile ? '0' : '10px',
+                            marginRight: isMobile ? '0' : '10px'
+                        }}>
                             <img src="/fimage8.jpg" alt="Farm 8" style={imgStyle} />
                         </div>
-                        {/* IMG 9: Tall */}
-                        <div style={cardStyle(tallHeight)}>
+                        {/* IMG 9: Tall (shifted slightly more left) */}
+                        <div style={{ ...cardStyle(tallHeight), marginLeft: isMobile ? '0' : (isDesktop ? '-20px' : '-8px') }}>
                             <img src="/fimage9.jpg" alt="Farm 9" style={imgStyle} />
                         </div>
                     </div>
@@ -277,10 +281,10 @@ export default function Footer() {
                 zIndex: 10,
                 marginTop: isDesktop ? '0' : '0'
             }}>
-                <div style={{ 
-                    maxWidth: '1400px', 
-                    margin: '0 auto', 
-                    padding: isDesktop ? '0 8%' : '0' 
+                <div style={{
+                    maxWidth: '1400px',
+                    margin: '0 auto',
+                    padding: isDesktop ? '0 8%' : '0'
                 }}>
 
                     <div style={{
@@ -291,9 +295,9 @@ export default function Footer() {
                         gap: '25px',
                         marginBottom: '22px'
                     }}>
-                        <h3 style={{ 
-                            fontSize: isMobile ? '17px' : '19px', 
-                            fontWeight: 400, 
+                        <h3 style={{
+                            fontSize: isMobile ? '17px' : '19px',
+                            fontWeight: 400,
                             margin: 0,
                             letterSpacing: '0.3px'
                         }}>
@@ -320,10 +324,10 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <hr style={{ 
-                        border: 'none', 
-                        borderTop: '1px solid rgba(255,255,255,0.2)', 
-                        margin: '0 0 18px 0' 
+                    <hr style={{
+                        border: 'none',
+                        borderTop: '1px solid rgba(255,255,255,0.2)',
+                        margin: '0 0 18px 0'
                     }} />
 
                     <div style={{
@@ -336,16 +340,16 @@ export default function Footer() {
                         opacity: 0.85
                     }}>
                         <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
-                            <a href="#" style={{ 
-                                color: '#fff', 
+                            <a href="#" style={{
+                                color: '#fff',
                                 textDecoration: 'none',
                                 transition: 'opacity 0.2s ease'
                             }}>
                                 Terms of Services
                             </a>
                             <span style={{ opacity: 0.5 }}>|</span>
-                            <a href="#" style={{ 
-                                color: '#fff', 
+                            <a href="#" style={{
+                                color: '#fff',
                                 textDecoration: 'none',
                                 transition: 'opacity 0.2s ease'
                             }}>
