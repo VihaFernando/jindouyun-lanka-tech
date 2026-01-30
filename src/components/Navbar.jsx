@@ -5,10 +5,13 @@ function Navbar() {
     const [isMobile, setIsMobile] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isSpecsOpen, setIsSpecsOpen] = useState(false);
+    const [isPhone, setIsPhone] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 1024);
+            setIsPhone(window.innerWidth < 768); // phones only
             if (window.innerWidth >= 1024) setIsMenuOpen(false);
         };
 
@@ -16,22 +19,28 @@ function Navbar() {
             setIsScrolled(window.scrollY > 50);
         };
 
+        const handleSpecEvent = (e) => {
+            setIsSpecsOpen(!!(e && e.detail));
+        };
+
         handleResize();
         window.addEventListener('resize', handleResize);
         window.addEventListener('scroll', handleScroll);
+        window.addEventListener('spec-open', handleSpecEvent);
 
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('spec-open', handleSpecEvent);
         };
     }, []);
 
-    const navLinks = ['About Us', 'Services', 'Products', 'Careers'];
+    const navLinks = ['About Us', 'Services', 'Products', 'Greenhouse'];
     const navMap = {
         'About Us': 'about-us',
         'Services': 'services',
         'Products': 'products',
-        'Careers': 'careers'
+        'Greenhouse': 'greenhouse'
     };
 
     // Enhanced glassmorphism navbar styles
@@ -39,20 +48,20 @@ function Navbar() {
         position: 'fixed',
         zIndex: 100,
         left: '50%',
-        transform: 'translateX(-50%)',
+        transform: isSpecsOpen ? 'translateX(-50%) translateY(-26px) scale(0.98)' : 'translateX(-50%)',
+        opacity: isSpecsOpen ? 0 : 1,
+        pointerEvents: isSpecsOpen ? 'none' : 'auto',
 
         // Smooth top positioning
-        top: isScrolled ? '24px' : '0px',
+        top: isScrolled ? (isPhone ? '8px' : '24px') : '0px',
 
-        // Width animation - responsive
-        width: isScrolled
-            ? (isMobile ? '90%' : 'fit-content')
-            : '100%',
+        // Width animation - responsive (phones use a slightly narrower centered width)
+        width: isPhone ? (isScrolled ? '92%' : '94%') : (isScrolled ? (isMobile ? '90%' : 'fit-content') : '100%'),
 
-        // Padding remains exactly as original
-        padding: isScrolled
-            ? '12px 24px'
-            : (isMobile ? '16px 20px' : '24px 40px'),
+        // Padding remains exactly as original, but much smaller on phones
+        padding: isPhone
+            ? (isScrolled ? '8px 12px' : '8px 12px')
+            : (isScrolled ? '12px 24px' : (isMobile ? '16px 20px' : '24px 40px')),
 
         // Enhanced glassmorphism effect
         backgroundColor: isScrolled
@@ -78,6 +87,8 @@ function Navbar() {
         alignItems: 'center',
         justifyContent: isScrolled ? 'space-between' : 'center',
         minWidth: isScrolled && !isMobile ? '600px' : 'unset',
+        paddingLeft: isPhone ? '12px' : undefined,
+        paddingRight: isPhone ? '12px' : undefined,
     };
 
     return (
@@ -118,8 +129,8 @@ function Navbar() {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            width: isScrolled ? '40px' : (isMobile ? '32px' : '40px'),
-                            height: isScrolled ? '40px' : (isMobile ? '32px' : '40px'),
+                            width: isPhone ? (isScrolled ? '36px' : '30px') : (isScrolled ? '40px' : (isMobile ? '32px' : '40px')),
+                            height: isPhone ? (isScrolled ? '36px' : '30px') : (isScrolled ? '40px' : (isMobile ? '32px' : '40px')),
                             background: 'transparent',
                             borderRadius: '0',
                             transition: 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
@@ -140,7 +151,7 @@ function Navbar() {
 
                         {/* Text with smooth collapse animation */}
                         <span style={{
-                            fontSize: isMobile ? '14px' : '16px',
+                            fontSize: isPhone ? '12px' : (isMobile ? '14px' : '16px'),
                             fontWeight: 700,
                             letterSpacing: '0.05em',
                             textTransform: 'uppercase',
@@ -160,7 +171,7 @@ function Navbar() {
                         <nav style={{
                             display: 'flex',
                             alignItems: 'center',
-                            gap: isScrolled ? '32px' : '40px',
+                            gap: isPhone ? '10px' : (isScrolled ? '32px' : '40px'),
                             transition: 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)'
                         }}>
                             {navLinks.map((item, index) => (
@@ -176,6 +187,7 @@ function Navbar() {
                                         window.location.hash = `#${id}`;
                                     }
                                 }} style={{
+                                    fontSize: isPhone ? '13px' : '15px',
                                     fontSize: '15px',
                                     fontWeight: 500,
                                     color: '#000000',
@@ -203,26 +215,26 @@ function Navbar() {
 
                     {/* Contact Button with morphing animation */}
                     {!isMobile && (
-                        <a href="#contact" style={{
+                        <a href="mailto:jidouyunlankatechnology@gmail.com" style={{
                             display: 'inline-flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            gap: isScrolled ? '0' : '8px',
+                            gap: isPhone ? '0' : (isScrolled ? '0' : '8px'),
                             // When scrolled we use a fixed square so borderRadius:50% creates a perfect circle
-                            width: isScrolled ? '44px' : 'auto',
-                            height: isScrolled ? '44px' : 'auto',
-                            padding: isScrolled ? '0' : '10px 24px',
-                            borderRadius: isScrolled ? '50%' : '100px',
+                            width: isPhone ? (isScrolled ? '40px' : 'auto') : (isScrolled ? '44px' : 'auto'),
+                            height: isPhone ? (isScrolled ? '40px' : 'auto') : (isScrolled ? '44px' : 'auto'),
+                            padding: isPhone ? (isScrolled ? '0' : '8px 12px') : (isScrolled ? '0' : '10px 24px'),
+                            borderRadius: isPhone ? (isScrolled ? '50%' : '100px') : (isScrolled ? '50%' : '100px'),
                             border: isScrolled ? '1px solid transparent' : '2px solid #2d7d90',
                             backgroundColor: isScrolled ? '#2d7d90' : 'transparent',
                             color: isScrolled ? '#ffffff' : '#2d7d90',
                             textDecoration: 'none',
-                            fontSize: '14px',
+                            fontSize: isPhone ? '13px' : '14px',
                             fontWeight: 700,
                             transition: 'all 0.45s cubic-bezier(0.23, 1, 0.32, 1)',
                             overflow: 'hidden',
                             boxShadow: isScrolled ? '0 4px 12px rgba(45, 125, 144, 0.3)' : 'none',
-                            minWidth: isScrolled ? '44px' : 'unset'
+                            minWidth: isScrolled ? (isPhone ? '40px' : '44px') : 'unset'
                         }}
                             onMouseEnter={(e) => {
                                 e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';

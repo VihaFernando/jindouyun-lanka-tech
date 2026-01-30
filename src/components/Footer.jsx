@@ -62,7 +62,10 @@ export default function Footer() {
         <footer style={{
             position: 'relative',
             width: '100%',
-            backgroundColor: '#F4F7FA',
+            // Slightly different desktop background to stand out from page body
+            background: isDesktop ? 'linear-gradient(180deg, #ffffff 0%, #f2fbfd 100%)' : '#F4F7FA',
+            boxShadow: isDesktop ? 'inset 0 40px 80px rgba(14,108,133,0.02)' : 'none',
+            borderTop: isDesktop ? '1px solid rgba(14,108,133,0.04)' : 'none',
             fontFamily: '"Poppins", sans-serif',
             overflow: 'hidden',
         }}>
@@ -109,7 +112,12 @@ export default function Footer() {
                     zIndex: 5,
                     position: 'relative',
                     marginBottom: '0',
-                    paddingRight: (isDesktop || isTablet) ? '10px' : '0'
+                    paddingRight: (isDesktop || isTablet) ? '10px' : '0',
+                    // Center the left contact content vertically on desktop
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: isDesktop ? 'center' : 'flex-start',
+                    height: isDesktop ? '100%' : 'auto'
                 }}>
                     <h2 style={{
                         fontSize: isMobile ? '36px' : (isTablet ? '48px' : '64px'),
@@ -293,8 +301,8 @@ export default function Footer() {
                                 <img src="/fimage8.jpg" alt="Farm 8" style={imgStyle} />
                             </div>
                             {/* IMG 9: Tall (shifted slightly more left) */}
-                            <div style={{ 
-                                ...cardStyle(tallHeight), 
+                            <div style={{
+                                ...cardStyle(tallHeight),
                                 marginLeft: isDesktop ? '-20px' : (isTabletPortrait ? '-8.7px' : (isTablet ? '-12px' : '0'))
                             }}>
                                 <img src="/fimage9.jpg" alt="Farm 9" style={imgStyle} />
@@ -398,6 +406,15 @@ export default function Footer() {
 
                 </div>
             </div>
+            {/* Grey bottom line (visual separator) */}
+            <div style={{
+                backgroundColor: '#E6E6E6',
+                height: isMobile ? '8px' : '15px',
+                width: '100%',
+                position: 'relative',
+                zIndex: 5
+            }} />
+
         </footer>
     );
 }
