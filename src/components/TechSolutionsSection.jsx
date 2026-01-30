@@ -47,7 +47,7 @@ export default function TechSolutionsSection() {
     }, []);
 
     const isMobile = width < 1024;
-    
+
     // --- CAROUSEL LOGIC ---
     const nextSlide = useCallback(() => {
         setActiveIndex((prev) => (prev + 1) % SOLUTIONS_DATA.length);
@@ -82,12 +82,12 @@ export default function TechSolutionsSection() {
 
     // --- UPDATED COLORS TO MATCH #ebebeb ---
     // RGB for #ebebeb is 235, 235, 235
-    const BG_RGB = '235, 235, 235'; 
+    const BG_RGB = '235, 235, 235';
     const BG_HEX_BOTTOM = '#ebebeb';
     const NEXT_SECTION_BG = '#0B0D10';
 
     return (
-        <section style={{
+        <section id="services" style={{
             backgroundColor: BG_HEX_BOTTOM, // Use variable to ensure match
             padding: isMobile ? '60px 0 0 0' : '80px 0 0 0',
             overflow: 'hidden',
@@ -110,10 +110,10 @@ export default function TechSolutionsSection() {
             {/* --- TOP CONTENT --- */}
             <div>
                 <div style={{ textAlign: 'center', marginBottom: isMobile ? '20px' : '60px', padding: '0 20px', position: 'relative', zIndex: 10 }}>
-                    <h2 style={{ fontSize: isMobile ? '16px' : '32px', color: '#111', margin: 0, fontWeight: 400 }}>
+                    <h2 style={{ fontSize: isMobile ? '23px' : '32px', color: '#111', margin: 0, fontWeight: 400 }}>
                         Technology-driven solutions for modern
                     </h2>
-                    <h2 style={{ fontFamily: '"Caveat", cursive', fontSize: isMobile ? '36px' : '64px', color: '#0E6C85', margin: isMobile ? '0' : '-5px 0 0 0', lineHeight: 1 }}>
+                    <h2 style={{ fontFamily: '"Caveat", cursive', fontSize: isMobile ? '46px' : '64px', color: '#0E6C85', margin: isMobile ? '0' : '-5px 0 0 0', lineHeight: 1 }}>
                         Agriculture.
                     </h2>
                 </div>

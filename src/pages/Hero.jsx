@@ -15,7 +15,7 @@ export default function Hero() {
     const isTablet = width >= 768 && width < 1024;
 
     return (
-        <div style={{
+        <div id="top" style={{
             minHeight: '100vh',
             height: '100vh',
             // MOBILE: Modern soft gradient. DESKTOP: Transparent to show App background

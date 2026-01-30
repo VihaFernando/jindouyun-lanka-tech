@@ -27,6 +27,12 @@ function Navbar() {
     }, []);
 
     const navLinks = ['About Us', 'Services', 'Products', 'Careers'];
+    const navMap = {
+        'About Us': 'about-us',
+        'Services': 'services',
+        'Products': 'products',
+        'Careers': 'careers'
+    };
 
     // Enhanced glassmorphism navbar styles
     const navContainerStyle = {
@@ -89,7 +95,17 @@ function Navbar() {
                 }}>
 
                     {/* Logo Section - Enhanced Animation */}
-                    <a href="#" style={{
+                    <a href="#top" onClick={(e) => {
+                        e.preventDefault();
+                        const el = document.getElementById('top');
+                        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+                        if (el) {
+                            const targetY = el.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+                            window.scrollTo({ top: targetY, behavior: 'smooth' });
+                        } else {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                    }} style={{
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '12px',
@@ -148,7 +164,18 @@ function Navbar() {
                             transition: 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)'
                         }}>
                             {navLinks.map((item, index) => (
-                                <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} style={{
+                                <a key={item} href={`#${navMap[item]}`} onClick={(e) => {
+                                    e.preventDefault();
+                                    const id = navMap[item];
+                                    const el = document.getElementById(id);
+                                    const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+                                    if (el) {
+                                        const targetY = el.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+                                        window.scrollTo({ top: targetY, behavior: 'smooth' });
+                                    } else {
+                                        window.location.hash = `#${id}`;
+                                    }
+                                }} style={{
                                     fontSize: '15px',
                                     fontWeight: 500,
                                     color: '#000000',
@@ -280,8 +307,20 @@ function Navbar() {
             }}>
                 {navLinks.map((item, index) => (
                     <a key={item}
-                        href={`#${item.toLowerCase().replace(' ', '-')}`}
-                        onClick={() => setIsMenuOpen(false)}
+                        href={`#${navMap[item]}`}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setIsMenuOpen(false);
+                            const id = navMap[item];
+                            const el = document.getElementById(id);
+                            const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+                            if (el) {
+                                const targetY = el.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+                                window.scrollTo({ top: targetY, behavior: 'smooth' });
+                            } else {
+                                window.location.hash = `#${id}`;
+                            }
+                        }}
                         style={{
                             fontSize: '24px',
                             fontWeight: 600,

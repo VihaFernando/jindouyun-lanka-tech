@@ -45,7 +45,7 @@ export default function ProductsSection() {
     const activeProduct = PRODUCTS.find(p => p.id === activeTab);
 
     return (
-        <section style={{
+        <section id="products" style={{
             backgroundColor: '#0B0D10',
             padding: isMobile ? '60px 20px 80px 20px' : '100px 40px 140px 40px',
             color: '#fff',

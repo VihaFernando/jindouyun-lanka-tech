@@ -35,7 +35,7 @@ export default function EmpoweringSection() {
     ];
 
     return (
-        <section style={{
+        <section id="about-us" style={{
             position: 'relative',
             background: 'transparent', // Transparent to show global gradient
             padding: isMobile ? '60px 20px' : '100px 40px',
