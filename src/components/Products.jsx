@@ -9,7 +9,7 @@ const CATEGORIES = [
         products: [
             {
                 title: "Push Combine Harvester 4LZ-0.6",
-                image: 'https://images.unsplash.com/photo-1558981403-c1a7da0104f9?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/1.png",
                 description: "Compact push combine suitable for small farms with diesel/gasoline options and manual discharge.",
                 features: ["Rated Power: 19.9 kW", "Cutting Width: 1000 mm", "Operating Speed: 0.4–0.78 km/h"],
                 fullSpecs: `I. Product Parameters
@@ -38,7 +38,7 @@ const CATEGORIES = [
             },
             {
                 title: "4-Row Rice Transplanter",
-                image: 'https://images.unsplash.com/photo-1532413998944-8f9b2f3d3aef?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/2.png",
                 description: "4-row gasoline-powered rice transplanter designed for efficient and uniform seedling planting in wet paddy fields, ideal for small to medium-scale rice farms.",
 
 features: [
@@ -73,7 +73,7 @@ fullSpecs: `I. Product Parameters
 ,
             {
                 title: "Backpack-Type Grass Cutter and Weeder",
-                image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/3.png",
                 description: "Four-stroke gasoline-powered backpack grass cutter and weeder designed for lightweight operation, multi-tool compatibility, and efficient weed and shrub cutting across complex terrains.",
 
 features: [
@@ -108,7 +108,7 @@ fullSpecs: `I. Product Parameters
 },
             {
                 title: "Belt-Driven 4WD Front-Rotary Micro Tiller (Diesel)",
-                image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/4.png",
                 description: "Belt-driven four-wheel-drive front-rotary micro tiller powered by a diesel engine, designed for rotary tillage, ditching, weeding, and fertilizing in orchards, fields, and paddy land.",
 
 features: [
@@ -141,7 +141,7 @@ fullSpecs: `I. Product Parameters
 },
             {
                 title: "Belt-Driven Rear-Rotary Micro Tiller (Diesel)",
-                image: 'https://images.unsplash.com/photo-1519331379821-5fbf30a6f597?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/5.png",
                 description: "Belt-driven rear-rotary micro tiller powered by a diesel engine, engineered for efficient rotary tillage, ditching, weeding, and fertilizing in orchards, fields, and greenhouse environments.",
 
 features: [
@@ -174,7 +174,7 @@ fullSpecs: `I. Product Parameters
 },
             {
                 title: "4WD Front-Rotary Micro Tiller (Gasoline)",
-                image: 'https://images.unsplash.com/photo-1560184897-6df1b0ef9f7a?q=80&w=1000&auto=format&fit=crop',
+                image: '/machines/6.png',
                 description: "Four-wheel drive front-rotary micro tiller powered by a gasoline engine, designed for stable self-propelled operation and multi-function soil work in orchards, fields, and greenhouses.",
 
 features: [
@@ -207,7 +207,7 @@ fullSpecs: `I. Product Parameters
 },
             {
                 title: "Integrated-Case All-Gear Garden Tiller (Diesel 186)",
-                image: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/7.png",
                 description: "Integrated-case all-gear garden tiller powered by a high-output diesel engine, built for heavy-duty ditching, rotary tillage, earthing-up, and ridge forming in gardens and cash-crop fields.",
 
 features: [
@@ -240,7 +240,7 @@ fullSpecs: `I. Product Parameters
 },
             {
                 title: "Direct-Drive Rear-Rotary Micro Tiller (Diesel)",
-                image: 'https://images.unsplash.com/photo-1517976487492-7d8bcd58e0ed?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/8.png",
                 description: "Direct-drive rear-rotary micro tiller powered by a diesel engine, designed for high-torque rotary tillage, ditching, and fertilizing in tea gardens, orchards, and large agricultural fields.",
 
 features: [
@@ -273,7 +273,7 @@ fullSpecs: `I. Product Parameters
 },
             {
                 title: "Belt-Driven Garden Management Machine (Diesel 186)",
-                image: 'https://images.unsplash.com/photo-1470115636492-6d2b56f91469?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/9.png",
                 description: "Belt-driven garden management machine powered by a high-output diesel engine, designed for heavy-duty ridge forming, ditching, soil hilling, and crop cultivation in large garden and cash-crop fields.",
 
 features: [
@@ -306,7 +306,7 @@ fullSpecs: `I. Product Parameters
 },
             {
                 title: "Grain Bagging Machine (Model 200)",
-                image: 'https://images.unsplash.com/photo-1528803546061-8b0b5f1a2f9a?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/10.png",
                 description: "Self-propelled gasoline-powered grain bagging machine designed for efficient grain collection, lifting, and bagging with high throughput and foldable operation for easy transport and storage.",
 
 features: [
@@ -337,7 +337,7 @@ fullSpecs: `I. Product Parameters
 },
             {
                 title: "173 Diesel Air-Cooled Chain-Driven Mini Tiller",
-                image: 'https://images.unsplash.com/photo-1558980394-0c7ad3f7b9b5?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/11.png",
                 description: "173 diesel-powered air-cooled chain-driven mini tiller designed for reliable rotary tillage and soil preparation, suitable for small farms, orchards, and vegetable plots.",
 
 features: [
@@ -370,7 +370,7 @@ fullSpecs: `I. Product Parameters
 },
             {
                 title: "Earth Auger (Gasoline)",
-                image: 'https://images.unsplash.com/photo-1600180758891-d6d6d2f2a1b8?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/12.png",
                 description: "Gasoline-powered earth auger designed for fast and efficient hole digging for planting, fencing, and foundation work, featuring a lightweight frame and stable wheeled support.",
 
 features: [
@@ -403,7 +403,7 @@ fullSpecs: `I. Product Parameters
 },
             {
                 title: "Earth Auger (Diesel)",
-                image: 'https://images.unsplash.com/photo-1600180758891-d6d6d2f2a1b8?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/13.png",
                 description: "Diesel-powered earth auger with a reinforced frame structure, designed for deep and wide hole drilling in agriculture, fencing, and foundation work with high torque and stable operation.",
 
 features: [
@@ -436,7 +436,7 @@ fullSpecs: `I. Product Parameters
 },
             {
                 title: "Ridger 3DL-80",
-                image: 'https://images.unsplash.com/photo-1526401281623-3f2f8bcd8d0b?q=80&w=1000&auto=format&fit=crop',
+                image: "/machines/14.png",
                 description: "PTO-driven blade-type ridger designed for efficient ridge forming with adjustable dimensions, suitable for large-scale field preparation using medium to high-power tractors.",
 
 features: [
@@ -475,7 +475,7 @@ fullSpecs: `I. Product Parameters
         products: [
             {
                 title: "GD-50 UAV System",
-                image: 'https://images.unsplash.com/photo-1579829366248-204fe8413f31?q=80&w=1000&auto=format&fit=crop',
+                image: "/drones/1.png",
                 description: "A heavy-lift agricultural drone designed for precision operations, featuring a 36.7kg empty weight and massive payload capacity.",
                 features: ["Max Takeoff: 101.4kg", "Endurance: 20min", "Speed: 70KM/H"],
                 fullSpecs: `
@@ -511,7 +511,7 @@ II. Main Unit and Related Accessories
             },
             {
                 title: "GD-30 UAV System",
-                image: 'https://images.unsplash.com/photo-1508614589041-895b8f9e870e?q=80&w=1000&auto=format&fit=crop', // Placeholder image
+                image: "/drones/2.png",
                 description: "Efficient spraying drone with a 30kg payload and intelligent flight control, optimized for 60 mu per hour efficiency.",
                 features: ["Payload: 30kg", "Flow Rate: 12L/min", "Efficiency: 60 mu/h"],
                 fullSpecs: `
@@ -546,7 +546,7 @@ II. Main Unit and Related Accessories
             },
             {
                 title: "GD-15 UAV System",
-                image: 'https://plus.unsplash.com/premium_photo-1661962692059-55d5a4319814?q=80&w=1000&auto=format&fit=crop', // Placeholder image
+                image: "/drones/3.png",
                 description: "Compact and agile 18kg drone perfect for targeted spraying with pressure dual nozzles and high stability.",
                 features: ["Weight: 18kg", "Tank: 20L", "Dual Nozzle System"],
                 fullSpecs: `
