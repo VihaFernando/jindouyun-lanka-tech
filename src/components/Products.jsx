@@ -39,222 +39,434 @@ const CATEGORIES = [
             {
                 title: "4-Row Rice Transplanter",
                 image: 'https://images.unsplash.com/photo-1532413998944-8f9b2f3d3aef?q=80&w=1000&auto=format&fit=crop',
-                description: "Four-row gasoline transplanter with adjustable spacing and high planting efficiency.",
-                features: ["Engine: 3.3 kW", "Rows: 4", "Working Efficiency: 3.2 m/h"],
-                fullSpecs: `I. Product Parameters
-1. Number of Rows: 4
-2. Engine Type: Gasoline
-3. Engine Power: 3.3 kW (4.5 HP) @ 3600 rpm
-4. Fuel Type: Unleaded gasoline
-5. Starting Method: Pull-type start
-6. Machine Weight: 162 kg
-7. Machine Size: 2140 × 1630 × 910 mm
-8. Gears: Forward 2 (Planting 1 / Walking 1), Reverse 1
+                description: "4-row gasoline-powered rice transplanter designed for efficient and uniform seedling planting in wet paddy fields, ideal for small to medium-scale rice farms.",
+
+features: [
+  "Rated Power: 3.3 kW (4.5 PS) @ 3600 rpm",
+  "Planting Rows: 4 rows with 30 cm spacing",
+  "Operating Speed: 0.34–0.77 m/s"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: 4-Row Rice Transplanter
+2. Engine Type: Gasoline Engine
+3. Rated Output Power: 3.3 kW (4.5 PS)
+4. Rated Speed: 3600 rpm
+5. Fuel Type: Unleaded Gasoline (Automobile grade)
+6. Starting Method: Pull-type Start
+7. Machine Auto Adjustment: Hydraulic Adjustment
+8. Number of Gears: Forward 2 (Planting 1 / Walking 1) + Reverse 1
 9. Working Speed: 0.34–0.77 m/s
-10. Planting Method: Crank lever type
-11. Row Spacing: 30 cm
-12. Hill Spacing: 12 / 14 / 16 / 18 / 21 cm
-13. Plants per 3.3 m: 90 / 80 / 70 / 60 / 50
-14. Planting Depth: 1.5–3.75 cm (5 levels)
-15. Seedling Height Range: 10–25 cm
-16. Working Efficiency: 3.2 m/h (0.5–0.8 Acre/h)
-17. Fuel Consumption: ≤10 kg/hm²`
-            },
+10. Planting Method: Crank Lever Type
+11. Number of Planting Rows: 4
+12. Planting Row Spacing: 30 cm
+13. Planting Hill Spacing: 12 / 14 / 16 / 18 / 21 cm
+14. Number of Plants per 3.3 m: 90 / 80 / 70 / 60 / 50
+15. Planting Depth: 1.5–3.75 cm (5 adjustable levels)
+16. Seedling Height Range: (2.0–4.5) × 10–25 cm
+17. Working Efficiency: 3.2 m/h
+18. Operational Efficiency: 0.5–0.8 Acre/h
+19. Main Fuel Consumption: ≤10 kg/hm²
+20. Machine Weight: 162 kg
+21. Overall Dimensions (L×W×H): 2140 × 1630 × 910 mm`
+}
+,
             {
                 title: "Backpack-Type Grass Cutter and Weeder",
                 image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop',
-                description: "Lightweight backpack cutter with multiple working head options and comfortable harness.",
-                features: ["Engine: 140F 39cc", "Net Weight: ~16 kg", "Rated Power: 1.0 kW"],
-                fullSpecs: `I. Product Parameters
-1. Engine Model: 140F
-2. Engine Type: Single-cylinder, air-cooled, 4-stroke gasoline
-3. Displacement: 39 cc
-4. Rated Power: 1.0 kW
-5. Ignition: Electronic ignition
-6. Starting Method: Hand pull recoil
-7. Fuel Tank Capacity: ~0.8 L
-8. Engine Oil Capacity: ~0.1 L
-9. Net Weight: ~16 kg
-10. Transmission: Soft shaft
-11. Design: Backpack with widened back support
-12. Working Head Options: Alloy saw blade, White steel single blade, Anti-entanglement weeding head`
-            },
+                description: "Four-stroke gasoline-powered backpack grass cutter and weeder designed for lightweight operation, multi-tool compatibility, and efficient weed and shrub cutting across complex terrains.",
+
+features: [
+  "Engine Power: 1.0 kW, 39 cc 4-stroke gasoline engine",
+  "Fuel System: Pure gasoline (92#), no oil mixing required",
+  "Multi-head Compatibility for mowing, shrub cutting, and weed removal"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: Backpack-type Grass Cutter & Weeder (140F)
+2. Engine Type: Single-cylinder, air-cooled, 4-stroke gasoline engine
+3. Engine Displacement: 39 cc
+4. Rated Output Power: 1.0 kW
+5. Ignition System: Electronic ignition (contactless)
+6. Starting Method: Manual recoil (hand-pull start)
+7. Cooling Method: Air-cooled
+8. Fuel Type: Pure gasoline (92# recommended)
+9. Fuel Tank Capacity: Approx. 0.8 L
+10. Engine Oil Capacity: Approx. 0.1 L (separate 4-stroke engine oil)
+11. Net Weight: Approx. 16 kg
+12. Transmission Method: Flexible soft shaft transmission
+13. Carrying Style: Backpack-mounted with widened waist and shoulder support
+14. Handle Type: Adjustable operating handle
+15. Cutting Head System: Quick-change multi-functional head
+16. Standard Cutting Tools: Alloy saw blade, white steel single-edged blade
+17. Optional Attachments: Anti-entanglement weeding head, shrub saw, lawn cutting head
+18. Applicable Terrain: Orchards, farmland, gardens, slopes, terraces, narrow areas
+19. Operating Angle Recommendation: 15°–30° relative to ground
+20. Safety Design: Protective blade guard, vibration reduction structure
+21. Maintenance Notes: Clean cutting head after use; drain fuel for long-term storage
+22. Overall Design Features: Lightweight body, easy operation, reduced operator fatigue`
+},
             {
                 title: "Belt-Driven 4WD Front-Rotary Micro Tiller (Diesel)",
                 image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop',
-                description: "Diesel-powered front-rotary micro tiller with strong digging and fertilizing capabilities.",
-                features: ["Rated Power: 4.0 kW", "Rotary Width: 800 mm", "Operation Efficiency: 0.31 Acre/h"],
-                fullSpecs: `I. Product Parameters
-1. Engine Type: Diesel
-2. Rated Power: 4.0 kW
-3. Overall Dimensions: 1680 × 670 × 880 mm
-4. Rotary Tillage Width: 800 mm
-5. Ditching Width: 250 mm
-6. Ditching Depth: 250 mm
-7. Fertilizing Depth: ≥100 mm
-8. Gears: Tool gears (ditching / rotary / neutral), Walking gears (fast / slow / neutral / reverse)
-9. Operation Efficiency: 0.31 Acre/h
-10. Fuel Consumption: ≤25 kg/hm²`
-            },
+                description: "Belt-driven four-wheel-drive front-rotary micro tiller powered by a diesel engine, designed for rotary tillage, ditching, weeding, and fertilizing in orchards, fields, and paddy land.",
+
+features: [
+  "Engine Power: 4.0 kW diesel engine",
+  "Rotary Tillage Width: 800 mm",
+  "Operational Efficiency: 0.31 Acre/h"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: Belt-driven Four-wheel Drive Front-rotary Micro Tiller (173 Type)
+2. Engine Type: Diesel Engine
+3. Rated Output Power: 4.0 kW
+4. Drive Type: Belt-driven, four-wheel drive
+5. Transmission System: Walking box + tool gear box
+6. Tool Gear Functions: Ditching / Rotary tillage / Neutral
+7. Walking Box Gears: Fast / Slow / Neutral / Reverse
+8. Application Functions: Rotary tillage, weeding, ditching, fertilizing, paddy field plowing
+9. Operational Efficiency: 0.31 Acre/h
+10. Main Fuel Consumption: ≤25 kg/hm²
+11. Rotary Tillage Width: 800 mm
+12. Ditching Width: 250 mm
+13. Ditching Depth: 250 mm
+14. Fertilizing Depth: ≥100 mm
+15. Overall Dimensions (L×W×H): 1680 × 670 × 880 mm
+16. Applicable Terrain: Orchards, large fields, greenhouses, paddy fields
+17. Operating Characteristics: High traction, stable operation, multi-function front rotary design
+18. Control Type: Manual handle control
+19. Structure Design: Compact body with enhanced maneuverability
+20. Working Mode: Walk-behind operation`
+},
             {
                 title: "Belt-Driven Rear-Rotary Micro Tiller (Diesel)",
                 image: 'https://images.unsplash.com/photo-1519331379821-5fbf30a6f597?q=80&w=1000&auto=format&fit=crop',
-                description: "Compact rear-rotary tiller with belt drive for efficient soil preparation.",
-                features: ["Rated Power: 4.0 kW", "Rotary Width: 800 mm", "Transmission: Belt drive"],
-                fullSpecs: `I. Product Parameters
-1. Engine Type: Diesel
-2. Rated Power: 4.0 kW
-3. Overall Dimensions: 1480 × 700 × 850 mm
-4. Rotary Tillage Width: 800 mm
-5. Ditching Width: 250 mm
-6. Ditching Depth: 250 mm
-7. Fertilizing Depth: ≥100 mm
-8. Transmission: Belt drive
-9. Operation Efficiency: 0.31 Acre/h
-10. Fuel Consumption: ≤25 kg/hm²`
-            },
+                description: "Belt-driven rear-rotary micro tiller powered by a diesel engine, engineered for efficient rotary tillage, ditching, weeding, and fertilizing in orchards, fields, and greenhouse environments.",
+
+features: [
+  "Engine Power: 4.0 kW diesel engine",
+  "Rotary Tillage Width: 800 mm",
+  "Operational Efficiency: 0.31 Acre/h"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: Belt-driven Rear-rotary Micro Tiller (173 Type)
+2. Engine Type: Diesel Engine
+3. Rated Output Power: 4.0 kW
+4. Drive Type: Belt-driven rear rotary transmission
+5. Transmission System: Belt drive with walking box + tool gear box
+6. Tool Gear Modes: Ditching / Rotary tillage / Upper gear / Neutral / Reverse
+7. Walking Box Gears: Fast / Slow / Neutral / Reverse
+8. Application Functions: Rotary tillage, weeding, ditching, fertilizing, ridge raising
+9. Operational Efficiency: 0.31 Acre/h
+10. Main Fuel Consumption: ≤25 kg/hm²
+11. Rotary Tillage Width: 800 mm
+12. Ditching Width: 250 mm
+13. Ditching Depth: 250 mm
+14. Fertilizing Depth: ≥100 mm
+15. Overall Dimensions (L×W×H): 1480 × 700 × 850 mm
+16. Applicable Terrain: Orchards, greenhouses, farmland, large fields
+17. Steering Mode: Differential steering (belt-driven system)
+18. Control Type: Manual handle control
+19. Structure Design: Compact rear-rotary structure with high maneuverability
+20. Working Mode: Walk-behind operation`
+},
             {
                 title: "4WD Front-Rotary Micro Tiller (Gasoline)",
                 image: 'https://images.unsplash.com/photo-1560184897-6df1b0ef9f7a?q=80&w=1000&auto=format&fit=crop',
-                description: "Gasoline 4-wheel drive micro tiller with patent protection and robust performance.",
-                features: ["Rated Power: 4.0 kW", "Rotary Width: 800 mm", "Patent: ZL201420279132.2"],
-                fullSpecs: `I. Product Parameters
-1. Engine Type: Gasoline
-2. Rated Power: 4.0 kW
-3. Overall Dimensions: 1450 × 950 × 800 mm
-4. Rotary Tillage Width: 800 mm
-5. Ditching Width: 250 mm
-6. Fertilizing Depth: ≥100 mm
-7. Gears: Fast / Slow / Neutral
-8. Patent Number: ZL201420279132.2
-9. Operation Efficiency: 0.3 Acre/h
-10. Fuel Consumption: ≤25 kg/hm²`
-            },
+                description: "Four-wheel drive front-rotary micro tiller powered by a gasoline engine, designed for stable self-propelled operation and multi-function soil work in orchards, fields, and greenhouses.",
+
+features: [
+  "Engine Power: 4.0 kW gasoline engine",
+  "Rotary Tillage Width: 800 mm",
+  "Operational Efficiency: 0.3 Acre/h"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: Four-wheel Drive Front-rotary Micro Tiller (170 Type)
+2. Engine Type: Gasoline Engine
+3. Rated Output Power: 4.0 kW
+4. Drive Type: Four-wheel drive, front-rotary design
+5. Transmission Mode: Direct transmission
+6. Walking Capability: Self-propelled with even-speed operation
+7. Gear System: Fast / Slow / Neutral
+8. Application Functions: Rotary tillage, weeding, ditching, fertilizing, ridge raising
+9. Operational Efficiency: 0.3 Acre/h
+10. Main Fuel Consumption: ≤25 kg/hm²
+11. Rotary Tillage Width: 800 mm
+12. Ditching Width: 250 mm
+13. Ditching Depth: 250 mm
+14. Fertilizing Depth: ≥100 mm
+15. Overall Dimensions (L×W×H): 1450 × 950 × 800 mm
+16. Applicable Terrain: Orchards, large fields, greenhouses
+17. Stability Features: Even-speed walking, high traction four-wheel drive
+18. Control Type: Manual handle control
+19. Patented Product: ZL201420279132.2
+20. Working Mode: Walk-behind operation`
+},
             {
                 title: "Integrated-Case All-Gear Garden Tiller (Diesel 186)",
                 image: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1000&auto=format&fit=crop',
-                description: "High-power diesel garden tiller with multiple cutter and travel gear ranges.",
-                features: ["Rated Power: 6.3 kW", "Rotary Width: 130–160 mm", "Ditching Depth: 250–400 mm"],
-                fullSpecs: `I. Product Parameters
-1. Engine Type: Diesel
-2. Rated Power: 6.3 kW
-3. Overall Dimensions: 1700 × 740 × 850 mm
-4. Rotary Tillage Width: 130–160 mm
-5. Ditching Depth: 250–400 mm
-6. Gears: Traveling (forward fast / forward slow / neutral / reverse), Cutter shaft (forward / reverse, fast / slow)
-7. Operation Efficiency: 0.31 Acre/h
-8. Fuel Consumption: ≤28 kg/hm²`
-            },
+                description: "Integrated-case all-gear garden tiller powered by a high-output diesel engine, built for heavy-duty ditching, rotary tillage, earthing-up, and ridge forming in gardens and cash-crop fields.",
+
+features: [
+  "Engine Power: 6.3 kW diesel engine",
+  "Rotary Tillage Width: 130–160 mm",
+  "Operational Efficiency: 0.31 Acre/h"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: Integrated-case All-gear Garden Tiller (186 Type)
+2. Engine Type: Diesel Engine
+3. Rated Output Power: 6.3 kW
+4. Drive Type: All-gear transmission with integrated casing
+5. Transmission System: Full gear drive (travel + cutter shaft)
+6. Travel Gears: Forward slow / Forward fast / Neutral / Reverse
+7. Cutter Shaft Rotation: Forward / Reverse rotation with fast & slow speeds
+8. Application Functions: Rotary tillage, ditching, earthing up, ridge forming, film covering
+9. Crop Applications: Ginger, green onion, strawberry, flue-cured tobacco, vegetable fields
+10. Operational Efficiency: 0.31 Acre/h
+11. Main Fuel Consumption: ≤28 kg/hm²
+12. Rotary Tillage Width: 130–160 mm
+13. Ditching Depth: 250–400 mm
+14. Ridge Forming Capability: Adjustable ridge height
+15. Overall Dimensions (L×W×H): 1700 × 740 × 850 mm
+16. Applicable Terrain: Gardens, vegetable plots, orchards, dry farmland
+17. Control Type: Manual handle control
+18. Structure Design: Integrated gearbox casing for durability and stability
+19. Operating Mode: Walk-behind operation
+20. Working Characteristics: High torque output, stable gear transmission, heavy-duty performance`
+},
             {
                 title: "Direct-Drive Rear-Rotary Micro Tiller (Diesel)",
                 image: 'https://images.unsplash.com/photo-1517976487492-7d8bcd58e0ed?q=80&w=1000&auto=format&fit=crop',
-                description: "Direct-drive rear rotary tiller offering differential steering and durable drive train.",
-                features: ["Rated Power: 4.0 kW", "Rotary Width: 700 mm", "Transmission: Direct drive"],
-                fullSpecs: `I. Product Parameters
-1. Engine Type: Diesel
-2. Rated Power: 4.0 kW
-3. Overall Dimensions: 1480 × 800 × 850 mm
-4. Rotary Tillage Width: 700 mm
-5. Ditching Width: 250 mm
-6. Ditching Depth: 250 mm
-7. Transmission: Direct drive with differential steering
-8. Operation Efficiency: 0.31 Acre/h
-9. Fuel Consumption: ≤25 kg/hm²`
-            },
+                description: "Direct-drive rear-rotary micro tiller powered by a diesel engine, designed for high-torque rotary tillage, ditching, and fertilizing in tea gardens, orchards, and large agricultural fields.",
+
+features: [
+  "Engine Power: 4.0 kW diesel engine",
+  "Direct-drive Rear Rotary System",
+  "Operational Efficiency: 0.31 Acre/h"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: Direct-drive Rear-rotary Micro Tiller (173 Type)
+2. Engine Type: Diesel Engine
+3. Rated Output Power: 4.0 kW
+4. Drive Type: Direct-drive rear rotary transmission
+5. Transmission Mode: Direct transmission
+6. Tool Gear Modes: Ditching / Rotary tillage / Neutral
+7. Walking Gears: Fast / Slow / Reverse
+8. Steering Mode: Differential steering
+9. Application Functions: Rotary tillage, weeding, ditching, fertilizing
+10. Application Areas: Tea gardens, orchards, greenhouses, large fields
+11. Operational Efficiency: 0.31 Acre/h
+12. Main Fuel Consumption: ≤25 kg/hm²
+13. Rotary Tillage Width: 700 mm
+14. Ditching Width: 250 mm
+15. Ditching Depth: 250 mm
+16. Fertilizing Depth: ≥100 mm
+17. Overall Dimensions (L×W×H): 1480 × 800 × 850 mm
+18. Control Type: Manual handle control
+19. Structure Design: Compact rear-mounted rotary structure
+20. Working Mode: Walk-behind operation`
+},
             {
                 title: "Belt-Driven Garden Management Machine (Diesel 186)",
                 image: 'https://images.unsplash.com/photo-1470115636492-6d2b56f91469?q=80&w=1000&auto=format&fit=crop',
-                description: "Versatile garden management unit with multiple tool and walking gear options.",
-                features: ["Rated Power: 6.3 kW", "Ditching Width: 250–400 mm", "Operation Efficiency: 0.31 Acre/h"],
-                fullSpecs: `I. Product Parameters
-1. Engine Type: Diesel
-2. Rated Power: 6.3 kW
-3. Overall Dimensions: 1800 × 740 × 1100 mm
-4. Ditching Width: 250–400 mm
-5. Ditching Depth: 250–300 mm
-6. Gears: Walking box (high / low / neutral) ; Tool (high / low / neutral)
-7. Operation Efficiency: 0.31 Acre/h
-8. Fuel Consumption: ≤28 kg/hm²`
-            },
+                description: "Belt-driven garden management machine powered by a high-output diesel engine, designed for heavy-duty ridge forming, ditching, soil hilling, and crop cultivation in large garden and cash-crop fields.",
+
+features: [
+  "Engine Power: 6.3 kW diesel engine",
+  "Adjustable Ditching Width: 250–400 mm",
+  "Operational Efficiency: 0.31 Acre/h"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: Belt-driven Garden Management Machine (186 Type)
+2. Engine Type: Diesel Engine
+3. Rated Output Power: 6.3 kW
+4. Drive Type: Belt-driven transmission
+5. Transmission System: Walking box + tool gear box
+6. Walking Gears: High speed / Low speed / Front neutral / Rear neutral
+7. Tool Gears: High speed / Low speed / Neutral
+8. Application Functions: Ridge furrowing, ditching, soil hilling, cultivation
+9. Crop Applications: Flue-cured tobacco, ginger, green onion, grape burial, ridge crops
+10. Operational Efficiency: 0.31 Acre/h
+11. Main Fuel Consumption: ≤28 kg/hm²
+12. Ditching Width: 250–400 mm
+13. Ditching Depth: 250–300 mm
+14. Overall Dimensions (L×W×H): 1800 × 740 × 1100 mm
+15. Applicable Terrain: Large gardens, vegetable fields, dry farmland
+16. Control Type: Manual handle control
+17. Structure Design: Reinforced frame with belt-driven power transmission
+18. Operating Mode: Walk-behind operation
+19. Stability Features: Balanced chassis, steady ridge forming
+20. Working Characteristics: High torque output, suitable for heavy garden management tasks`
+},
             {
                 title: "Grain Bagging Machine (Model 200)",
                 image: 'https://images.unsplash.com/photo-1528803546061-8b0b5f1a2f9a?q=80&w=1000&auto=format&fit=crop',
-                description: "Self-propelled grain bagging machine driven by a gasoline engine for fast bagging operations.",
-                features: ["Engine: 170F gasoline", "Working Efficiency: 6000–8000 kg/h", "Collection Width: 100 cm"],
-                fullSpecs: `I. Product Parameters
-1. Model: 200
-2. Engine: 170F gasoline engine
-3. Rated Power: 4.0 kW
-4. Working Efficiency: 6000–8000 kg/h
+                description: "Self-propelled gasoline-powered grain bagging machine designed for efficient grain collection, lifting, and bagging with high throughput and foldable operation for easy transport and storage.",
+
+features: [
+  "Engine Power: 4.0 kW gasoline engine (170F)",
+  "Working Efficiency: 6000–8000 kg/h",
+  "Self-propelled with foldable operating structure"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: Grain Bagging Machine (Model 200)
+2. Engine Type: Gasoline Engine (170F)
+3. Rated Output Power: 4.0 kW
+4. Fuel Type: Gasoline
 5. Minimum Fuel Consumption Rate: 394 g/kW·h
-6. Collection Width: 100 cm
-7. Transmission: Centrifugal clutch + worm gearbox + angular gearbox
-8. Walking Mode: Self-propelled
-9. Auxiliary Function: Folding (working / handheld / folded)
-10. Overall Dimensions: 140 × 122 × 125 cm
-11. Total Weight: 95 kg`
-            },
+6. Working Efficiency: 6000–8000 kg/h
+7. Grain Collection & Return Width: Max. 1000 mm
+8. Transmission Mode: Centrifugal clutch + worm gearbox + angular transmission gearbox
+9. Walking Mode: Self-propelled
+10. Auxiliary Function: Folding type structure (Working position, Handheld position, Folding position)
+11. Collection Efficiency: ≥90%
+12. Main Fuel Consumption: ≤25 kg/hm²
+13. Overall Dimensions (L×W×H): 140 × 122 × 125 cm
+14. Net Weight: 95 kg
+15. Operation Type: Walk-behind operation
+16. Structural Design: Integrated grain lifting and bagging mechanism
+17. Application Scope: Grain harvesting, collection, and bagging operations
+18. Mobility Features: Compact chassis with stable walking system`
+},
             {
                 title: "173 Diesel Air-Cooled Chain-Driven Mini Tiller",
                 image: 'https://images.unsplash.com/photo-1558980394-0c7ad3f7b9b5?q=80&w=1000&auto=format&fit=crop',
-                description: "Mini tiller optimized for small plots, reliable diesel performance and compact footprint.",
-                features: ["Rated Power: 4.0 kW", "Fuel Tank Capacity: 2.5 L", "Working Efficiency: 2–3 mu/h"],
-                fullSpecs: `I. Product Parameters
-1. Engine Type: Diesel, air-cooled
-2. Rated Power: 4.0 kW (6 HP)
-3. Fuel Tank Capacity: 2.5 L
-4. Fuel Consumption: 0.4–0.6 L/h
-5. Working Efficiency: 2–3 mu/h
-6. Starting Method: Recoil start
-7. Weight: 78 kg
-8. Gears: 1 / 0 / 2 / Reverse`
-            },
+                description: "173 diesel-powered air-cooled chain-driven mini tiller designed for reliable rotary tillage and soil preparation, suitable for small farms, orchards, and vegetable plots.",
+
+features: [
+  "Engine Power: 6 HP (≈4.0 kW) air-cooled diesel engine",
+  "Chain-driven transmission with forward and reverse gears",
+  "Fuel Consumption: 0.4–0.6 L/hour"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: 173 Diesel Air-Cooled Chain-Driven Mini Tiller
+2. Engine Type: Single-cylinder, air-cooled diesel engine
+3. Rated Output Power: 6 HP (approx. 4.0 kW)
+4. Cooling Method: Air-cooled
+5. Drive Type: Chain-driven transmission
+6. Starting Method: Manual recoil start
+7. Fuel Tank Capacity: 2.5 L
+8. Fuel Consumption: 0.4–0.6 L/h
+9. Working Efficiency: 2–3 mu/h
+10. Transmission Gears: 1 / 0 / 2 / Reverse
+11. Operational Efficiency: 0.31 Acre/h
+12. Main Fuel Consumption: ≤25 kg/hm²
+13. Walking Mode: Walk-behind operation
+14. Applicable Functions: Rotary tillage, soil loosening, light ditching
+15. Applicable Terrain: Small farms, orchards, vegetable fields
+16. Machine Weight: 78 kg
+17. Structure Design: Compact body with reinforced chain drive
+18. Control Type: Manual handle control
+19. Stability Features: Balanced chassis, steady operation
+20. Maintenance Features: Simple mechanical structure for easy servicing`
+},
             {
                 title: "Earth Auger (Gasoline)",
                 image: 'https://images.unsplash.com/photo-1600180758891-d6d6d2f2a1b8?q=80&w=1000&auto=format&fit=crop',
-                description: "High-power gasoline earth auger for fast drilling with customizable bit lengths.",
-                features: ["Engine: 1E48F, 63 cc", "Power: 2.45 kW", "Drill Bit Length: 80 cm"],
-                fullSpecs: `I. Product Parameters
-1. Engine Model: 1E48F
-2. Displacement: 63 cc
-3. Power Output: 2.45 kW @ 8500 rpm
-4. Transmission: Gearbox
-5. Fuel Tank Capacity: 1200 ml
-6. Fuel Mix Ratio: Gasoline : 2-stroke oil = 25 : 1
-7. Drill Bit Length: 80 cm (customizable)`
-            },
+                description: "Gasoline-powered earth auger designed for fast and efficient hole digging for planting, fencing, and foundation work, featuring a lightweight frame and stable wheeled support.",
+
+features: [
+  "Engine Power: 1.5 kW gasoline engine (1E48F)",
+  "Drill Bit Length: 800 mm (customizable)",
+  "Gearbox Transmission for high torque output"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: Earth Auger (Gasoline Engine)
+2. Engine Model: 1E48F
+3. Engine Type: Single-cylinder, air-cooled, 2-stroke gasoline engine
+4. Engine Displacement: 63 cc
+5. Rated Output Power: 1.5 kW (2.45 kW @ 8500 rpm max)
+6. Rated Speed: 8500 rpm
+7. Transmission Mode: Gearbox transmission
+8. Fuel Type: Gasoline mixed with 2-stroke engine oil
+9. Fuel Mix Ratio: 25:1 (Gasoline : Oil)
+10. Fuel Tank Capacity: 1200 ml
+11. Starting Method: Manual recoil start
+12. Drill Bit Length: 800 mm (custom length available upon request)
+13. Auger Type: Single-spiral earth drill
+14. Operation Mode: Manual push with wheel-assisted support
+15. Application Scope: Tree planting, fencing, pole installation, foundation holes
+16. Applicable Terrain: Farmland, gardens, orchards, construction sites
+17. Structure Design: Steel frame with stabilizing wheels
+18. Mobility Features: Integrated wheel for easy transport
+19. Safety Features: Protective handle frame and stable ground support
+20. Working Characteristics: High torque, stable drilling, efficient soil penetration`
+},
             {
                 title: "Earth Auger (Diesel)",
                 image: 'https://images.unsplash.com/photo-1600180758891-d6d6d2f2a1b8?q=80&w=1000&auto=format&fit=crop',
-                description: "Diesel earth auger for robust drilling performance in heavy soils.",
-                features: ["Engine: Diesel 173", "Power: 6 HP (≈4.0 kW)", "Max Drilling Depth: 80 cm"],
-                fullSpecs: `I. Product Parameters
-1. Engine Model: Diesel 173, air-cooled
-2. Power: 6 HP (≈4.0 kW)
-3. Maximum Drilling Depth: 80 cm
-4. Drilling Width: 25–40 cm (Max 50 cm)`
-            },
+                description: "Diesel-powered earth auger with a reinforced frame structure, designed for deep and wide hole drilling in agriculture, fencing, and foundation work with high torque and stable operation.",
+
+features: [
+  "Engine Power: 6 HP (≈4.0 kW) diesel engine",
+  "Maximum Drilling Depth: 800 mm",
+  "Adjustable Auger Width: 25–40 cm (up to 50 cm max)"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: Earth Auger (Diesel Engine)
+2. Engine Type: Single-cylinder, air-cooled diesel engine
+3. Engine Model: Diesel 173 (Air-cooled)
+4. Rated Output Power: 6 HP (approx. 4.0 kW)
+5. Cooling Method: Air-cooled
+6. Transmission Mode: Gearbox transmission
+7. Starting Method: Manual recoil start
+8. Maximum Drilling Depth: 800 mm
+9. Drilling Width Range: 250–400 mm
+10. Maximum Supported Width: 500 mm
+11. Auger Type: Heavy-duty single-spiral earth drill
+12. Frame Structure: Vertical reinforced steel frame
+13. Mobility Features: Integrated transport wheels
+14. Operation Mode: Stand-mounted manual operation
+15. Application Scope: Tree planting, fencing, pole installation, foundation drilling
+16. Applicable Terrain: Farmland, orchards, construction sites
+17. Stability Features: Rigid frame with ground support legs
+18. Safety Features: Protective engine mount and stable handle structure
+19. Working Characteristics: High torque output, deep drilling capability
+20. Maintenance Features: Simple mechanical structure for easy servicing`
+},
             {
                 title: "Ridger 3DL-80",
                 image: 'https://images.unsplash.com/photo-1526401281623-3f2f8bcd8d0b?q=80&w=1000&auto=format&fit=crop',
-                description: "Heavy-duty ridger suitable for large fields with adjustable widths and PTO drive.",
-                features: ["Model: 3DL-80", "Ridge Height: 80 cm", "Matching Power: 40–60 kW"],
-                fullSpecs: `I. Product Parameters
-1. Model: 3DL-80
+                description: "PTO-driven blade-type ridger designed for efficient ridge forming with adjustable dimensions, suitable for large-scale field preparation using medium to high-power tractors.",
+
+features: [
+  "Ridge Height: Up to 80 cm",
+  "Adjustable Ridge Widths (Top & Bottom)",
+  "PTO Transmission with Three-point Hitch"
+],
+
+fullSpecs: `I. Product Parameters
+1. Machine Type / Model: Ridger (3DL-80)
 2. Ridge Height: 80 cm
-3. Top Width: 30–35 cm (adjustable)
-4. Bottom Width: 40–75 cm (adjustable)
-5. Ridge Slope: 30–35 cm
-6. Shaping Method: Blade-type
-7. Surface Shape: Edge-shaped
-8. Driving Wheel Speed: 540 / 720 r/min
-9. Transmission Mode: PTO transmission
-10. Overall Mass: 500 kg
-11. Overall Dimensions: 1400 × 2300 × 1100 mm
-12. Matching Power Requirement: 40–60 kW
+3. Ridge Top Width: 30–35 cm (adjustable)
+4. Ridge Bottom Width: 40–75 cm (adjustable)
+5. Ridge Slope: 30–35 cm (adjustable)
+6. Ridge Surface Treatment: Edge-shaped
+7. Ridge Shaping Method: Blade-type
+8. Ridge Surface Shaping: Edge-shaped forming
+9. Rotating Speed of Driving Wheel: 540 / 720 r/min
+10. Transmission Mode: PTO transmission
+11. Connection Form: Three-point hitch
+12. Matching Power Requirement: 40–60 kW (≥40 hp)
 13. Working Efficiency: 1500–2500 m/h
-14. Connection Type: Three-point hitch`
-            }
+14. Applicable Soil Moisture Range: 30%–80%
+15. Overall Dimensions (L×W×H): 1400 × 2300 × 1100 mm
+16. Overall Weight: 500 kg
+17. Installation Type: Tractor-mounted
+18. Operating Mode: PTO-driven operation
+19. Application Scope: Ridge forming for vegetables, cash crops, and field farming
+20. Working Characteristics: Stable ridge shaping, high efficiency, adjustable ridge geometry`
+}
         ]
     },
     {
@@ -513,10 +725,10 @@ export default function ProductsSection() {
 
             {/* Header Text */}
             <div style={{ textAlign: 'center', marginBottom: isMobile ? '40px' : '60px', position: 'relative', zIndex: 2 }}>
-                <h2 style={{ fontSize: isMobile ? '22px' : '32px', fontWeight: 400, color: '#fff', lineHeight: 1.3 }}>
+                <h2 style={{ fontSize: isMobile ? '22px' : '32px', fontWeight: 400, color: '#fff', lineHeight: 1 }}>
                     Products designed for <span style={{ fontFamily: '"Caveat", cursive', color: '#0E6C85', fontSize: isMobile ? (isVerySmall ? '28px' : '32px') : '48px', margin: '0 5px', display: 'inline-block', whiteSpace: 'nowrap' }}>smarter agriculture,</span> from field
                 </h2>
-                <h2 style={{ fontSize: isMobile ? '22px' : '32px', fontWeight: 400, color: '#fff', marginTop: isMobile ? '5px' : '-5px', lineHeight: 1.3 }}>
+                <h2 style={{ fontSize: isMobile ? '22px' : '32px', fontWeight: 400, color: '#fff', marginTop: isMobile ? '5px' : '-5px', lineHeight: 1 }}>
                     ready machinery to intelligent systems.
                 </h2>
             </div>

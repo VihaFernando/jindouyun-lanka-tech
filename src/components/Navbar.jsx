@@ -152,7 +152,7 @@ function Navbar() {
                         {/* Text with smooth collapse animation */}
                         <span style={{
                             fontSize: isPhone ? '12px' : (isMobile ? '14px' : '16px'),
-                            fontWeight: 700,
+                            fontWeight: 500,
                             letterSpacing: '0.05em',
                             textTransform: 'uppercase',
                             color: '#222',
