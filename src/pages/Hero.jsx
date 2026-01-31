@@ -7,16 +7,15 @@ export default function Hero() {
     const [imageLoaded, setImageLoaded] = useState(false);
 
     useEffect(() => {
-        // 1. Resize Listener
         const handleResize = () => setWidth(window.innerWidth);
         handleResize();
 
-        // 2. Scroll Listener for Parallax Effects
         const handleScroll = () => setScrollY(window.scrollY);
 
-        // 3. Image Preloader (Fixes slow rendering appearance)
+        // 1. PRELOAD THE OPTIMIZED IMAGE
+        // MAKE SURE you converted your image to .webp using Squoosh.app
         const img = new Image();
-        img.src = '/hero-image-final.png';
+        img.src = '/hero-image-final.webp'; // <--- UPDATED EXTENSION
         img.onload = () => {
             setImageLoaded(true);
         };
@@ -37,10 +36,10 @@ export default function Hero() {
         <div id="top" style={{
             minHeight: '100vh',
             height: '100vh',
-            // MOBILE: Modern soft gradient. DESKTOP: Transparent to show App background
+            // This gradient shows IMMEDIATELY while image loads
             background: isMobile
                 ? 'linear-gradient(180deg, #ebebeb 0%, #dceef7 100%)'
-                : 'transparent',
+                : 'linear-gradient(180deg, #f0f9ff 0%, #dceef7 100%)', 
             position: 'relative',
             fontFamily: '"Poppins", "Plus Jakarta Sans", "Google Sans", system-ui, sans-serif',
             overflowX: 'hidden',
@@ -50,7 +49,6 @@ export default function Hero() {
                 {`
                 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gilroy:wght@500&family=Poppins:wght@300;400;500;600;700&display=swap');
                 
-                /* Animations */
                 @keyframes fadeInUp {
                     from { opacity: 0; transform: translateY(40px); }
                     to { opacity: 1; transform: translateY(0); }
@@ -58,84 +56,62 @@ export default function Hero() {
                 
                 .anim-text-1 {
                     animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
-                    opacity: 0; /* Start hidden */
+                    opacity: 0; 
                 }
                 
                 .anim-text-2 {
                     animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
-                    opacity: 0; /* Start hidden */
+                    opacity: 0; 
                 }
                 `}
             </style>
 
             <Navbar />
 
-            {/* RIGHT SIDE GRADIENT REMOVED - Handled globally in App.jsx */}
-
             {/* BACKGROUND IMAGE CONTAINER */}
             <div style={{
                 position: 'absolute',
-                // MOBILE: Anchor to bottom. DESKTOP: Anchor to top (Unchanged)
                 top: isMobile ? 'auto' : 0,
                 bottom: isMobile ? 0 : 'auto',
                 left: 0,
                 width: '100%',
-                // MOBILE: Height 55% for better proportion. DESKTOP: 100% (Unchanged)
                 height: isMobile ? '55%' : '100%',
-
-                // MOBILE: No bottom curve (sits flat), but a nice Top Curve.
-                // DESKTOP: Bottom curve (Unchanged)
                 borderBottomLeftRadius: isMobile ? '0' : '50% 20%',
                 borderBottomRightRadius: isMobile ? '0' : '50% 20%',
                 borderTopLeftRadius: isMobile ? '50% 15%' : '0',
                 borderTopRightRadius: isMobile ? '50% 15%' : '0',
-
                 overflow: 'hidden',
                 zIndex: 0,
-                // MOBILE: distinct shadow to pop against the gradient
                 boxShadow: isMobile ? '0px -10px 30px rgba(26, 127, 146, 0.1)' : 'none',
                 
-                // Image Entrance Animation
+                // If image isn't loaded yet, we keep this container invisible 
+                // so the nice background gradient of the parent div shows through
                 opacity: imageLoaded ? 1 : 0,
-                transition: 'opacity 1.5s ease-in-out'
+                transition: 'opacity 1.2s ease-out'
             }}>
-                {/* The Image Itself */}
                 <div style={{
                     width: '100%',
                     height: '100%',
-                    backgroundImage: "url('/hero-image-final.png')",
+                    // MAKE SURE TO UPDATE THIS FILENAME AFTER CONVERTING
+                    backgroundImage: "url('/hero-image-final.webp')", 
                     backgroundSize: 'cover',
                     backgroundPosition: isMobile ? 'center center' : 'center top',
                     backgroundRepeat: 'no-repeat',
-                    // Slight parallax on the image itself for depth
                     transform: !isMobile ? `translateY(${scrollY * 0.1}px)` : 'none',
                     transition: 'transform 0.1s linear',
                     willChange: 'transform'
                 }} />
 
-                {/* Desktop Fade (Unchanged) */}
                 {!isMobile && <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '300px',
+                    position: 'absolute', top: 0, left: 0, width: '100%', height: '300px',
                     background: 'linear-gradient(180deg, #dceef7 0%, rgba(220, 238, 247, 0.8) 40%, rgba(220, 238, 247, 0) 100%)',
-                    zIndex: 1,
-                    pointerEvents: 'none'
+                    zIndex: 1, pointerEvents: 'none'
                 }} />}
 
-                {/* NEW: Mobile Top Fade - Blends the curved top edge into the background */}
                 {isMobile && <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100px',
+                    position: 'absolute', top: 0, left: 0, width: '100%', height: '100px',
                     background: 'linear-gradient(180deg, rgba(220, 238, 247, 1) 0%, rgba(220, 238, 247, 0) 100%)',
-                    zIndex: 1,
-                    pointerEvents: 'none',
-                    opacity: 0.6
+                    zIndex: 1, pointerEvents: 'none', opacity: 0.6
                 }} />}
             </div>
 
@@ -149,9 +125,7 @@ export default function Hero() {
                 justifyContent: 'center',
                 alignItems: isMobile ? 'center' : 'flex-start',
                 width: '100%',
-                minHeight: isMobile ? '45%' : 'auto', // Take up top part of screen on mobile
-                
-                // Parallax Scrolling Effect on Text (Moves faster than background)
+                minHeight: isMobile ? '45%' : 'auto', 
                 transform: !isMobile ? `translateY(${scrollY * 0.4}px)` : 'none',
                 willChange: 'transform' 
             }} role="main">
