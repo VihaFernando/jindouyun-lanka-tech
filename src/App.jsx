@@ -1,9 +1,22 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import './index.css';
+import { useState, useEffect } from 'react';
+import Hero from './pages/Hero.jsx';
+import EmpoweringSection from './components/EmpoweringSection.jsx';
+import TechSolutionsSection from './components/TechSolutionsSection.jsx';
+import Products from './components/Products.jsx';
+import GreenHouse from './components/GreenHouse.jsx';
+import Footer from './components/Footer.jsx';
 
-function App() {
-  const currentYear = new Date().getFullYear();
+export default function App() {
+  const [width, setWidth] = useState(1200);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    handleResize(); // Init
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isMobile = width < 768;
 
   return (
     <div className="page">
@@ -136,5 +149,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
