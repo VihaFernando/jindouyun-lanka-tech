@@ -206,7 +206,7 @@ export default function Footer() {
                             }}>
                                 <MapPin size={19} color={brandTeal} strokeWidth={1.5} />
                             </div>
-                            <a href="#" style={{
+                            <a href="https://maps.app.goo.gl/s2pBi8ugECo1hZt36?g_st=ic" target="_blank" rel="noopener noreferrer" style={{
                                 fontSize: '15px',
                                 color: brandTeal,
                                 fontWeight: 500,
