@@ -83,7 +83,7 @@ export default function Hero() {
                     width: '100%',
                     height: '100%',
                     // Ensure this matches your actual file name
-                    backgroundImage: "url('/hero-image-final.webp')", 
+                    backgroundImage: "url('/hero-image-final (1).png')", 
                     backgroundSize: 'cover',
                     backgroundPosition: isMobile ? 'center center' : 'center top',
                     backgroundRepeat: 'no-repeat',
