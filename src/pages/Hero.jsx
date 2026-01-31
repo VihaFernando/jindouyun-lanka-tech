@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar.jsx';
 
 export default function Hero() {
     const [width, setWidth] = useState(1200);
+    const [imgLoaded, setImgLoaded] = useState(false);
 
     useEffect(() => {
         const handleResize = () => setWidth(window.innerWidth);
@@ -59,14 +60,29 @@ export default function Hero() {
                 boxShadow: isMobile ? '0px -10px 30px rgba(26, 127, 146, 0.1)' : 'none'
             }}>
                 {/* The Image Itself */}
-                <div style={{
-                    width: '100%',
-                    height: '100%',
-                    backgroundImage: "url('/hero-image-final.png')",
-                    backgroundSize: 'cover',
-                    backgroundPosition: isMobile ? 'center center' : 'center top',
-                    backgroundRepeat: 'no-repeat',
-                }} />
+                <img
+                    src="/hero-image-final.png"
+                    srcSet="/hero-image-up.png 800w, /hero-image-final.png 1920w"
+                    sizes="(max-width: 768px) 100vw, 100vw"
+                    alt="Sustainable agriculture"
+                    fetchPriority="high"
+                    decoding="async"
+                    loading="eager"
+                    width={1920}
+                    height={1080}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: isMobile ? 'center center' : 'center top',
+                        display: 'block',
+                        transition: 'opacity 600ms ease, filter 600ms ease, transform 600ms ease',
+                        opacity: imgLoaded ? 1 : 0,
+                        filter: imgLoaded ? 'none' : 'blur(12px)',
+                        transform: imgLoaded ? 'scale(1)' : 'scale(1.02)'
+                    }}
+                    onLoad={() => setImgLoaded(true)}
+                />
 
                 {/* Desktop Fade (Unchanged) */}
                 {!isMobile && <div style={{
