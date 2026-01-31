@@ -4,31 +4,45 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const SOLUTIONS_DATA = [
     {
         id: 1,
-        title: "End-to-End Smart Agriculture",
-        subtitle: "Services",
-        description: "We provide complete agricultural solutions combining modern machinery, smart farming systems, and AI technology to support farmers at every stage.",
-        image: "https://images.unsplash.com/photo-1625246333195-5519a49d4be2?q=80&w=1000&auto=format&fit=crop"
+        title: "Agricultural Machinery",
+        subtitle: "Sales & Services",
+        description: "High-quality agricultural machinery tailored to Sri Lanka's farming conditions, covering the full production process from land preparation and sowing to harvesting with end-to-end sales, installation, training, and maintenance support.",
+        image: "https://images.unsplash.com/photo-1589923188900-85dae523342b?q=80&w=1000&auto=format&fit=crop"
     },
     {
         id: 2,
-        title: "Precision Farming",
-        subtitle: "Analytics",
-        description: "Utilize satellite imagery and soil sensors to optimize water usage and fertilizer application, maximizing yield while minimizing waste.",
-        image: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1000&auto=format&fit=crop"
+        title: "Smart Agriculture",
+        subtitle: "Solutions",
+        description: "AI-powered intelligent crop management system covering the entire growth cycle with digital land management, multi-dimensional monitoring, variable-rate fertilization, and precise machinery scheduling through integrated space-air-ground technology.",
+        image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1000&auto=format&fit=crop"
     },
     {
         id: 3,
-        title: "Automated Machinery",
-        subtitle: "Rentals",
-        description: "Access a fleet of autonomous tractors and harvesting equipment designed to reduce labor costs and increase efficiency in the field.",
-        image: "https://images.unsplash.com/photo-1530267981375-f0de93fe1e91?q=80&w=1000&auto=format&fit=crop"
+        title: "AI Pest & Disease",
+        subtitle: "Identification",
+        description: "Independently developed intelligent pest and disease identification system with over 90% accuracy, combined with crop yield prediction platform and farming decision-support assistant to reduce production risks and improve efficiency.",
+        image: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=1000&auto=format&fit=crop"
     },
     {
         id: 4,
-        title: "Sustainable Supply Chain",
-        subtitle: "Logistics",
-        description: "Connect directly with global markets through our blockchain-verified supply chain network, ensuring fair prices and transparency.",
-        image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1000&auto=format&fit=crop"
+        title: "Tuzhi Farm",
+        subtitle: "Management Platform",
+        description: "Full growth-cycle intelligent planting decision system integrating satellite remote sensing, UAV field inspection, and IoT sensing for standardized data-driven management from pre-planting to post-harvest with 18% labor cost reduction.",
+        image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+        id: 5,
+        title: "Precision Agriculture",
+        subtitle: "Technology",
+        description: "Real-time soil moisture monitoring, precise water and fertilizer regulation, and accurate crop yield prediction compatible with both large-scale plantations and smallholder farms, operated simply via mobile phone.",
+        image: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+        id: 6,
+        title: "Custom AI Development",
+        subtitle: "Services",
+        description: "Customized artificial intelligence technology development services for local partners and institutions, including AIGC large-model applications, big data platforms, and intelligent agricultural software solutions.",
+        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop"
     }
 ];
 

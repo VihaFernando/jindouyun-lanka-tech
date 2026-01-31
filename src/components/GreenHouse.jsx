@@ -353,7 +353,7 @@ export default function GreenHouse() {
     );
 
     return (
-        <section id="greenhouse" style={{ backgroundColor: '#FAFAFA', paddingBottom: '100px', overflow: 'hidden' }}>
+        <section id="greenhouse" style={{ backgroundColor: '#FAFAFA', paddingBottom: isMobile ? '50px' : '10px', overflow: 'hidden' }}>
 
             {/* --- CSS & ANIMATIONS --- */}
             <style>{`
