@@ -589,6 +589,8 @@ export default function ProductsSection() {
 
     // keep scroll position when modal opens so we can restore it and prevent background scroll
     const scrollPosRef = useRef(0);
+    // reference to modal scrollable content so we can allow touches inside it while blocking background touchmove
+    const modalRef = useRef(null);
 
     const openSpecsModal = () => {
         setIsModalOpen(true);
@@ -612,7 +614,11 @@ export default function ProductsSection() {
     useEffect(() => {
         if (typeof window === 'undefined') return;
 
-        const preventTouch = (e) => { e.preventDefault(); };
+        const preventTouch = (e) => {
+            // If the touch is inside the modal content, allow it so the modal can scroll
+            if (modalRef.current && modalRef.current.contains(e.target)) return;
+            e.preventDefault();
+        };
 
         if (isModalOpen) {
             // store current scroll position
@@ -1112,9 +1118,11 @@ export default function ProductsSection() {
                         </div>
 
                         {/* Scrollable Content */}
-                        <div style={{
+                        <div ref={modalRef} style={{
                             padding: isMobile ? '80px 24px 40px 24px' : '90px 40px 40px 40px',
                             overflowY: 'auto',
+                            WebkitOverflowScrolling: 'touch',
+                            touchAction: 'auto',
                             height: '100%',
                             boxSizing: 'border-box'
                         }}>
