@@ -3,12 +3,31 @@ import Navbar from '../components/Navbar.jsx';
 
 export default function Hero() {
     const [width, setWidth] = useState(1200);
+    const [scrollY, setScrollY] = useState(0);
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     useEffect(() => {
+        // 1. Resize Listener
         const handleResize = () => setWidth(window.innerWidth);
         handleResize();
+
+        // 2. Scroll Listener for Parallax Effects
+        const handleScroll = () => setScrollY(window.scrollY);
+
+        // 3. Image Preloader (Fixes slow rendering appearance)
+        const img = new Image();
+        img.src = '/hero-image-final.png';
+        img.onload = () => {
+            setImageLoaded(true);
+        };
+
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     const isMobile = width < 768;
@@ -28,7 +47,25 @@ export default function Hero() {
             overflowY: isMobile ? 'auto' : 'hidden',
         }}>
             <style>
-                {`@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gilroy:wght@500&family=Poppins:wght@300;400;500;600;700&display=swap');`}
+                {`
+                @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gilroy:wght@500&family=Poppins:wght@300;400;500;600;700&display=swap');
+                
+                /* Animations */
+                @keyframes fadeInUp {
+                    from { opacity: 0; transform: translateY(40px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                
+                .anim-text-1 {
+                    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+                    opacity: 0; /* Start hidden */
+                }
+                
+                .anim-text-2 {
+                    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
+                    opacity: 0; /* Start hidden */
+                }
+                `}
             </style>
 
             <Navbar />
@@ -56,7 +93,11 @@ export default function Hero() {
                 overflow: 'hidden',
                 zIndex: 0,
                 // MOBILE: distinct shadow to pop against the gradient
-                boxShadow: isMobile ? '0px -10px 30px rgba(26, 127, 146, 0.1)' : 'none'
+                boxShadow: isMobile ? '0px -10px 30px rgba(26, 127, 146, 0.1)' : 'none',
+                
+                // Image Entrance Animation
+                opacity: imageLoaded ? 1 : 0,
+                transition: 'opacity 1.5s ease-in-out'
             }}>
                 {/* The Image Itself */}
                 <div style={{
@@ -66,6 +107,10 @@ export default function Hero() {
                     backgroundSize: 'cover',
                     backgroundPosition: isMobile ? 'center center' : 'center top',
                     backgroundRepeat: 'no-repeat',
+                    // Slight parallax on the image itself for depth
+                    transform: !isMobile ? `translateY(${scrollY * 0.1}px)` : 'none',
+                    transition: 'transform 0.1s linear',
+                    willChange: 'transform'
                 }} />
 
                 {/* Desktop Fade (Unchanged) */}
@@ -104,7 +149,11 @@ export default function Hero() {
                 justifyContent: 'center',
                 alignItems: isMobile ? 'center' : 'flex-start',
                 width: '100%',
-                minHeight: isMobile ? '45%' : 'auto' // Take up top part of screen on mobile
+                minHeight: isMobile ? '45%' : 'auto', // Take up top part of screen on mobile
+                
+                // Parallax Scrolling Effect on Text (Moves faster than background)
+                transform: !isMobile ? `translateY(${scrollY * 0.4}px)` : 'none',
+                willChange: 'transform' 
             }} role="main">
 
                 <div style={{
@@ -114,7 +163,7 @@ export default function Hero() {
                     padding: isMobile ? '0 20px' : '0',
                     boxSizing: 'border-box'
                 }}>
-                    <p style={{
+                    <p className="anim-text-1" style={{
                         margin: 0,
                         fontSize: isMobile ? '22px' : (isTablet ? '28px' : '38px'),
                         fontWeight: 500,
@@ -127,7 +176,7 @@ export default function Hero() {
                     }}>
                         Transforming Agriculture Into
                     </p>
-                    <h1 style={{
+                    <h1 className="anim-text-2" style={{
                         margin: 0,
                         fontSize: isMobile ? '48px' : (isTablet ? '80px' : '110px'),
                         lineHeight: 1.1,
