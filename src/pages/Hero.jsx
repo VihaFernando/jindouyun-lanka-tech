@@ -4,16 +4,49 @@ import Navbar from '../components/Navbar.jsx';
 export default function Hero() {
     const [width, setWidth] = useState(1200);
     const [imgLoaded, setImgLoaded] = useState(false);
+    const [scrollY, setScrollY] = useState(0); // NEW: Track scroll position
+    const [mounted, setMounted] = useState(false); // Page load mount animation (fade + lift)
 
     useEffect(() => {
         const handleResize = () => setWidth(window.innerWidth);
         handleResize();
+
+        // NEW: Handle Scroll for animations
+        const handleScroll = () => requestAnimationFrame(() => setScrollY(window.scrollY));
+
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        window.addEventListener('scroll', handleScroll); // Add scroll listener
+
+        // Mount animation (respect reduced motion)
+        let rafId;
+        let mountTimeout;
+        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) {
+            setMounted(true);
+        } else {
+            rafId = requestAnimationFrame(() => {
+                // small delay so the initial paint draws off-screen first
+                mountTimeout = setTimeout(() => setMounted(true), 60);
+            });
+        }
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('scroll', handleScroll); // Clean up
+            if (rafId) cancelAnimationFrame(rafId);
+            if (mountTimeout) clearTimeout(mountTimeout);
+        };
     }, []);
 
     const isMobile = width < 768;
     const isTablet = width >= 768 && width < 1024;
+
+    // NEW: Calculate dynamic styles based on scroll
+    // Parallax speed: Image moves at 40% of scroll speed, Text at 20%
+    const imageParallax = scrollY * 0.4;
+    const textParallax = scrollY * 0.2;
+    // Text fades out as you scroll down (fully invisible by 600px)
+    const textOpacity = Math.max(0, 1 - scrollY / 600);
 
     return (
         <div id="top" style={{
@@ -27,6 +60,12 @@ export default function Hero() {
             fontFamily: '"Poppins", "Plus Jakarta Sans", "Google Sans", system-ui, sans-serif',
             overflowX: 'hidden',
             overflowY: isMobile ? 'auto' : 'hidden',
+
+            // Page-load mount animation (fade + slight lift)
+            opacity: mounted ? 1 : 0,
+            transform: mounted ? 'translateY(0) scale(1)' : 'translateY(8px) scale(0.998)',
+            transition: 'opacity 700ms cubic-bezier(.2,.9,.3,1), transform 700ms cubic-bezier(.2,.9,.3,1)',
+            willChange: 'opacity, transform'
         }}>
             <style>
                 {`@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gilroy:wght@500&family=Poppins:wght@300;400;500;600;700&display=swap');`}
@@ -76,10 +115,12 @@ export default function Hero() {
                         objectFit: 'cover',
                         objectPosition: isMobile ? 'center center' : 'center top',
                         display: 'block',
-                        transition: 'opacity 600ms ease, filter 600ms ease, transform 600ms ease',
+                        transition: 'opacity 600ms ease, filter 600ms ease, transform 100ms linear', // Adjusted transform transition for scroll smoothness
                         opacity: imgLoaded ? 1 : 0,
                         filter: imgLoaded ? 'none' : 'blur(12px)',
-                        transform: imgLoaded ? 'scale(1)' : 'scale(1.02)'
+                        // UPDATED: Combined load scale with scroll parallax
+                        transform: `${imgLoaded ? 'scale(1)' : 'scale(1.02)'} translateY(${imageParallax}px)`,
+                        willChange: 'transform' // Optimization for smooth scrolling
                     }}
                     onLoad={() => setImgLoaded(true)}
                 />
@@ -120,7 +161,12 @@ export default function Hero() {
                 justifyContent: 'center',
                 alignItems: isMobile ? 'center' : 'flex-start',
                 width: '100%',
-                minHeight: isMobile ? '45%' : 'auto' // Take up top part of screen on mobile
+                minHeight: isMobile ? '45%' : 'auto', // Take up top part of screen on mobile
+                // UPDATED: Apply parallax and fade to the container
+                transform: `translateY(${textParallax}px)`,
+                opacity: textOpacity,
+                transition: 'transform 100ms linear, opacity 100ms linear',
+                willChange: 'transform, opacity'
             }} role="main">
 
                 <div style={{

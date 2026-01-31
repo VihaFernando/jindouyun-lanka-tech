@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Eye, X, CheckCircle2 } from 'lucide-react';
+import useProductsScrollAnim from '../hooks/useProductsScrollAnim.jsx';
 
 // --- DATA STRUCTURE ---
 const CATEGORIES = [
@@ -662,6 +663,9 @@ export default function ProductsSection() {
     const activeProduct = currentCategoryData.products[productIndex];
     const productCount = currentCategoryData.products.length;
 
+    // Initialize product section scroll animations (non-content change)
+    useProductsScrollAnim();
+
     // Handlers
     const handleNextProduct = () => {
         setProductIndex((prev) => (prev + 1) % productCount);
@@ -1176,6 +1180,17 @@ export default function ProductsSection() {
                     border-radius: 10px; 
                 }
                 ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+                /* Scroll-based reveal for Products (non-invasive, respects reduced motion) */
+                .ps-anim { opacity: 0; transform: translateY(12px) scale(0.998); transition: opacity 700ms cubic-bezier(.2,.9,.3,1), transform 700ms cubic-bezier(.2,.9,.3,1); will-change: opacity, transform; }
+                .ps-inview { opacity: 1; transform: translateY(0) scale(1); }
+
+                /* Buttons & smaller elements should animate a bit quicker */
+                #products button.ps-anim { transition-duration: 480ms; }
+
+                @media (prefers-reduced-motion: reduce) {
+                    .ps-anim, .ps-inview { transition: none !important; transform: none !important; opacity: 1 !important; }
+                }
                 `}
             </style>
         </section>

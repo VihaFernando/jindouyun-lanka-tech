@@ -1,17 +1,50 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function EmpoweringSection() {
     const [width, setWidth] = useState(1200);
+    const [isVisible, setIsVisible] = useState(false); // Track if section is in view
+    const sectionRef = useRef(null); // Ref to target the section
 
     useEffect(() => {
         const handleResize = () => setWidth(window.innerWidth);
         handleResize();
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+
+        // NEW: Intersection Observer to trigger animations on scroll
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // Sets true when entering viewport, false when leaving
+                // This ensures it works "smoothly for both scrolling up and down"
+                setIsVisible(entry.isIntersecting);
+            },
+            {
+                threshold: 0.15, // Trigger when 15% of the section is visible
+                rootMargin: "0px 0px -50px 0px" // Slight offset for better timing
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            if (sectionRef.current) {
+                observer.disconnect();
+            }
+        };
     }, []);
 
     const isMobile = width < 768;
     const isTablet = width >= 768 && width < 1200;
+
+    // Helper to generate animation styles
+    // delay: ms to wait before starting
+    const getAnimStyle = (delay) => ({
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(60px)',
+        transition: `opacity 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms, transform 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms`
+    });
 
     const cards = [
         {
@@ -27,7 +60,7 @@ export default function EmpoweringSection() {
             theme: 'dark'
         },
         {
-            tag: 'Nouries', // Kept as per your image text
+            tag: 'Nouries',
             title: 'Sustainable food systems',
             desc: 'Helping farmers improve yields while reducing costs and environmental impact.',
             theme: 'light'
@@ -35,20 +68,22 @@ export default function EmpoweringSection() {
     ];
 
     return (
-        <section id="about-us" style={{
-            position: 'relative',
-            background: 'transparent', // Transparent to show global gradient
-            padding: isMobile ? '60px 20px' : '100px 40px',
-            fontFamily: '"Poppins", sans-serif',
-            overflow: 'hidden'
-        }}>
+        <section 
+            id="about-us" 
+            ref={sectionRef} // Attached Ref here
+            style={{
+                position: 'relative',
+                background: 'transparent', // Transparent to show global gradient
+                padding: isMobile ? '60px 20px' : '100px 40px',
+                fontFamily: '"Poppins", sans-serif',
+                overflow: 'hidden'
+            }}
+        >
             <style>
                 {`@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Gilroy:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap');`}
             </style>
 
             {/* RIGHT SIDE GRADIENT REMOVED - Handled globally in App.jsx */}
-
-
 
             <div style={{
                 maxWidth: '1400px',
@@ -62,7 +97,8 @@ export default function EmpoweringSection() {
                     textAlign: 'center',
                     maxWidth: '900px',
                     margin: '0 auto',
-                    marginBottom: isMobile ? '50px' : '90px'
+                    marginBottom: isMobile ? '50px' : '90px',
+                    ...getAnimStyle(0) // No delay, animates first
                 }}>
                     <p style={{
                         fontSize: isMobile ? '18px' : '24px',
@@ -93,7 +129,10 @@ export default function EmpoweringSection() {
                 }}>
 
                     {/* LEFT COLUMN: TITLE */}
-                    <div style={{ position: 'relative' }}>
+                    <div style={{ 
+                        position: 'relative',
+                        ...getAnimStyle(200) // 200ms delay
+                    }}>
                         <h2 style={{
                             fontSize: isMobile ? '40px' : (isTablet ? '52px' : '64px'),
                             lineHeight: 1.15,
@@ -102,8 +141,6 @@ export default function EmpoweringSection() {
                             fontFamily: '"Gilroy", "Poppins", sans-serif',
                             letterSpacing: isMobile ? '-0.01em' : '-0.02em',
                             color: '#000',
-                            // Removed visually restrictive whiteSpace: 'nowrap' which was causing overflow issues
-                            // Allowing wrap if needed but maintaining structure via width
                         }}>
                             {/* Line 1 */}
                             <div style={{ color: '#0E6C85' }}>Empowering</div>
@@ -136,13 +173,14 @@ export default function EmpoweringSection() {
                                     backgroundColor: isDark ? '#0E6C85' : '#ffffff',
                                     borderRadius: '20px',
                                     padding: '30px',
-                                    minHeight: '340px', // Reduced height as requested
+                                    minHeight: '340px',
                                     display: 'flex',
                                     flexDirection: 'column',
                                     justifyContent: 'space-between',
                                     position: 'relative',
                                     overflow: 'hidden',
                                     boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+                                    ...getAnimStyle(400 + (index * 150)) // Staggered delay for each card (400, 550, 700ms)
                                 }}>
                                     {/* Dark Card Background Image & Overlay */}
                                     {isDark && (
@@ -180,9 +218,6 @@ export default function EmpoweringSection() {
                                             display: 'inline-block',
                                             padding: '10px 24px',
                                             borderRadius: '12px',
-                                            // INVERTED COLORS compared to previous code, matching image
-                                            // Light Card -> Teal BG, White Text
-                                            // Dark Card -> White BG, Teal Text
                                             background: isDark ? '#ffffff' : '#0E6C85',
                                             color: isDark ? '#0E6C85' : '#ffffff',
                                             fontSize: '16px',
@@ -201,7 +236,6 @@ export default function EmpoweringSection() {
                                                 margin: 0,
                                                 lineHeight: 1.3,
                                                 width: '100%',
-                                                // Light Card -> Teal Title. Dark Card -> White Title.
                                                 color: isDark ? '#ffffff' : '#0E6C85'
                                             }}>
                                                 {card.title}

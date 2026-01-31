@@ -14,6 +14,7 @@ import {
     ChevronRight,
     Leaf
 } from 'lucide-react';
+import useGreenhouseScrollAnim from '../hooks/useGreenhouseScrollAnim.jsx';
 
 export default function GreenHouse() {
     const [activeTab, setActiveTab] = useState('overview');
@@ -30,6 +31,9 @@ export default function GreenHouse() {
 
     const isMobile = width < 768;
     const brandTeal = '#0E6C85';
+
+    // Activate non-invasive scroll animations for this section
+    useGreenhouseScrollAnim();
 
     // --- TABS ---
     const TABS = [
@@ -377,6 +381,17 @@ export default function GreenHouse() {
                 }
 
                 .gh-anim-enter { animation: fadeInUp 0.5s ease-out forwards; }
+
+                /* Scroll reveal (non-invasive) */
+                .gh-anim { opacity: 0; transform: translateY(16px) scale(0.998); transition: opacity 760ms cubic-bezier(.2,.9,.3,1), transform 760ms cubic-bezier(.2,.9,.3,1); will-change: opacity, transform; }
+                .gh-inview { opacity: 1; transform: translateY(0) scale(1); }
+
+                /* Slightly quicker for small UI elements */
+                .gh-anim button, .gh-anim h4, .gh-anim h5 { transition-duration: 520ms; }
+
+                @media (prefers-reduced-motion: reduce) {
+                    .gh-anim, .gh-inview { transition: none !important; transform: none !important; opacity: 1 !important; }
+                }
                 
                 @keyframes fadeInUp {
                     from { opacity: 0; transform: translateY(20px); }
