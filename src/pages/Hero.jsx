@@ -4,21 +4,14 @@ import Navbar from '../components/Navbar.jsx';
 export default function Hero() {
     const [width, setWidth] = useState(1200);
     const [scrollY, setScrollY] = useState(0);
-    const [imageLoaded, setImageLoaded] = useState(false);
 
     useEffect(() => {
+        // 1. Resize Listener
         const handleResize = () => setWidth(window.innerWidth);
         handleResize();
 
+        // 2. Scroll Listener (For the smooth parallax effect)
         const handleScroll = () => setScrollY(window.scrollY);
-
-        // 1. PRELOAD THE OPTIMIZED IMAGE
-        // MAKE SURE you converted your image to .webp using Squoosh.app
-        const img = new Image();
-        img.src = '/hero-image-final.webp'; // <--- UPDATED EXTENSION
-        img.onload = () => {
-            setImageLoaded(true);
-        };
 
         window.addEventListener('resize', handleResize);
         window.addEventListener('scroll', handleScroll);
@@ -36,10 +29,10 @@ export default function Hero() {
         <div id="top" style={{
             minHeight: '100vh',
             height: '100vh',
-            // This gradient shows IMMEDIATELY while image loads
+            // IMMEDIATE BACKGROUND: Shows this gradient instantly while image fetches
             background: isMobile
                 ? 'linear-gradient(180deg, #ebebeb 0%, #dceef7 100%)'
-                : 'linear-gradient(180deg, #f0f9ff 0%, #dceef7 100%)', 
+                : 'transparent',
             position: 'relative',
             fontFamily: '"Poppins", "Plus Jakarta Sans", "Google Sans", system-ui, sans-serif',
             overflowX: 'hidden',
@@ -49,19 +42,20 @@ export default function Hero() {
                 {`
                 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gilroy:wght@500&family=Poppins:wght@300;400;500;600;700&display=swap');
                 
+                /* Smooth Entrance for Text */
                 @keyframes fadeInUp {
-                    from { opacity: 0; transform: translateY(40px); }
+                    from { opacity: 0; transform: translateY(30px); }
                     to { opacity: 1; transform: translateY(0); }
                 }
                 
                 .anim-text-1 {
-                    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
-                    opacity: 0; 
+                    animation: fadeInUp 0.8s ease-out 0.1s forwards;
+                    opacity: 0;
                 }
                 
                 .anim-text-2 {
-                    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
-                    opacity: 0; 
+                    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+                    opacity: 0;
                 }
                 `}
             </style>
@@ -83,25 +77,22 @@ export default function Hero() {
                 overflow: 'hidden',
                 zIndex: 0,
                 boxShadow: isMobile ? '0px -10px 30px rgba(26, 127, 146, 0.1)' : 'none',
-                
-                // If image isn't loaded yet, we keep this container invisible 
-                // so the nice background gradient of the parent div shows through
-                opacity: imageLoaded ? 1 : 0,
-                transition: 'opacity 1.2s ease-out'
             }}>
+                {/* The Image Itself - Standard Loading */}
                 <div style={{
                     width: '100%',
                     height: '100%',
-                    // MAKE SURE TO UPDATE THIS FILENAME AFTER CONVERTING
+                    // Ensure this matches your actual file name
                     backgroundImage: "url('/hero-image-final.webp')", 
                     backgroundSize: 'cover',
                     backgroundPosition: isMobile ? 'center center' : 'center top',
                     backgroundRepeat: 'no-repeat',
-                    transform: !isMobile ? `translateY(${scrollY * 0.1}px)` : 'none',
-                    transition: 'transform 0.1s linear',
-                    willChange: 'transform'
+                    // Parallax Logic: Moves image slowly as you scroll
+                    transform: !isMobile ? `translateY(${scrollY * 0.15}px)` : 'none',
+                    willChange: 'transform' // Optimizes rendering performance
                 }} />
 
+                {/* Gradients/Overlays */}
                 {!isMobile && <div style={{
                     position: 'absolute', top: 0, left: 0, width: '100%', height: '300px',
                     background: 'linear-gradient(180deg, #dceef7 0%, rgba(220, 238, 247, 0.8) 40%, rgba(220, 238, 247, 0) 100%)',
@@ -125,9 +116,10 @@ export default function Hero() {
                 justifyContent: 'center',
                 alignItems: isMobile ? 'center' : 'flex-start',
                 width: '100%',
-                minHeight: isMobile ? '45%' : 'auto', 
-                transform: !isMobile ? `translateY(${scrollY * 0.4}px)` : 'none',
-                willChange: 'transform' 
+                minHeight: isMobile ? '45%' : 'auto',
+                // Parallax Logic: Text moves faster than background for depth
+                transform: !isMobile ? `translateY(${scrollY * 0.35}px)` : 'none',
+                willChange: 'transform'
             }} role="main">
 
                 <div style={{
