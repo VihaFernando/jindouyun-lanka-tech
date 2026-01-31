@@ -221,10 +221,11 @@ export default function TechSolutionsSection() {
                                     position: isMobile ? 'relative' : 'absolute',
                                     right: 0, top: 0, bottom: 0,
                                     width: isMobile ? '100%' : '55%',
-                                    height: isMobile ? '180px' : '100%',
-                                    zIndex: 1
+                                    height: isMobile ? '220px' : '100%',
+                                    zIndex: 1,
+                                    overflow: 'hidden'
                                 }}>
-                                    <div style={{ width: '100%', height: '100%', backgroundImage: `url(${item.image})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: isActive ? 1 : 0.05, transition: 'opacity 0.6s' }} />
+                                    <div style={{ width: '100%', height: '100%', backgroundImage: `url(${item.image})`, backgroundSize: 'cover', backgroundPosition: isMobile ? 'center 40%' : 'center', opacity: isActive ? 1 : 0.05, transition: 'opacity 0.6s' }} />
                                     {isActive && <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '100%', background: isMobile ? 'linear-gradient(to top, #fff 5%, rgba(255,255,255,0) 40%)' : 'linear-gradient(105deg, #ffffff 30%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0) 70%)', pointerEvents: 'none' }} />}
                                 </div>
                             </div>
