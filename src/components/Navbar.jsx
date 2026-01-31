@@ -213,7 +213,18 @@ function Navbar() {
 
                     {/* Contact Button with morphing animation */}
                     {!isMobile && (
-                        <a href="mailto:jidouyunlankatechnology@gmail.com" style={{
+                        <a href="#contact" onClick={(e) => {
+                            e.preventDefault();
+                            const id = 'contact';
+                            const el = document.getElementById(id);
+                            const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+                            if (el) {
+                                const targetY = el.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+                                window.scrollTo({ top: targetY, behavior: 'smooth' });
+                            } else {
+                                window.location.hash = `#${id}`;
+                            }
+                        }} style={{
                             display: 'inline-flex',
                             alignItems: 'center',
                             justifyContent: 'center',

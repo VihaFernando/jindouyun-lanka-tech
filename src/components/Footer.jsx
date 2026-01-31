@@ -105,7 +105,7 @@ export default function Footer() {
             }}>
 
                 {/* --- LEFT SIDE: TEXT CONTENT --- */}
-                <div style={{
+                <div id="contact" style={{
                     flex: '0 0 auto',
                     width: isDesktop ? '40%' : (isTablet ? '42%' : '100%'),
                     maxWidth: isDesktop ? '500px' : '100%',
