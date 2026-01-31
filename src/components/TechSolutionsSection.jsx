@@ -62,6 +62,33 @@ export default function TechSolutionsSection() {
 
     const isMobile = width < 1024;
 
+    // --- SCROLL ANIMATION OBSERVER ---
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // Trigger when 15% of element is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    // Remove class to allow re-animating when scrolling back up/down
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        animatedElements.forEach((el) => observer.observe(el));
+
+        return () => {
+            animatedElements.forEach((el) => observer.unobserve(el));
+        };
+    }, []);
+
     // --- CAROUSEL LOGIC ---
     const nextSlide = useCallback(() => {
         setActiveIndex((prev) => (prev + 1) % SOLUTIONS_DATA.length);
@@ -94,15 +121,14 @@ export default function TechSolutionsSection() {
     const GAP = isMobile ? 15 : 100;
     const TRANSLATE_OFFSET = CARD_WIDTH + GAP;
 
-    // --- UPDATED COLORS TO MATCH #ebebeb ---
-    // RGB for #ebebeb is 235, 235, 235
+    // --- UPDATED COLORS ---
     const BG_RGB = '235, 235, 235';
     const BG_HEX_BOTTOM = '#ebebeb';
     const NEXT_SECTION_BG = '#0B0D10';
 
     return (
         <section id="services" style={{
-            backgroundColor: BG_HEX_BOTTOM, // Use variable to ensure match
+            backgroundColor: BG_HEX_BOTTOM,
             padding: isMobile ? '60px 0 0 0' : '80px 0 0 0',
             overflow: 'hidden',
             minHeight: isMobile ? 'auto' : '700px',
@@ -115,15 +141,30 @@ export default function TechSolutionsSection() {
             <style>
                 {`
                 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Gilroy:wght@500;600&family=Poppins:wght@300;400;600&display=swap');
+                
                 .card-transition {
                     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, box-shadow 0.6s ease;
+                }
+
+                /* --- SCROLL ANIMATION CSS --- */
+                .animate-on-scroll {
+                    opacity: 0;
+                    transform: translateY(40px); /* Move down initially */
+                    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+                    will-change: opacity, transform;
+                }
+                
+                .animate-on-scroll.in-view {
+                    opacity: 1;
+                    transform: translateY(0); /* Reset to original position */
                 }
                 `}
             </style>
 
             {/* --- TOP CONTENT --- */}
             <div>
-                <div style={{ textAlign: 'center', marginBottom: isMobile ? '20px' : '60px', padding: '0 20px', position: 'relative', zIndex: 10 }}>
+                {/* Added 'animate-on-scroll' class here */}
+                <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: isMobile ? '20px' : '60px', padding: '0 20px', position: 'relative', zIndex: 10 }}>
                     <h2 style={{ fontSize: isMobile ? '23px' : '32px', color: '#111', margin: 0, fontWeight: 400 }}>
                         Technology-driven solutions for modern
                     </h2>
@@ -133,7 +174,9 @@ export default function TechSolutionsSection() {
                 </div>
 
                 {/* --- CAROUSEL --- */}
+                {/* Added 'animate-on-scroll' class with inline style delay */}
                 <div
+                    className="animate-on-scroll"
                     style={{
                         position: 'relative',
                         width: '100%',
@@ -141,12 +184,13 @@ export default function TechSolutionsSection() {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        perspective: '1000px'
+                        perspective: '1000px',
+                        transitionDelay: '0.1s' // Slight stagger effect
                     }}
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
-                    {/* Side Fades - NOW USING UPDATED BG_RGB */}
+                    {/* Side Fades */}
                     <div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: isMobile ? '10px' : '120px', background: `linear-gradient(to right, rgba(${BG_RGB},1) 0%, rgba(${BG_RGB},0) 100%)`, zIndex: 20, pointerEvents: 'none' }} />
                     <div style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: isMobile ? '10px' : '120px', background: `linear-gradient(to left, rgba(${BG_RGB},1) 0%, rgba(${BG_RGB},0) 100%)`, zIndex: 20, pointerEvents: 'none' }} />
 
@@ -243,15 +287,17 @@ export default function TechSolutionsSection() {
             </div>
 
             {/* --- BOTTOM IMAGE SECTION (Compact on Mobile) --- */}
-            <div style={{
+            {/* Added 'animate-on-scroll' class here */}
+            <div className="animate-on-scroll" style={{
                 marginTop: isMobile ? '50px' : '80px',
                 width: '100%',
                 position: 'relative',
                 display: 'flex',
                 justifyContent: 'flex-end',
                 flexDirection: 'column',
-                background: BG_HEX_BOTTOM, // Matches section bg
-                overflow: 'hidden'
+                background: BG_HEX_BOTTOM,
+                overflow: 'hidden',
+                transitionDelay: '0.2s' // Slight stagger effect
             }}>
                 <div style={{ position: 'relative', width: '100%', height: isMobile ? '160px' : '400px' }}>
 
@@ -261,7 +307,6 @@ export default function TechSolutionsSection() {
                         top: '-1px',
                         left: 0, right: 0,
                         height: isMobile ? '65%' : '50%',
-                        // UPDATED: Now fades from BG_HEX_BOTTOM to transparent RGBA(235,235,235,0)
                         background: `linear-gradient(to bottom, ${BG_HEX_BOTTOM} 0%, ${BG_HEX_BOTTOM} ${isMobile ? '20%' : '15%'}, rgba(${BG_RGB}, 0) 100%)`,
                         zIndex: 2,
                         pointerEvents: 'none'

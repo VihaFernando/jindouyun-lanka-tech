@@ -87,8 +87,6 @@ function Navbar() {
         alignItems: 'center',
         justifyContent: isScrolled ? 'space-between' : 'center',
         minWidth: isScrolled && !isMobile ? '600px' : 'unset',
-        paddingLeft: isPhone ? '12px' : undefined,
-        paddingRight: isPhone ? '12px' : undefined,
     };
 
     return (
