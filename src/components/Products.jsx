@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Eye, X, CheckCircle2 } from 'lucide-react';
 
 // --- DATA STRUCTURE ---
@@ -41,13 +41,13 @@ const CATEGORIES = [
                 image: "/machines/2.png",
                 description: "4-row gasoline-powered rice transplanter designed for efficient and uniform seedling planting in wet paddy fields, ideal for small to medium-scale rice farms.",
 
-features: [
-  "Rated Power: 3.3 kW (4.5 PS) @ 3600 rpm",
-  "Planting Rows: 4 rows with 30 cm spacing",
-  "Operating Speed: 0.34–0.77 m/s"
-],
+                features: [
+                    "Rated Power: 3.3 kW (4.5 PS) @ 3600 rpm",
+                    "Planting Rows: 4 rows with 30 cm spacing",
+                    "Operating Speed: 0.34–0.77 m/s"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: 4-Row Rice Transplanter
 2. Engine Type: Gasoline Engine
 3. Rated Output Power: 3.3 kW (4.5 PS)
@@ -69,20 +69,20 @@ fullSpecs: `I. Product Parameters
 19. Main Fuel Consumption: ≤10 kg/hm²
 20. Machine Weight: 162 kg
 21. Overall Dimensions (L×W×H): 2140 × 1630 × 910 mm`
-}
-,
+            }
+            ,
             {
                 title: "Backpack-Type Grass Cutter and Weeder",
                 image: "/machines/3.png",
                 description: "Four-stroke gasoline-powered backpack grass cutter and weeder designed for lightweight operation, multi-tool compatibility, and efficient weed and shrub cutting across complex terrains.",
 
-features: [
-  "Engine Power: 1.0 kW, 39 cc 4-stroke gasoline engine",
-  "Fuel System: Pure gasoline (92#), no oil mixing required",
-  "Multi-head Compatibility for mowing, shrub cutting, and weed removal"
-],
+                features: [
+                    "Engine Power: 1.0 kW, 39 cc 4-stroke gasoline engine",
+                    "Fuel System: Pure gasoline (92#), no oil mixing required",
+                    "Multi-head Compatibility for mowing, shrub cutting, and weed removal"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: Backpack-type Grass Cutter & Weeder (140F)
 2. Engine Type: Single-cylinder, air-cooled, 4-stroke gasoline engine
 3. Engine Displacement: 39 cc
@@ -105,19 +105,19 @@ fullSpecs: `I. Product Parameters
 20. Safety Design: Protective blade guard, vibration reduction structure
 21. Maintenance Notes: Clean cutting head after use; drain fuel for long-term storage
 22. Overall Design Features: Lightweight body, easy operation, reduced operator fatigue`
-},
+            },
             {
                 title: "Belt-Driven 4WD Front-Rotary Micro Tiller (Diesel)",
                 image: "/machines/4.png",
                 description: "Belt-driven four-wheel-drive front-rotary micro tiller powered by a diesel engine, designed for rotary tillage, ditching, weeding, and fertilizing in orchards, fields, and paddy land.",
 
-features: [
-  "Engine Power: 4.0 kW diesel engine",
-  "Rotary Tillage Width: 800 mm",
-  "Operational Efficiency: 0.31 Acre/h"
-],
+                features: [
+                    "Engine Power: 4.0 kW diesel engine",
+                    "Rotary Tillage Width: 800 mm",
+                    "Operational Efficiency: 0.31 Acre/h"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: Belt-driven Four-wheel Drive Front-rotary Micro Tiller (173 Type)
 2. Engine Type: Diesel Engine
 3. Rated Output Power: 4.0 kW
@@ -138,19 +138,19 @@ fullSpecs: `I. Product Parameters
 18. Control Type: Manual handle control
 19. Structure Design: Compact body with enhanced maneuverability
 20. Working Mode: Walk-behind operation`
-},
+            },
             {
                 title: "Belt-Driven Rear-Rotary Micro Tiller (Diesel)",
                 image: "/machines/5.png",
                 description: "Belt-driven rear-rotary micro tiller powered by a diesel engine, engineered for efficient rotary tillage, ditching, weeding, and fertilizing in orchards, fields, and greenhouse environments.",
 
-features: [
-  "Engine Power: 4.0 kW diesel engine",
-  "Rotary Tillage Width: 800 mm",
-  "Operational Efficiency: 0.31 Acre/h"
-],
+                features: [
+                    "Engine Power: 4.0 kW diesel engine",
+                    "Rotary Tillage Width: 800 mm",
+                    "Operational Efficiency: 0.31 Acre/h"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: Belt-driven Rear-rotary Micro Tiller (173 Type)
 2. Engine Type: Diesel Engine
 3. Rated Output Power: 4.0 kW
@@ -171,19 +171,19 @@ fullSpecs: `I. Product Parameters
 18. Control Type: Manual handle control
 19. Structure Design: Compact rear-rotary structure with high maneuverability
 20. Working Mode: Walk-behind operation`
-},
+            },
             {
                 title: "4WD Front-Rotary Micro Tiller (Gasoline)",
                 image: '/machines/6.png',
                 description: "Four-wheel drive front-rotary micro tiller powered by a gasoline engine, designed for stable self-propelled operation and multi-function soil work in orchards, fields, and greenhouses.",
 
-features: [
-  "Engine Power: 4.0 kW gasoline engine",
-  "Rotary Tillage Width: 800 mm",
-  "Operational Efficiency: 0.3 Acre/h"
-],
+                features: [
+                    "Engine Power: 4.0 kW gasoline engine",
+                    "Rotary Tillage Width: 800 mm",
+                    "Operational Efficiency: 0.3 Acre/h"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: Four-wheel Drive Front-rotary Micro Tiller (170 Type)
 2. Engine Type: Gasoline Engine
 3. Rated Output Power: 4.0 kW
@@ -204,19 +204,19 @@ fullSpecs: `I. Product Parameters
 18. Control Type: Manual handle control
 19. Patented Product: ZL201420279132.2
 20. Working Mode: Walk-behind operation`
-},
+            },
             {
                 title: "Integrated-Case All-Gear Garden Tiller (Diesel 186)",
                 image: "/machines/7.png",
                 description: "Integrated-case all-gear garden tiller powered by a high-output diesel engine, built for heavy-duty ditching, rotary tillage, earthing-up, and ridge forming in gardens and cash-crop fields.",
 
-features: [
-  "Engine Power: 6.3 kW diesel engine",
-  "Rotary Tillage Width: 130–160 mm",
-  "Operational Efficiency: 0.31 Acre/h"
-],
+                features: [
+                    "Engine Power: 6.3 kW diesel engine",
+                    "Rotary Tillage Width: 130–160 mm",
+                    "Operational Efficiency: 0.31 Acre/h"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: Integrated-case All-gear Garden Tiller (186 Type)
 2. Engine Type: Diesel Engine
 3. Rated Output Power: 6.3 kW
@@ -237,19 +237,19 @@ fullSpecs: `I. Product Parameters
 18. Structure Design: Integrated gearbox casing for durability and stability
 19. Operating Mode: Walk-behind operation
 20. Working Characteristics: High torque output, stable gear transmission, heavy-duty performance`
-},
+            },
             {
                 title: "Direct-Drive Rear-Rotary Micro Tiller (Diesel)",
                 image: "/machines/8.png",
                 description: "Direct-drive rear-rotary micro tiller powered by a diesel engine, designed for high-torque rotary tillage, ditching, and fertilizing in tea gardens, orchards, and large agricultural fields.",
 
-features: [
-  "Engine Power: 4.0 kW diesel engine",
-  "Direct-drive Rear Rotary System",
-  "Operational Efficiency: 0.31 Acre/h"
-],
+                features: [
+                    "Engine Power: 4.0 kW diesel engine",
+                    "Direct-drive Rear Rotary System",
+                    "Operational Efficiency: 0.31 Acre/h"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: Direct-drive Rear-rotary Micro Tiller (173 Type)
 2. Engine Type: Diesel Engine
 3. Rated Output Power: 4.0 kW
@@ -270,19 +270,19 @@ fullSpecs: `I. Product Parameters
 18. Control Type: Manual handle control
 19. Structure Design: Compact rear-mounted rotary structure
 20. Working Mode: Walk-behind operation`
-},
+            },
             {
                 title: "Belt-Driven Garden Management Machine (Diesel 186)",
                 image: "/machines/9.png",
                 description: "Belt-driven garden management machine powered by a high-output diesel engine, designed for heavy-duty ridge forming, ditching, soil hilling, and crop cultivation in large garden and cash-crop fields.",
 
-features: [
-  "Engine Power: 6.3 kW diesel engine",
-  "Adjustable Ditching Width: 250–400 mm",
-  "Operational Efficiency: 0.31 Acre/h"
-],
+                features: [
+                    "Engine Power: 6.3 kW diesel engine",
+                    "Adjustable Ditching Width: 250–400 mm",
+                    "Operational Efficiency: 0.31 Acre/h"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: Belt-driven Garden Management Machine (186 Type)
 2. Engine Type: Diesel Engine
 3. Rated Output Power: 6.3 kW
@@ -303,19 +303,19 @@ fullSpecs: `I. Product Parameters
 18. Operating Mode: Walk-behind operation
 19. Stability Features: Balanced chassis, steady ridge forming
 20. Working Characteristics: High torque output, suitable for heavy garden management tasks`
-},
+            },
             {
                 title: "Grain Bagging Machine (Model 200)",
                 image: "/machines/10.png",
                 description: "Self-propelled gasoline-powered grain bagging machine designed for efficient grain collection, lifting, and bagging with high throughput and foldable operation for easy transport and storage.",
 
-features: [
-  "Engine Power: 4.0 kW gasoline engine (170F)",
-  "Working Efficiency: 6000–8000 kg/h",
-  "Self-propelled with foldable operating structure"
-],
+                features: [
+                    "Engine Power: 4.0 kW gasoline engine (170F)",
+                    "Working Efficiency: 6000–8000 kg/h",
+                    "Self-propelled with foldable operating structure"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: Grain Bagging Machine (Model 200)
 2. Engine Type: Gasoline Engine (170F)
 3. Rated Output Power: 4.0 kW
@@ -334,19 +334,19 @@ fullSpecs: `I. Product Parameters
 16. Structural Design: Integrated grain lifting and bagging mechanism
 17. Application Scope: Grain harvesting, collection, and bagging operations
 18. Mobility Features: Compact chassis with stable walking system`
-},
+            },
             {
                 title: "173 Diesel Air-Cooled Chain-Driven Mini Tiller",
                 image: "/machines/11.png",
                 description: "173 diesel-powered air-cooled chain-driven mini tiller designed for reliable rotary tillage and soil preparation, suitable for small farms, orchards, and vegetable plots.",
 
-features: [
-  "Engine Power: 6 HP (≈4.0 kW) air-cooled diesel engine",
-  "Chain-driven transmission with forward and reverse gears",
-  "Fuel Consumption: 0.4–0.6 L/hour"
-],
+                features: [
+                    "Engine Power: 6 HP (≈4.0 kW) air-cooled diesel engine",
+                    "Chain-driven transmission with forward and reverse gears",
+                    "Fuel Consumption: 0.4–0.6 L/hour"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: 173 Diesel Air-Cooled Chain-Driven Mini Tiller
 2. Engine Type: Single-cylinder, air-cooled diesel engine
 3. Rated Output Power: 6 HP (approx. 4.0 kW)
@@ -367,19 +367,19 @@ fullSpecs: `I. Product Parameters
 18. Control Type: Manual handle control
 19. Stability Features: Balanced chassis, steady operation
 20. Maintenance Features: Simple mechanical structure for easy servicing`
-},
+            },
             {
                 title: "Earth Auger (Gasoline)",
                 image: "/machines/12.png",
                 description: "Gasoline-powered earth auger designed for fast and efficient hole digging for planting, fencing, and foundation work, featuring a lightweight frame and stable wheeled support.",
 
-features: [
-  "Engine Power: 1.5 kW gasoline engine (1E48F)",
-  "Drill Bit Length: 800 mm (customizable)",
-  "Gearbox Transmission for high torque output"
-],
+                features: [
+                    "Engine Power: 1.5 kW gasoline engine (1E48F)",
+                    "Drill Bit Length: 800 mm (customizable)",
+                    "Gearbox Transmission for high torque output"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: Earth Auger (Gasoline Engine)
 2. Engine Model: 1E48F
 3. Engine Type: Single-cylinder, air-cooled, 2-stroke gasoline engine
@@ -400,19 +400,19 @@ fullSpecs: `I. Product Parameters
 18. Mobility Features: Integrated wheel for easy transport
 19. Safety Features: Protective handle frame and stable ground support
 20. Working Characteristics: High torque, stable drilling, efficient soil penetration`
-},
+            },
             {
                 title: "Earth Auger (Diesel)",
                 image: "/machines/13.png",
                 description: "Diesel-powered earth auger with a reinforced frame structure, designed for deep and wide hole drilling in agriculture, fencing, and foundation work with high torque and stable operation.",
 
-features: [
-  "Engine Power: 6 HP (≈4.0 kW) diesel engine",
-  "Maximum Drilling Depth: 800 mm",
-  "Adjustable Auger Width: 25–40 cm (up to 50 cm max)"
-],
+                features: [
+                    "Engine Power: 6 HP (≈4.0 kW) diesel engine",
+                    "Maximum Drilling Depth: 800 mm",
+                    "Adjustable Auger Width: 25–40 cm (up to 50 cm max)"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: Earth Auger (Diesel Engine)
 2. Engine Type: Single-cylinder, air-cooled diesel engine
 3. Engine Model: Diesel 173 (Air-cooled)
@@ -433,19 +433,19 @@ fullSpecs: `I. Product Parameters
 18. Safety Features: Protective engine mount and stable handle structure
 19. Working Characteristics: High torque output, deep drilling capability
 20. Maintenance Features: Simple mechanical structure for easy servicing`
-},
+            },
             {
                 title: "Ridger 3DL-80",
                 image: "/machines/14.png",
                 description: "PTO-driven blade-type ridger designed for efficient ridge forming with adjustable dimensions, suitable for large-scale field preparation using medium to high-power tractors.",
 
-features: [
-  "Ridge Height: Up to 80 cm",
-  "Adjustable Ridge Widths (Top & Bottom)",
-  "PTO Transmission with Three-point Hitch"
-],
+                features: [
+                    "Ridge Height: Up to 80 cm",
+                    "Adjustable Ridge Widths (Top & Bottom)",
+                    "PTO Transmission with Three-point Hitch"
+                ],
 
-fullSpecs: `I. Product Parameters
+                fullSpecs: `I. Product Parameters
 1. Machine Type / Model: Ridger (3DL-80)
 2. Ridge Height: 80 cm
 3. Ridge Top Width: 30–35 cm (adjustable)
@@ -466,7 +466,7 @@ fullSpecs: `I. Product Parameters
 18. Operating Mode: PTO-driven operation
 19. Application Scope: Ridge forming for vegetables, cash crops, and field farming
 20. Working Characteristics: Stable ridge shaping, high efficiency, adjustable ridge geometry`
-}
+            }
         ]
     },
     {
@@ -586,6 +586,9 @@ export default function ProductsSection() {
     const [width, setWidth] = useState(1200);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // keep scroll position when modal opens so we can restore it and prevent background scroll
+    const scrollPosRef = useRef(0);
+
     const openSpecsModal = () => {
         setIsModalOpen(true);
         // notify navbar to hide
@@ -603,6 +606,46 @@ export default function ProductsSection() {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    // When the specs modal is open, lock background scrolling (handle desktop and mobile/iOS)
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const preventTouch = (e) => { e.preventDefault(); };
+
+        if (isModalOpen) {
+            // store current scroll position
+            scrollPosRef.current = window.scrollY || window.pageYOffset || 0;
+            // fix body to prevent background scroll and compensate for scroll position
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollPosRef.current}px`;
+            document.body.style.left = '0';
+            document.body.style.right = '0';
+            document.body.style.overflow = 'hidden';
+            // prevent touchmove on mobile/iOS
+            document.addEventListener('touchmove', preventTouch, { passive: false });
+        } else {
+            // restore body styles
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            document.body.style.overflow = '';
+            document.removeEventListener('touchmove', preventTouch);
+            // restore previous scroll position
+            window.scrollTo(0, scrollPosRef.current || 0);
+        }
+
+        return () => {
+            // ensure cleanup on unmount
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            document.body.style.overflow = '';
+            document.removeEventListener('touchmove', preventTouch);
+        };
+    }, [isModalOpen]);
 
     // Reset index when category changes
     useEffect(() => {
