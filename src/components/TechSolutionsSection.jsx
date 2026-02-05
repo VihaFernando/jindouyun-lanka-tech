@@ -25,9 +25,9 @@ const SOLUTIONS_DATA = [
     },
     {
         id: 4,
-        title: "Tuzhi Farm",
-        subtitle: "Management Platform",
-        description: "Full growth-cycle intelligent planting decision system integrating satellite remote sensing, UAV field inspection, and IoT sensing for standardized data-driven management from pre-planting to post-harvest with 18% labor cost reduction.",
+        title: "Machinery Installation &",
+        subtitle: "Maintenance",
+        description: "End-to-end machinery support including professional installation, operation guidance, routine maintenance, and technical servicing to ensure reliable performance and long-term operational efficiency in the field.",
         image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=1000&auto=format&fit=crop"
     },
     {
