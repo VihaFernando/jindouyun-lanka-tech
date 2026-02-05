@@ -131,14 +131,14 @@ export default function Footer() {
                     </h2>
 
                     <p style={{
-                        fontSize: isMobile ? '14px' : (isTablet ? '14px' : '15px'),
+                        fontSize: isMobile ? '14px' : (isTablet ? '14px' : '16px'),
                         color: '#555',
                         lineHeight: '1.7',
                         marginBottom: '35px',
                         maxWidth: '400px'
                     }}>
                         Reach out to discuss our services, ask questions,
-                        or explore how <span style={{ fontFamily: '"Caveat", cursive', color: brandTeal, fontSize: '1.4em' }}>smart technology</span> can support
+                        or explore how <span style={{ fontFamily: '"Caveat", cursive', color: brandTeal, fontSize: '1.7 em' }}>smart technology</span> can support
                         your farming goals.
                     </p>
 
@@ -346,8 +346,15 @@ export default function Footer() {
                         </h3>
 
                         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                            {['Home', 'About Us', 'Services', 'Products', 'Careers'].map((item) => (
-                                <a key={item} href="#" style={{
+                            {[
+                                { label: 'Home', href: '#home' },
+                                { label: 'About Us', href: '#about-us' },
+                                { label: 'Services', href: '#services' },
+                                { label: 'Products', href: '#products' },
+                                // { label: 'Careers', href: '#careers' },
+                                { label: 'Greenhouse', href: '#greenhouse' }
+                            ].map((item) => (
+                                <a key={item.label} href={item.href} style={{
                                     backgroundColor: '#fff',
                                     color: bottomBarColor,
                                     padding: '7px 18px',
@@ -358,8 +365,16 @@ export default function Footer() {
                                     whiteSpace: 'nowrap',
                                     transition: 'transform 0.2s ease',
                                     display: 'inline-block'
+                                }} onClick={(e) => {
+                                    if (item.href.startsWith('#') && item.href !== '#') {
+                                        e.preventDefault();
+                                        const target = document.querySelector(item.href);
+                                        if (target) {
+                                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                        }
+                                    }
                                 }}>
-                                    {item}
+                                    {item.label}
                                 </a>
                             ))}
                         </div>
