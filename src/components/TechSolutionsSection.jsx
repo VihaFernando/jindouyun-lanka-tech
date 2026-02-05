@@ -185,7 +185,8 @@ export default function TechSolutionsSection() {
                         justifyContent: 'center',
                         alignItems: 'center',
                         perspective: '1000px',
-                        transitionDelay: '0.1s' // Slight stagger effect
+                        transitionDelay: '0.1s', // Slight stagger effect
+                        zIndex: 2
                     }}
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
@@ -211,18 +212,31 @@ export default function TechSolutionsSection() {
                         const status = getCardStatus(index);
                         const isActive = status === 'active';
                         if (status === 'hidden' && !isMobile) return null;
-                        if (isMobile && !isActive) return null;
+                        if (isMobile && status === 'hidden') return null;
 
                         let transform = 'translateX(-50%) scale(1)';
                         let zIndex = 10;
                         let opacity = 1;
 
-                        if (status === 'prev') {
-                            transform = `translateX(calc(-50% - ${TRANSLATE_OFFSET}px)) scale(0.9)`;
-                            zIndex = 5;
-                        } else if (status === 'next') {
-                            transform = `translateX(calc(-50% + ${TRANSLATE_OFFSET}px)) scale(0.9)`;
-                            zIndex = 5;
+                        if (isMobile) {
+                            if (status === 'prev') {
+                                transform = `translateX(calc(-50% - 100%))`;
+                                zIndex = 5;
+                            } else if (status === 'next') {
+                                transform = `translateX(calc(-50% + 100%))`;
+                                zIndex = 5;
+                            } else {
+                                transform = 'translateX(-50%)';
+                                zIndex = 10;
+                            }
+                        } else {
+                            if (status === 'prev') {
+                                transform = `translateX(calc(-50% - ${TRANSLATE_OFFSET}px)) scale(0.9)`;
+                                zIndex = 5;
+                            } else if (status === 'next') {
+                                transform = `translateX(calc(-50% + ${TRANSLATE_OFFSET}px)) scale(0.9)`;
+                                zIndex = 5;
+                            }
                         }
 
                         return (
@@ -289,7 +303,7 @@ export default function TechSolutionsSection() {
             {/* --- BOTTOM IMAGE SECTION (Compact on Mobile) --- */}
             {/* Added 'animate-on-scroll' class here */}
             <div className="animate-on-scroll" style={{
-                marginTop: isMobile ? '50px' : '80px',
+                
                 width: '100%',
                 position: 'relative',
                 display: 'flex',
@@ -297,7 +311,8 @@ export default function TechSolutionsSection() {
                 flexDirection: 'column',
                 background: BG_HEX_BOTTOM,
                 overflow: 'hidden',
-                transitionDelay: '0.2s' // Slight stagger effect
+                transitionDelay: '0.2s', // Slight stagger effect
+                zIndex: 1
             }}>
                 <div style={{ position: 'relative', width: '100%', height: isMobile ? '160px' : '400px' }}>
 
