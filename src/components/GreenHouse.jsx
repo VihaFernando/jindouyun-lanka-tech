@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
     Wind,
     Sun,
@@ -12,6 +12,7 @@ import {
     Anchor,
     Maximize,
     ChevronRight,
+    ChevronLeft,
     Leaf
 } from 'lucide-react';
 import useGreenhouseScrollAnim from '../hooks/useGreenhouseScrollAnim.jsx';
@@ -19,6 +20,8 @@ import useGreenhouseScrollAnim from '../hooks/useGreenhouseScrollAnim.jsx';
 export default function GreenHouse() {
     const [activeTab, setActiveTab] = useState('overview');
     const [width, setWidth] = useState(1200);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const intervalRef = useRef(null);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -28,6 +31,66 @@ export default function GreenHouse() {
             return () => window.removeEventListener('resize', handleResize);
         }
     }, []);
+
+    // Carousel images array
+    const carouselImages = [
+        'https://res.cloudinary.com/divwbpmk5/image/upload/v1770332620/1_wqth8r.avif',
+        'https://res.cloudinary.com/divwbpmk5/image/upload/v1770332621/2_cil9xs.avif',
+        'https://res.cloudinary.com/divwbpmk5/image/upload/v1770332620/3_ztqtai.avif',
+        'https://res.cloudinary.com/divwbpmk5/image/upload/v1770332620/4_tzdgw0.avif',
+        'https://res.cloudinary.com/divwbpmk5/image/upload/v1770332627/5_ischa9.avif',
+        'https://res.cloudinary.com/divwbpmk5/image/upload/v1770332625/6_ejjoul.avif',
+        'https://res.cloudinary.com/divwbpmk5/image/upload/v1770332624/7_ulffsi.avif',
+        'https://res.cloudinary.com/divwbpmk5/image/upload/v1770332626/8_s8t8hh.avif',
+        'https://res.cloudinary.com/divwbpmk5/image/upload/v1770332623/9_izvb1z.avif',
+        'https://res.cloudinary.com/divwbpmk5/image/upload/v1770332619/10_t8xjte.avif'
+    ];
+
+    // Auto-switch images every 3 seconds
+    useEffect(() => {
+        const startAutoAdvance = () => {
+            intervalRef.current = setInterval(() => {
+                setCurrentImageIndex((prevIndex) => 
+                    (prevIndex + 1) % carouselImages.length
+                );
+            }, 3000);
+        };
+
+        startAutoAdvance();
+
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
+    }, [carouselImages.length]);
+
+    // Function to reset the auto-advance timer
+    const resetTimer = () => {
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+        }
+        intervalRef.current = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => 
+                (prevIndex + 1) % carouselImages.length
+            );
+        }, 3000);
+    };
+
+    // Navigation functions
+    const goToPrevious = () => {
+        setCurrentImageIndex((prevIndex) => 
+            prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
+        );
+        resetTimer();
+    };
+
+    const goToNext = () => {
+        setCurrentImageIndex((prevIndex) => 
+            (prevIndex + 1) % carouselImages.length
+        );
+        resetTimer();
+    };
 
     const isMobile = width < 768;
     const brandTeal = '#0E6C85';
@@ -103,28 +166,117 @@ export default function GreenHouse() {
                         borderRadius: '30px',
                         overflow: 'hidden',
                         boxShadow: '0 30px 60px -15px rgba(14, 108, 133, 0.2)',
-                        border: '8px solid #fff'
+                        border: '8px solid #fff',
+                        height: '400px'
                     }}>
-                        <img
-                            src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=1000&auto=format&fit=crop"
-                            alt="Greenhouse Overview"
-                            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: 'scale(1.05)' }}
-                        />
+                        {carouselImages.map((imageSrc, index) => (
+                            <img
+                                key={index}
+                                src={imageSrc}
+                                alt={`Greenhouse Image ${index + 1}`}
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    display: 'block',
+                                    transform: 'scale(1.05)',
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    opacity: index === currentImageIndex ? 1 : 0,
+                                    transition: 'opacity 0.8s ease-in-out'
+                                }}
+                            />
+                        ))}
+                        
+                        {/* Navigation Arrows */}
+                        <button
+                            onClick={goToPrevious}
+                            style={{
+                                position: 'absolute',
+                                left: '15px',
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                background: 'rgba(255, 255, 255, 0.9)',
+                                border: 'none',
+                                borderRadius: '50%',
+                                width: '45px',
+                                height: '45px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                cursor: 'pointer',
+                                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+                                transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
+                                zIndex: 10
+                            }}
+                            onMouseEnter={(e) => {
+                                e.target.style.background = '#fff';
+                                e.target.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.15)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.target.style.background = 'rgba(255, 255, 255, 0.9)';
+                                e.target.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+                            }}
+                        >
+                            <ChevronLeft size={20} color={brandTeal} strokeWidth={2.5} />
+                        </button>
+
+                        <button
+                            onClick={goToNext}
+                            style={{
+                                position: 'absolute',
+                                right: '15px',
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                background: 'rgba(255, 255, 255, 0.9)',
+                                border: 'none',
+                                borderRadius: '50%',
+                                width: '45px',
+                                height: '45px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                cursor: 'pointer',
+                                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+                                transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
+                                zIndex: 10
+                            }}
+                            onMouseEnter={(e) => {
+                                e.target.style.background = '#fff';
+                                e.target.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.15)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.target.style.background = 'rgba(255, 255, 255, 0.9)';
+                                e.target.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+                            }}
+                        >
+                            <ChevronRight size={20} color={brandTeal} strokeWidth={2.5} />
+                        </button>
+
+                        {/* Carousel indicators */}
                         <div style={{
-                            position: 'absolute', bottom: '20px', left: '20px', right: '20px',
-                            background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(12px)',
-                            padding: '15px 20px', borderRadius: '16px',
-                            display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+                            position: 'absolute',
+                            bottom: '20px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            display: 'flex',
+                            gap: '8px'
                         }}>
-                            <div>
-                                <div style={{ fontSize: '12px', color: '#666' }}>Total Area</div>
-                                <div style={{ fontSize: '16px', fontWeight: 700, color: '#1d1d1f' }}>1920 m²</div>
-                            </div>
-                            <div style={{ width: '1px', height: '30px', background: '#ddd' }}></div>
-                            <div>
-                                <div style={{ fontSize: '12px', color: '#666' }}>Lifespan</div>
-                                <div style={{ fontSize: '16px', fontWeight: 700, color: '#1d1d1f' }}>&gt; 15 Years</div>
-                            </div>
+                            {carouselImages.map((_, index) => (
+                                <div
+                                    key={index}
+                                    style={{
+                                        width: '10px',
+                                        height: '10px',
+                                        borderRadius: '50%',
+                                        background: index === currentImageIndex ? '#fff' : 'rgba(255,255,255,0.5)',
+                                        transition: 'all 0.3s ease',
+                                        cursor: 'pointer'
+                                    }}
+                                    onClick={() => setCurrentImageIndex(index)}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
