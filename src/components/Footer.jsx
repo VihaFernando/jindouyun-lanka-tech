@@ -138,7 +138,7 @@ export default function Footer() {
                         maxWidth: '400px'
                     }}>
                         Reach out to discuss our services, ask questions,
-                        or explore how <span style={{ fontFamily: '"Caveat", cursive', color: brandTeal, fontSize: '1.7 em' }}>smart technology</span> can support
+                        or explore how <span style={{ fontFamily: '"Caveat", cursive', color: brandTeal, fontSize: '1.5em' }}>smart technology </span> can support
                         your farming goals.
                     </p>
 
