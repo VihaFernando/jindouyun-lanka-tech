@@ -7,7 +7,7 @@ const SOLUTIONS_DATA = [
         title: "Agricultural Machinery",
         subtitle: "Sales & Services",
         description: "High-quality agricultural machinery tailored to Sri Lanka's farming conditions, covering the full production process from land preparation and sowing to harvesting with end-to-end sales, installation, training, and maintenance support.",
-        image: "https://images.unsplash.com/photo-1589923188900-85dae523342b?q=80&w=1000&auto=format&fit=crop"
+        image: "https://res.cloudinary.com/divwbpmk5/image/upload/v1770400405/agri_oneark.avif"
     },
     {
         id: 2,
@@ -35,7 +35,7 @@ const SOLUTIONS_DATA = [
         title: "Precision Agriculture",
         subtitle: "Technology",
         description: "Real-time soil moisture monitoring, precise water and fertilizer regulation, and accurate crop yield prediction compatible with both large-scale plantations and smallholder farms, operated simply via mobile phone.",
-        image: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1000&auto=format&fit=crop"
+        image: "https://res.cloudinary.com/divwbpmk5/image/upload/v1770398593/8366858a907dc371720027792_bgsysj.avif"
     },
     {
         id: 6,
