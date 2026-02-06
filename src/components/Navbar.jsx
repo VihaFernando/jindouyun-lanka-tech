@@ -186,7 +186,6 @@ function Navbar() {
                                     }
                                 }} style={{
                                     fontSize: isPhone ? '13px' : '15px',
-                                    fontSize: '15px',
                                     fontWeight: 500,
                                     color: '#000000',
                                     textDecoration: 'none',
