@@ -349,8 +349,10 @@ export default function ProductsSection() {
 
     // Get current data
     const currentCategoryData = CATEGORIES.find(c => c.id === activeCategory);
-    const activeProduct = currentCategoryData.products[productIndex];
     const productCount = currentCategoryData.products.length;
+    // Ensure productIndex is within bounds for current category
+    const safeProductIndex = productIndex < productCount ? productIndex : 0;
+    const activeProduct = currentCategoryData.products[safeProductIndex];
 
     // Initialize product section scroll animations (non-content change)
     useProductsScrollAnim();
