@@ -9,7 +9,7 @@ const CATEGORIES = [
         label: 'Machineries',
         products: [
             {
-                "title": "Push Combine Harvester 4LZ-0.6 (Diesel)",
+                "title": "Push Combine Harvester Diesel",
                 "image": "https://res.cloudinary.com/divwbpmk5/image/upload/v1770326417/1_g8gqil.avif",
                 "description": "Compact push-type combine harvester designed for small and medium farms, offering efficient full-feeding harvesting with low fuel consumption and easy manual operation.",
                 "features": [
@@ -17,7 +17,7 @@ const CATEGORIES = [
                     "Cutting Width: 1000 mm",
                     "Operation Efficiency: Up to 0.25 Acre/h"
                 ],
-                "fullSpecs": "I. Product Parameters\n1. Machine Type / Model: Push Combine Harvester (4LZ-0.6)\n2. Supporting Power / Engine Model: 195F\n3. Engine Type: Diesel\n4. Rated Power: 9.2 kW\n5. Rated Speed: 3600 r/min\n6. Cooling Method: Air cooling\n7. Fuel System: Diesel oil\n8. Main Fuel Consumption: ≤26 kg/hm²\n9. Number of Gears: 3 Forward + 1 Reverse\n10. Cutting Table Width: 1000 mm\n11. Cutter Type: Reciprocating cycle type\n12. Starting Mode: Hand start / Electric start\n13. Operating Speed: 0.47–0.71 m/s\n14. Operation Efficiency: 0.04–0.08 hm²/h (≈0.25 Acre/h)\n15. Track Specifications: Pitch 72 mm × 31/35 knots, Width 255 mm\n16. Harvest Pattern: Full feeding\n17. Lifting Mode: Hand hydraulic\n18. Grain Discharge Method: Hand jointing\n19. Machine Weight: 400 kg\n20. Overall Dimensions (L×W×H): 2720 × 1200 × 1250 mm\n21. Transport / Packing Dimensions: 2800 × 1300 × 1300 mm\n22. Disassembling Size: 1900 × 1200 × 1250 mm / 1100 × 700 × 500 mm"
+                "fullSpecs": "I. Product Parameters\n1. Machine Type / Model: Push Combine Harvester (4LZ-0.6)\n2. Supporting Power / Engine Model: 195F\n3. Engine Type: Diesel\n4. Rated Power: 9.2 kW\n5. Rated Speed: 3600 r/min\n6. Cooling Method: Air cooling\n7. Fuel System: Diesel oil\n8. Main Fuel Consumption: ≤26 kg/hm²\n9. Number of Gears: 3 Forward + 1 Reverse\n10. Cutting Table Width: 1000 mm\n11. Cutter Type: Reciprocating cycle type\n12. Starting Mode: Hand start / Electric start\n13. Operating Speed: 0.47–0.71 m/s\n14. Operation Efficiency: 0.04–0.08 hm²/h (≈0.25 Acre/h)\n15. Track Specifications: Pitch 72 mm × 31/35 knots, Width 255 mm\n16. Harvest Pattern: Full feeding\n17. Lifting Mode: Hand hydraulic\n18. Grain Discharge Method: Hand jointing\n19. Machine Weight: 400 kg\n20. Packing size : 450mm\n21. Packing weight kg :  2800*1300*1300\n20. Overall Dimensions (L×W×H): 2720 × 1200 × 1250 mm\n21. Transport / Packing Dimensions: 2800 × 1300 × 1300 mm\n22. Disassembling Size: 1900 × 1200 × 1250 mm / 1100 × 700 × 500 mm"
             },
             {
                 "title": "4-Row Rice Transplanter 2ZS-4HT",
@@ -141,9 +141,9 @@ const CATEGORIES = [
                 "fullSpecs": "I. Product Parameters\n1. Machine Type / Model: Wheeled Earth Auger (1E48F)\n2. Engine Type: Gasoline\n3. Engine Model: 1E48F\n4. Displacement: 63.3 cc\n5. Maximum Power: 2.2 kW @ 7000 r/min\n6. Fuel Tank Capacity: 1.4 L\n7. Idle Speed: 3200 ± 200 r/min\n8. Carburetor Type: Diaphragm type\n9. Shaft Length: 800 mm\n10. Net Weight / Gross Weight: 8.7 kg / 10 kg\n11. Overall Dimensions (L×W×H): 565 × 340 × 386 mm\n12. Frame Type: Integrated wheeled support frame\n13. Drilling Mode: Vertical and oblique multi-angle drilling\n14. Applicable Soils: Clay, sandy soil, humus soil, light rock formations (with alloy drill bits)\n15. Typical Applications: Tree planting, fertilizing holes, fencing, landscaping, pile column drilling, ice fishing"
             },
             {
-                "title": "Heavy-duty Earth Auger Gasoline Engine 1P70FC",
+                "title": "Earth Auger Gasoline Engine 1P70FC",
                 "image": "https://res.cloudinary.com/divwbpmk5/image/upload/v1770326409/13_mdzct8.avif",
-                "description": "Heavy-duty gasoline-powered earth auger with a reinforced standing frame, designed for deep and stable hole drilling in large-scale planting, landscaping, fencing, and construction projects.",
+                "description": "gasoline-powered earth auger with a reinforced standing frame, designed for deep and stable hole drilling in large-scale planting, landscaping, fencing, and construction projects.",
                 "features": [
                     "High Power Output: 3.4 kW @ 3600 rpm",
                     "Extra-long Shaft Range: 800–2500 mm",
@@ -158,107 +158,156 @@ const CATEGORIES = [
         label: 'Drones',
         products: [
             {
-                title: "GD-50 UAV System",
-                image: "/drones/1.png",
-                description: "A heavy-lift agricultural drone designed for precision operations, featuring a 36.7kg empty weight and massive payload capacity.",
-                features: ["Max Takeoff: 101.4kg", "Endurance: 20min", "Speed: 70KM/H"],
-                fullSpecs: `
-I. Product Parameters
-1. Empty Weight (excluding battery): 36.7kg
-2. Maximum Takeoff Weight: 101.4kg
-3. Symmetrical Motor Wheelbase: 2299mm
-4. Unfolded Dimensions: 3045*3078*830mm
-5. Folded Dimensions: 1113*781*841mm
-6. Endurance: 20min (18S 30000mAh battery)
-7. Operating Ambient Temperature: 0-40℃
-8. Maximum Ascent/Descent Speed: 2m/s
-9. Horizontal Flight Speed: Positioning: 5m/s; Sport: 8m/s; Attitude: 20m/s
-10. Flight Attitude Stability: Pitch/Roll/Yaw ≤ ±3°
-11. Max Tilt Angle: 30° (Pos), 45° (Sport), 35° (Atti)
-12. Max Rotational Angular Velocity: 120°/s
-13. Max Withstand Wind Speed: Level 7
-14. Max Flight Speed: 70KM/H
-15. Fuselage Material: Carbon fiber (light weight, high strength)
-16. Control Method: APP Ground Station/Remote Controller
-17. Operation Time: Transport to Flight ≤ 2 mins (2 personnel)
+                "title": "GD-50 UAV System",
+                "image": "/drones/1.png",
+                "description": "Heavy-lift agricultural UAV designed for large-scale operations, featuring high payload capacity, carbon fiber fuselage, and intelligent flight control.",
+                "features": [
+                    "Maximum Takeoff Weight: 101.4kg",
+                    "Endurance: 20min",
+                    "Maximum Flight Speed: 70KM/H"
+                ],
+                "fullSpecs": `
+            I. Product Parameters
+            1. Empty Weight (excluding battery): 36.7kg
+            2. Maximum Takeoff Weight: 101.4kg
+            3. Symmetrical Motor Wheelbase: 2299mm
+            4. Unfolded Dimensions: 3045 × 3078 × 830mm
+            5. Folded Dimensions: 1113 × 781 × 841mm
+            6. Endurance: 20min (18S 30000mAh battery)
+            7. Operating Ambient Temperature: 0–40℃
+            8. Maximum Ascent Speed: 2m/s
+            9. Maximum Descent Speed: 2m/s
+            10. Horizontal Flight Speed: Positioning: 5m/s; Sport: 8m/s; Attitude: 20m/s
+            11. Flight Attitude Stability: Pitch/Roll/Yaw ≤ ±3°
+            12. Maximum Tilt Angle: 30° (Pos), 45° (Sport), 35° (Atti)
+            13. Maximum Rotational Angular Velocity: 120°/s
+            14. Maximum Rotation Angle: 360°
+            15. Maximum Withstand Wind Speed: Level 7
+            16. Maximum Flight Speed: 70KM/H
+            17. Fuselage Material: Carbon fiber
+            18. Control Method: APP Ground Station / Remote Controller
+            19. Flight Indicator Lights: Equipped
+            20. Operation Time: Transport to Flight ≤ 2 minutes (2 personnel)
 
-II. Main Unit and Related Accessories
-• GD-T50 Flight Platform
-• Power System: GD-M30
-• Flight Control System: GD-V7
-• Terrain-Following Radar: LD-R & Obstacle Avoidance: LD-Y
-• RTK: 985T
-• Remote Controller: GDU7 (a8min)
-• Battery: 18S/35000mAh
-• Charger: C-2500 Intelligent Dual Charger
-• 50kg Dropper`
+            II. Main Unit and Related Accessories
+            • GD-T50 Flight Platform
+            • Power System: GD-M30
+            • Flight Control System: GD-V7
+            • Terrain-Following Radar: LD-R
+            • Obstacle Avoidance Radar: LD-Y
+            • RTK: 985T
+            • Remote Controller: GDU7
+            • Battery: 18S/35000mAh
+            • Charger: C-2500 Intelligent Dual Charger
+            • 50kg Dropper
+            `
             },
             {
-                title: "GD-30 UAV System",
-                image: "/drones/2.png",
-                description: "Efficient spraying drone with a 30kg payload and intelligent flight control, optimized for 60 mu per hour efficiency.",
-                features: ["Payload: 30kg", "Flow Rate: 12L/min", "Efficiency: 60 mu/h"],
-                fullSpecs: `
-I. Product Parameters
-1. Product Wheelbase: 2000mm
-2. Unfolded Dimensions: 1710*1453*700mm
-3. Folded Dimensions: 603*1120*700mm
-4. Payload: 30kg
-5. Overall Weight: 30kg | Max Weight: 68kg
-6. Spraying Flow Rate: 12L/min
-7. Effective Spraying Width: 6-10m
-8. Flight Speed: 3m/s
-9. No-Load Flight Time: 30min | Full-Load: 20min
-10. Operating Voltage: 58.8v (14S)
-11. Battery Capacity: 30000mAh
-12. Operational Efficiency: 60 mu per hour
-13. Horizontal Flight Speed: Positioning: 5m/s; Sport: 8m/s; Attitude: 20m/s
-14. Max Withstand Wind Speed: Level 7
-15. Fuselage Material: Carbon fiber material
+                "title": "GD-30 UAV System",
+                "image": "/drones/2.png",
+                "description": "Medium-capacity agricultural spraying UAV optimized for efficient crop protection with stable flight performance and intelligent radar systems.",
+                "features": [
+                    "Payload Capacity: 30kg",
+                    "Spraying Flow Rate: 12L/min",
+                    "Operational Efficiency: 60 mu/hour"
+                ],
+                "fullSpecs": `
+            I. Product Parameters
+            1. Product Wheelbase: 2000mm
+            2. Unfolded Dimensions: 1710 × 1453 × 700mm
+            3. Folded Dimensions: 603 × 1120 × 700mm
+            4. Payload: 30kg
+            5. Overall Weight: 30kg
+            6. Maximum Weight: 68kg
+            7. Spraying Flow Rate: 12L/min
+            8. Effective Spraying Width: 6–10m
+            9. Flight Speed: 3m/s
+            10. No-load Flight Time: 30min
+            11. Full-load Flight Time: 20min
+            12. Operating Voltage: 58.8V (14S)
+            13. Battery Capacity: 30000mAh
+            14. Operational Efficiency: 60 mu/hour
+            15.	Effective Spraying Width: 4-8m
+            16. Maximum Ascent Speed: 2m/s
+            17. Maximum Descent Speed: 2m/s
+            18. Horizontal Flight Speed: Positioning: 5m/s; Sport: 8m/s; Attitude: 20m/s
+            19. Flight Attitude Stability: Pitch/Roll/Yaw ≤ ±3°
+            20. Maximum Tilt Angle: 30° (Pos), 45° (Sport), 35° (Atti)
+            21. Maximum Rotational Angular Velocity: 120°/s
+            22. Maximum Rotation Angle: 360°
+            23. Maximum Withstand Wind Speed: Level 7
+            24. Maximum Flight Speed: 70KM/H
+            25. Fuselage Material: Carbon fiber
+            26. Control Method: APP Ground Station / Remote Controller
+            27. Flight Indicator Lights: Equipped
+            28. Operation Time: Transport to Flight ≤ 2 minutes (2 personnel)
 
-II. Main Unit and Related Accessories
-• GD-Z30 Flight Platform
-• Power System: GD-M20
-• Flight Control System: GD-V7
-• Radars: LD-R (Terrain), LD-Y (Obstacle)
-• RTK: 985T
-• Spraying System
-• Remote Controller: H12 (with camera + screen)
-• Battery: 14S/28000mAh
-• Charger: Intelligent Dual Charger
-• Generator`
+            II. Main Unit and Related Accessories
+            • GD-Z30 Flight Platform
+            • Power System: GD-M20
+            • Flight Control System: GD-V7
+            • Terrain-Following Radar: LD-R
+            • Obstacle Avoidance Radar: LD-Y
+            • RTK: 985T
+            • Spraying System
+            • Remote Controller: H12 (with camera + screen)
+            • Battery: 14S/28000mAh
+            • Charger: Intelligent Dual Charger
+            • Generator
+`
             },
             {
-                title: "GD-15 UAV System",
-                image: "/drones/3.png",
-                description: "Compact and agile 18kg drone perfect for targeted spraying with pressure dual nozzles and high stability.",
-                features: ["Weight: 18kg", "Tank: 20L", "Dual Nozzle System"],
-                fullSpecs: `
-I. Product Parameters
-1. Overall Weight: 18kg (excluding battery)
-2. Maximum Takeoff Weight: 44kg
-3. Product Wheelbase: 1480mm
-4. Unfolded Dimensions: 1225*1055*585mm
-5. Folded Dimensions: 875*525*585mm
-6. Hovering Time: 20min (No-load), 10min (Full-load)
-7. Chemical Tank Capacity: 20L
-8. Water Pump: 30W, Max Flow 8L/min
-9. Nozzle: 500W, Atomization 50-500μm
-10. Effective Spraying Width: 4-8m
-11. Horizontal Flight Speed: Positioning: 6m/s; Sport: 8m/s
-12. Max Flight Speed: 70KM/H
-13. Control: APP Ground Station/Remote Controller
+                "title": "GD-15 UAV System",
+                "image": "/drones/3.png",
+                "description": "Compact agricultural UAV suitable for precision spraying tasks, featuring a lightweight design and stable flight performance.",
+                "features": [
+                    "Maximum Takeoff Weight: 44kg",
+                    "Chemical Tank Capacity: 20L",
+                    "Maximum Flight Speed: 70KM/H"
+                ],
+                "fullSpecs": `
+            I. Product Parameters
+            1. Overall Weight: 18kg (excluding battery)
+            2. Maximum Takeoff Weight: 44kg
+            3. Product Wheelbase: 1480mm
+            4. Unfolded Dimensions: 1225 × 1055 × 585mm
+            5. Folded Dimensions: 875 × 525 × 585mm
+            6. No-load Hovering Time: 20min (14S 20000mAh battery)
+            7. Full-load Hovering Time: 10min (14S 20000mAh battery)
+            8. Operating Voltage: 58.8V
+            9. Operating Ambient Temperature: 0–40℃
+            10. Chemical Tank Capacity: 20L
+            11. Water Pump: 30W, Max Flow 8L/min
+            12. Nozzle: 500W, Atomization 50–500μm
+            13. Effective Spraying Width: 4–8m
+            14. Maximum Ascent Speed: 2m/s
+            15. Maximum Descent Speed: 2m/s
+            16. Horizontal Flight Speed: Positioning: 6m/s; Sport: 8m/s; Attitude: 20m/s
+            17. Flight Attitude Stability: Pitch/Roll/Yaw ≤ ±3°
+            18. Maximum Tilt Angle: 30° (Pos), 45° (Sport), 35° (Atti)
+            19. Maximum Rotational Angular Velocity: 120°/s
+            20. Maximum Rotation Angle: 360°
+            21. Maximum Withstand Wind Speed: Level 7
+            22. Maximum Flight Speed: 70KM/H
+            23. Fuselage Material: Carbon fiber
+            24. Control Method: APP Ground Station / Remote Controller
+            25. Flight Indicator Lights: Equipped
+            26. Operation Time: Transport to Flight ≤ 2 minutes (2 personnel)
+            27. Flight Status Lights: LED lights indicate the flight status. Different colors or frequencies of the LED lights can feedback fault causes and warnings for power status, hardware failures, etc.
 
-II. Main Unit and Related Accessories
-• GD-Z15 Flight Platform
-• Power System: GD-M15
-• Flight Control System: GD-V5
-• Radars: LD-R (Terrain), LD-Y (Obstacle)
-• RTK: 985T
-• Nozzle: Pressure Dual Nozzle
-• Remote Controller: H12 (with camera + screen)
-• Battery: 14S/20000mAh
-• Charger & Generator`
+            II. Main Unit and Related Accessories
+            • GD-Z15 Flight Platform
+            • Power System: GD-M15
+            • Flight Control System: GD-V5
+            • Terrain-Following Radar: LD-R
+            • Obstacle Avoidance Radar: LD-Y
+            • RTK: 985T
+            • Pressure Dual Nozzle
+            • Remote Controller: H12 (with camera + screen)
+            • Battery: 14S/20000mAh
+            • Charger
+            • Generator
+            `
             }
         ]
     }
