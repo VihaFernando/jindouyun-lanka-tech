@@ -298,7 +298,7 @@ export default function GreenHouse() {
                         <div className="gh-icon-box"><LayoutGrid size={20} color={brandTeal} /></div>
                         <h4 style={{ margin: 0, fontSize: '18px', fontWeight: 600 }}>Performance Indicators</h4>
                     </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '15px' }}>
                         {[
                             { l: 'Snow Load', v: '0.35 kN/m²' },
                             { l: 'Wind Load', v: '0.45 kN/m²' },
@@ -310,6 +310,13 @@ export default function GreenHouse() {
                                 <div style={{ fontSize: '16px', fontWeight: 700, color: '#1d1d1f' }}>{item.v}</div>
                             </div>
                         ))}
+                    </div>
+                    {/* Centered Power Supply Parameters */}
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <div style={{ background: '#F5F7FA', padding: '15px', borderRadius: '12px', maxWidth: '200px' }}>
+                            <div style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>Power Supply Parameters</div>
+                            <div style={{ fontSize: '16px', fontWeight: 700, color: '#1d1d1f' }}>220V/380, 50Hz</div>
+                        </div>
                     </div>
                 </div>
 
@@ -372,7 +379,7 @@ export default function GreenHouse() {
                         <Anchor size={24} color={brandTeal} />
                         <h4 style={{ margin: 0, fontSize: '18px', fontWeight: 600 }}>Foundation</h4>
                     </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '20px' }}>
                         {[
                             'Reinforced C25 concrete point foundations (0.5–1.0m)',
                             '300mm brick plinth above ground level',
@@ -384,6 +391,18 @@ export default function GreenHouse() {
                                 {item}
                             </div>
                         ))}
+                    </div>
+                    <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}>
+                        <img
+                            src="/foundation.png"
+                            alt="Foundation Structure"
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                display: 'block',
+                                objectFit: 'cover'
+                            }}
+                        />
                     </div>
                 </div>
             </div>

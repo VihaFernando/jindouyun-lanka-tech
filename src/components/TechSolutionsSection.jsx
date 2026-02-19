@@ -28,7 +28,7 @@ const SOLUTIONS_DATA = [
         title: "Machinery Installation &",
         subtitle: "Maintenance",
         description: "End-to-end machinery support including professional installation, operation guidance, routine maintenance, and technical servicing to ensure reliable performance and long-term operational efficiency in the field.",
-        image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=1000&auto=format&fit=crop"
+        image: "https://res.cloudinary.com/divwbpmk5/image/upload/v1771458046/machinery_installation_ratpvh.avif"
     },
     {
         id: 5,
@@ -74,9 +74,7 @@ export default function TechSolutionsSection() {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('in-view');
-                } else {
-                    // Remove class to allow re-animating when scrolling back up/down
-                    entry.target.classList.remove('in-view');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
